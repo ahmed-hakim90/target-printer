@@ -24,8 +24,7 @@ export const Route = createFileRoute("/parts")({
       },
       {
         property: "og:description",
-        content:
-          "Genuine industrial spare parts with fast lead times and engineering support.",
+        content: "Genuine industrial spare parts with fast lead times and engineering support.",
       },
       { property: "og:url", content: "/parts" },
     ],
@@ -38,10 +37,7 @@ export const Route = createFileRoute("/parts")({
 function PartsPage() {
   const [active, setActive] = useState<(typeof partCategoryLabels)[number]>("All");
 
-  const filtered =
-    active === "All"
-      ? parts_list
-      : parts_list.filter((p) => p.category === active);
+  const filtered = active === "All" ? parts_list : parts_list.filter((p) => p.category === active);
 
   return (
     <>
@@ -55,18 +51,15 @@ function PartsPage() {
             Spare parts that keep your machines running.
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            From precision bearings to custom PLC cabinets, we stock and source
-            the components your maintenance teams need to minimize downtime.
+            From precision bearings to custom PLC cabinets, we stock and source the components your
+            maintenance teams need to minimize downtime.
           </p>
         </div>
       </section>
 
       <section className="bg-background py-16 md:py-20">
         <div className="container-x">
-          <SectionHeader
-            eyebrow="Catalog"
-            title="Auxiliary components and spare parts."
-          />
+          <SectionHeader eyebrow="Catalog" title="Auxiliary components and spare parts." />
 
           <div className="mt-10 flex flex-wrap gap-2">
             {partCategoryLabels.map((c) => (

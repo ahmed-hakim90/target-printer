@@ -33,8 +33,7 @@ function AboutPage() {
               {about.hero.eyebrow}
             </div>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-              {about.hero.title}{" "}
-              <span className="text-accent">{about.hero.titleAccent}</span>
+              {about.hero.title} <span className="text-accent">{about.hero.titleAccent}</span>
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
               {about.hero.lead}
@@ -60,9 +59,9 @@ function AboutPage() {
             title={about.companyProfile.title}
           />
           <div className="mt-12 max-w-3xl space-y-6">
-            {about.companyProfile.paragraphs.map((paragraph) => (
+            {about.companyProfile.paragraphs.map((paragraph, index) => (
               <p
-                key={paragraph.slice(0, 48)}
+                key={`${index}-${paragraph.slice(0, 48)}`}
                 className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
               >
                 {paragraph}
@@ -82,15 +81,11 @@ function AboutPage() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
             {about.milestones.map((m) => (
               <div key={m.year} className="bg-background p-7">
-                <div className="font-display text-3xl font-semibold text-accent">
-                  {m.year}
-                </div>
+                <div className="font-display text-3xl font-semibold text-accent">{m.year}</div>
                 <div className="mt-3 font-display text-lg font-semibold text-foreground">
                   {m.title}
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {m.desc}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
               </div>
             ))}
           </div>
@@ -109,22 +104,15 @@ function AboutPage() {
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {desc}
-                </p>
+                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection
-        title={about.cta.title}
-        description={about.cta.description}
-      />
+      <CTASection title={about.cta.title} description={about.cta.description} />
     </>
   );
 }

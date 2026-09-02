@@ -9,14 +9,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link to="/" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-md bg-accent text-accent-foreground font-display text-sm font-bold">
-                OIS
+              <span className="grid h-9 min-w-16 place-items-center rounded-md bg-white px-2 text-primary font-display text-xs font-extrabold">
+                TARGET
               </span>
               <span className="font-display text-lg font-semibold">{site.name}</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-surface-foreground/70">
-              Premium industrial machinery, heavy equipment and auxiliary parts
-              engineered for performance, reliability, and long-term value.
+              Egyptian printing technology, professional equipment and genuine spare parts—supported
+              by a local team since 2005.
             </p>
           </div>
 
@@ -114,7 +114,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>Engineered for industrial performance.</p>
+          <p>Made in Egypt. Built for ambitious businesses.</p>
         </div>
       </div>
     </footer>

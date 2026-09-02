@@ -1,13 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Globe2, Menu } from "lucide-react";
 import { site } from "@/constants";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { images } from "@/constants/images";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { QuoteButton } from "./CTAButtons";
 import { cn } from "@/lib/utils";
 
@@ -28,17 +24,16 @@ export function Navbar() {
         "sticky top-0 z-50 w-full border-b transition-colors",
         scrolled
           ? "border-border bg-background/85 backdrop-blur-md"
-          : "border-transparent bg-background"
+          : "border-transparent bg-background",
       )}
     >
       <div className="container-x flex h-16 items-center justify-between md:h-20">
         <Link to="/" className="flex items-center gap-2.5" aria-label={site.name}>
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-primary text-primary-foreground font-display text-sm font-bold">
-            OIS
-          </span>
-          <span className="hidden sm:inline font-display text-base font-semibold tracking-tight text-foreground">
-            {site.name}
-          </span>
+          <img
+            src={images.logo}
+            alt="Target Printers"
+            className="h-10 w-auto object-contain md:h-12"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -57,6 +52,12 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            aria-label="Switch language"
+            className="hidden h-9 items-center gap-1.5 px-2 text-xs font-bold text-muted-foreground hover:text-primary sm:flex"
+          >
+            <Globe2 className="h-4 w-4" /> EN
+          </button>
           <QuoteButton size="sm" className="hidden md:inline-flex" />
           <button
             onClick={() => setOpen(true)}

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/machines")({
       {
         name: "description",
         content:
-          "Browse the OIS Machinery catalog: CNC machining centers, hydraulic presses, fiber laser cutters, packaging lines, robotic welding cells, and material handling equipment.",
+          "Browse the Target Printers catalog: CNC machining centers, hydraulic presses, fiber laser cutters, packaging lines, robotic welding cells, and material handling equipment.",
       },
       { property: "og:title", content: `Industrial Machines — ${site.name}` },
       {
@@ -35,8 +35,7 @@ export const Route = createFileRoute("/machines")({
 function MachinesPage() {
   const [active, setActive] = useState<(typeof categories)[number]>("All");
 
-  const filtered =
-    active === "All" ? machines : machines.filter((m) => m.category === active);
+  const filtered = active === "All" ? machines : machines.filter((m) => m.category === active);
 
   return (
     <>
@@ -50,8 +49,8 @@ function MachinesPage() {
             Production machines for every stage of the line.
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            Each machine in our catalog is selected for industrial-grade
-            durability and supported by our in-house engineering team.
+            Each machine in our catalog is selected for industrial-grade durability and supported by
+            our in-house engineering team.
           </p>
         </div>
       </section>
@@ -88,7 +87,11 @@ function MachinesPage() {
                   key={m.slug}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
-                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                    },
                   }}
                   layout
                 >

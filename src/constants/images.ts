@@ -1,46 +1,36 @@
-/**
- * All site images — swap files under src/assets/ to update the UI.
- *
- * Machine categories: machine-cnc.jpg, machine-press.jpg, machine-laser.jpg,
- *   machine-packaging.jpg, machine-welding.jpg, machine-forklift.jpg
- * Part categories: parts-rotating.jpg, parts-hydraulics.jpg, parts-power-transmission.jpg,
- *   parts-conveying.jpg, parts-electrical.jpg, parts-automation.jpg
- * Page heroes: hero-machinery.jpg, about-team.jpg
- * OG: public/og.jpg (path only)
- */
-import heroMachinery from "@/assets/hero-machinery.jpg";
-import aboutTeam from "@/assets/about-team.jpg";
-import machineCnc from "@/assets/machine-cnc.jpg";
-import machinePress from "@/assets/machine-press.jpg";
-import machineLaser from "@/assets/machine-laser.jpg";
-import machinePackaging from "@/assets/machine-packaging.jpg";
-import machineWelding from "@/assets/machine-welding.jpg";
-import machineForklift from "@/assets/machine-forklift.jpg";
-import partsRotating from "@/assets/parts-rotating.jpg";
-import partsHydraulics from "@/assets/parts-hydraulics.jpg";
-import partsPowerTransmission from "@/assets/parts-power-transmission.jpg";
-import partsConveying from "@/assets/parts-conveying.jpg";
-import partsElectrical from "@/assets/parts-electrical.jpg";
-import partsAutomation from "@/assets/parts-automation.jpg";
+import hero from "@/assets/target/3df4bd5dc5ee6fd1.jpg";
+import factory from "@/assets/target/0cfbd64cba3e1f66.png";
+import office from "@/assets/target/979d8fcf5f27fdd1.png";
+import uv from "@/assets/target/2226686c9bdd587b.png";
+import printerA from "@/assets/target/1e9ca3936e86de3a.png";
+import printerB from "@/assets/target/21e3feca42018838.png";
+import printerC from "@/assets/target/7a302621201a7238.png";
+import printerD from "@/assets/target/4af7ee40bcac44a2.png";
+import printerE from "@/assets/target/ad87b2eeac86bc2b.png";
+import printerF from "@/assets/target/da1b942c62eca055.png";
+import logo from "@/assets/target/88932cc48905dbd3.png";
 
 export const images = {
-  hero: heroMachinery,
-  about: aboutTeam,
-  og: "/og.jpg",
+  hero,
+  about: factory,
+  logo,
+  factory,
+  office,
+  uv,
   machineCategories: {
-    cnc: machineCnc,
-    hydraulicPress: machinePress,
-    cutting: machineLaser,
-    packaging: machinePackaging,
-    welding: machineWelding,
-    materialHandling: machineForklift,
+    cnc: office,
+    hydraulicPress: uv,
+    cutting: printerA,
+    packaging: printerB,
+    welding: printerC,
+    materialHandling: printerD,
   },
   partCategories: {
-    rotating: partsRotating,
-    hydraulics: partsHydraulics,
-    powerTransmission: partsPowerTransmission,
-    conveying: partsConveying,
-    electrical: partsElectrical,
-    automation: partsAutomation,
+    rotating: printerE,
+    hydraulics: printerF,
+    powerTransmission: uv,
+    conveying: printerA,
+    electrical: printerB,
+    automation: office,
   },
 } as const;

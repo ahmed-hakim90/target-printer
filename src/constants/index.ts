@@ -15,13 +15,15 @@ export type { Machine, Part } from "./types";
 export type { MachineRaw, MachineCategoryId } from "./machines";
 export type { PartRaw, PartCategoryId } from "./parts";
 
-const machineCategoryById = Object.fromEntries(
-  machineCategories.map((c) => [c.id, c]),
-) as Record<(typeof machineCategories)[number]["id"], (typeof machineCategories)[number]>;
+const machineCategoryById = Object.fromEntries(machineCategories.map((c) => [c.id, c])) as Record<
+  (typeof machineCategories)[number]["id"],
+  (typeof machineCategories)[number]
+>;
 
-const partCategoryById = Object.fromEntries(
-  partCategories.map((c) => [c.id, c]),
-) as Record<(typeof partCategories)[number]["id"], (typeof partCategories)[number]>;
+const partCategoryById = Object.fromEntries(partCategories.map((c) => [c.id, c])) as Record<
+  (typeof partCategories)[number]["id"],
+  (typeof partCategories)[number]
+>;
 
 function resolveMachine(raw: MachineRaw): Machine {
   const cat = machineCategoryById[raw.categoryId];
@@ -45,20 +47,11 @@ function resolvePart(raw: PartRaw): Part {
 export const machines = machineCatalog.map(resolveMachine);
 export const parts_list = partCatalog.map(resolvePart);
 
-export const categories = [
-  "All",
-  ...machineCategories.map((c) => c.label),
-] as const;
+export const categories = ["All", ...machineCategories.map((c) => c.label)] as const;
 
-export const partCategoryLabels = [
-  "All",
-  ...partCategories.map((c) => c.label),
-] as const;
+export const partCategoryLabels = ["All", ...partCategories.map((c) => c.label)] as const;
 
-export const findMachine = (slug: string) =>
-  machines.find((m) => m.slug === slug);
+export const findMachine = (slug: string) => machines.find((m) => m.slug === slug);
 
 export const relatedMachines = (m: Machine) =>
-  machines
-    .filter((x) => x.categoryId === m.categoryId && x.slug !== m.slug)
-    .slice(0, 3);
+  machines.filter((x) => x.categoryId === m.categoryId && x.slug !== m.slug).slice(0, 3);

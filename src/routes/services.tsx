@@ -38,8 +38,7 @@ function ServicesPage() {
               {services.hero.eyebrow}
             </div>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-              {services.hero.title}{" "}
-              <span className="text-accent">{services.hero.titleAccent}</span>
+              {services.hero.title} <span className="text-accent">{services.hero.titleAccent}</span>
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
               {services.hero.lead}
@@ -69,10 +68,7 @@ function ServicesPage() {
 
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader
-            eyebrow={services.turnkey.eyebrow}
-            title={services.turnkey.title}
-          />
+          <SectionHeader eyebrow={services.turnkey.eyebrow} title={services.turnkey.title} />
           <div className="mt-12 max-w-3xl space-y-6">
             {services.turnkey.paragraphs.map((paragraph) => (
               <p
@@ -95,12 +91,8 @@ function ServicesPage() {
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {desc}
-                </p>
+                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               </li>
             ))}
           </ul>
@@ -119,12 +111,8 @@ function ServicesPage() {
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
-                  {label}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {desc}
-                </p>
+                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               </li>
             ))}
           </ul>
@@ -151,8 +139,7 @@ function ServicesPage() {
             >
               {trackRecord.portfolio.label}
             </Link>{" "}
-            to see how we&apos;ve helped our clients achieve their goals, and read
-            our{" "}
+            to see how we&apos;ve helped our clients achieve their goals, and read our{" "}
             <Link
               to={trackRecord.testimonials.to}
               className="font-medium text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
@@ -164,10 +151,7 @@ function ServicesPage() {
         </div>
       </section>
 
-      <CTASection
-        title={services.cta.title}
-        description={services.cta.description}
-      />
+      <CTASection title={services.cta.title} description={services.cta.description} />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { waLink } from "@/constants";
 export function FloatingWhatsApp() {
   return (
     <a
-      href={waLink("Hello OIS Machinery, I would like to inquire about your equipment.")}
+      href={waLink("Hello Target Printers, I would like to inquire about your printing solutions.")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

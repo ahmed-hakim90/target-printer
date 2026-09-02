@@ -2,21 +2,20 @@ import { Factory, FileText, FlaskConical, Layers, Plane, Zap } from "lucide-reac
 import { images } from "./images";
 
 export const products = {
-  name: "OIS Institution",
+  name: "Target Printers",
   heroImage: images.machineCategories.packaging,
   heroImageAlt: "Industrial raw materials and packaging sector supplies",
   meta: {
     description:
-      "IM sector at OIS Institution — leading supplier of industrial raw materials including paper, pulp, and pharma products for manufacturing, aerospace, and energy.",
+      "IM sector at Target Printers — leading supplier of industrial raw materials including paper, pulp, and pharma products for manufacturing, aerospace, and energy.",
     ogDescription:
-      "High-quality industrial raw materials sourced from trusted suppliers worldwide. Paper, pulp, and pharma products with personalized service from OIS Institution.",
+      "High-quality industrial raw materials sourced from trusted suppliers worldwide. Paper, pulp, and pharma products with personalized service from Target Printers.",
   },
   hero: {
     eyebrow: "Industrial Materials",
     title: "Welcome to the IM sector",
-    titleAccent: "at OIS Institution.",
-    lead:
-      "We are a leading supplier of industrial raw materials, dedicated to providing high-quality products and exceptional customer service. Our extensive range of raw materials is sourced from trusted suppliers around the world, ensuring that our customers receive the best products for their specific needs.",
+    titleAccent: "at Target Printers.",
+    lead: "We are a leading supplier of industrial raw materials, dedicated to providing high-quality products and exceptional customer service. Our extensive range of raw materials is sourced from trusted suppliers around the world, ensuring that our customers receive the best products for their specific needs.",
   },
   ourProducts: {
     eyebrow: "Our Products",
@@ -50,8 +49,7 @@ export const products = {
   whyChooseUs: {
     eyebrow: "Why Choose Us",
     title: "Quality, reliability, and customer satisfaction.",
-    body:
-      "At OIS, we pride ourselves on our commitment to quality, reliability, and customer satisfaction. Our team of experts is dedicated to providing personalized service and support to ensure that our customers receive the right products for their specific needs.",
+    body: "At Target, we pride ourselves on our commitment to quality, reliability, and customer satisfaction. Our team of experts is dedicated to providing personalized service and support to ensure that our customers receive the right products for their specific needs.",
   },
   cta: {
     title: "Get in Touch",

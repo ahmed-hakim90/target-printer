@@ -40,9 +40,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center bg-background px-4 text-center">
-      <h1 className="font-display text-2xl font-semibold text-foreground">
-        This page didn't load
-      </h1>
+      <h1 className="font-display text-2xl font-semibold text-foreground">This page didn't load</h1>
       <p className="mt-2 max-w-md text-sm text-muted-foreground">
         Something went wrong on our end. You can try again or head back home.
       </p>
@@ -77,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: site.name },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#16213e" },
+      { name: "theme-color", content: "#06377c" },
       { property: "og:title", content: `${site.name} — ${site.tagline}` },
       { name: "twitter:title", content: `${site.name} — ${site.tagline}` },
       { property: "og:description", content: site.description },
@@ -91,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -117,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
         <HeadContent />
       </head>

@@ -1,37 +1,31 @@
 const fullNav = [
   { label: "Home", to: "/" as const },
-  { label: "About", to: "/about" as const },
-  { label: "Services", to: "/services" as const },
-  { label: "Machines", to: "/machines" as const },
-  { label: "Auxiliary Parts", to: "/parts" as const },
+  { label: "Products", to: "/machines" as const },
+  { label: "Solutions", to: "/services" as const },
+  { label: "Spare Parts", to: "/parts" as const },
+  { label: "About Us", to: "/about" as const },
   { label: "Contact", to: "/contact" as const },
 ];
 
-const previewNav = [{ label: "Home", to: "/" as const }];
-
 export const site = {
-  name: "OIS Machinery",
-  short: "OIS",
-  tagline: "Industrial Machinery Solutions Built for Performance",
-  url: "https://oismachinery.com",
+  name: "Target Printers",
+  short: "TARGET",
+  tagline: "High-performance printing solutions, made in Egypt",
+  url: "https://target-printer.com",
   ogImagePath: "/og.jpg",
   description:
-    "OIS Machinery supplies premium industrial machinery, heavy equipment, and auxiliary parts to manufacturers worldwide. Request a quotation today.",
-  email: "info@oismachinery.com",
-  phoneDisplay: "+20 1552995922",
-  whatsappNumber: "201552995922", // E.164 without +, used for wa.me
-  facebook: "https://facebook.com/oismachinery",
-  address: "Industrial Zone, Cairo, Egypt",
-  /** Set to false when launching the full site */
-  previewMode: true,
-  get nav() {
-    return this.previewMode ? previewNav : fullNav;
-  },
+    "Target Printers by Modern Egypt supplies office, DTF, UV DTF and large-format printing systems with local technical support and genuine spare parts.",
+  email: "info@modernegypt.com.eg",
+  phoneDisplay: "0150 008 8874",
+  whatsappNumber: "201500088875",
+  facebook: "https://facebook.com/",
+  address: "Plot 20, First Central Industrial Zone, District 27, 15 May City, Cairo, Egypt",
+  previewMode: false,
+  nav: fullNav,
 };
 
 export const waLink = (msg?: string) =>
   `https://wa.me/${site.whatsappNumber}${msg ? `?text=${encodeURIComponent(msg)}` : ""}`;
-
 export const mailLink = (subject?: string, body?: string) => {
   const params = new URLSearchParams();
   if (subject) params.set("subject", subject);

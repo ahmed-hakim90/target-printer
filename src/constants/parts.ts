@@ -1,88 +1,53 @@
 import { images } from "./images";
-
 export const partCategories = [
-  {
-    id: "rotating",
-    label: "Rotating Parts",
-    image: images.partCategories.rotating,
-  },
-  {
-    id: "hydraulics",
-    label: "Hydraulics",
-    image: images.partCategories.hydraulics,
-  },
+  { id: "rotating", label: "Inks & Consumables", image: images.partCategories.rotating },
+  { id: "hydraulics", label: "Print Heads", image: images.partCategories.hydraulics },
   {
     id: "powerTransmission",
-    label: "Power Transmission",
+    label: "UV Components",
     image: images.partCategories.powerTransmission,
   },
-  {
-    id: "conveying",
-    label: "Conveying",
-    image: images.partCategories.conveying,
-  },
-  {
-    id: "electrical",
-    label: "Electrical",
-    image: images.partCategories.electrical,
-  },
-  {
-    id: "automation",
-    label: "Automation",
-    image: images.partCategories.automation,
-  },
+  { id: "conveying", label: "Media Handling", image: images.partCategories.conveying },
+  { id: "electrical", label: "Electrical Parts", image: images.partCategories.electrical },
+  { id: "automation", label: "Maintenance Kits", image: images.partCategories.automation },
 ] as const;
-
 export type PartCategoryId = (typeof partCategories)[number]["id"];
-
-export type PartRaw = {
-  slug: string;
-  name: string;
-  categoryId: PartCategoryId;
-  summary: string;
-};
-
+export type PartRaw = { slug: string; name: string; categoryId: PartCategoryId; summary: string };
 export const partCatalog: PartRaw[] = [
   {
-    slug: "industrial-bearings",
-    name: "Industrial Precision Bearings",
+    slug: "original-inks",
+    name: "Original Target Inks",
     categoryId: "rotating",
-    summary:
-      "OEM-grade roller and ball bearings for high-load, high-speed machinery applications.",
+    summary: "Color-consistent inks matched to Target print profiles and production systems.",
   },
   {
-    slug: "hydraulic-cylinders",
-    name: "Heavy-Duty Hydraulic Cylinders",
+    slug: "print-heads",
+    name: "Genuine Print Heads",
     categoryId: "hydraulics",
-    summary:
-      "Double-acting hydraulic cylinders with chrome-plated rods for presses and material handlers.",
+    summary: "Replacement print heads with installation and calibration by trained technicians.",
   },
   {
-    slug: "drive-gears",
-    name: "Hardened Drive Gears & Sprockets",
+    slug: "uv-lamps",
+    name: "UV Lamps & Curing Parts",
     categoryId: "powerTransmission",
-    summary:
-      "Case-hardened spur and helical gears matched to industrial gearboxes and conveyors.",
+    summary: "Reliable UV curing components for stable adhesion and production quality.",
   },
   {
-    slug: "conveyor-belts",
-    name: "Industrial Conveyor Belts",
+    slug: "rollers",
+    name: "Pinch Rollers & Media Feed",
     categoryId: "conveying",
-    summary:
-      "Multi-ply rubber and modular belts for mining, packaging, and food-grade conveying.",
+    summary: "Precision media-handling parts that protect tracking accuracy and feed consistency.",
   },
   {
-    slug: "electric-motors",
-    name: "AC Industrial Electric Motors",
+    slug: "boards-motors",
+    name: "Boards, Motors & Sensors",
     categoryId: "electrical",
-    summary:
-      "IE3 high-efficiency three-phase induction motors from 0.75 kW to 250 kW.",
+    summary: "Original electrical components diagnosed and fitted by the Target service team.",
   },
   {
-    slug: "control-panels",
-    name: "Custom PLC Control Panels",
+    slug: "maintenance-kits",
+    name: "Preventive Maintenance Kits",
     categoryId: "automation",
-    summary:
-      "Turnkey electrical cabinets with PLC, HMI, and VFD integration to your specifications.",
+    summary: "Scheduled-service kits that reduce downtime and extend machine life.",
   },
 ];

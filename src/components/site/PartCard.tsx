@@ -22,9 +22,7 @@ export function PartCard({ part }: { part: Part }) {
           <h3 className="font-display text-lg font-semibold leading-tight text-foreground">
             {part.name}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            {part.summary}
-          </p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{part.summary}</p>
         </div>
         <div className="mt-auto grid grid-cols-2 gap-2">
           <QuoteButton size="sm" label="Inquire" product={part.name} />

@@ -35,7 +35,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with the OIS Machinery team for quotations, technical inquiries, or spare parts requests. Email, WhatsApp, or send a message.",
+          "Get in touch with the Target Printers team for quotations, technical inquiries, or spare parts requests. Email, WhatsApp, or send a message.",
       },
       { property: "og:title", content: `Contact ${site.name}` },
       {
@@ -101,8 +101,8 @@ function ContactPage() {
             Talk to our engineering team.
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            Whether you need a machine quotation, a technical consultation, or
-            a hard-to-find spare part — we respond within one business day.
+            Whether you need a machine quotation, a technical consultation, or a hard-to-find spare
+            part — we respond within one business day.
           </p>
         </div>
       </section>
@@ -118,9 +118,7 @@ function ContactPage() {
             <h2 className="font-display text-2xl font-semibold text-foreground">
               Send us a message
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Fields marked * are required.
-            </p>
+            <p className="mt-2 text-sm text-muted-foreground">Fields marked * are required.</p>
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               <Field label="Name *" name="name" error={errors.name} />
@@ -158,9 +156,7 @@ function ContactPage() {
           {/* INFO */}
           <aside className="space-y-6">
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <h3 className="font-display text-lg font-semibold text-foreground">
-                Direct contact
-              </h3>
+              <h3 className="font-display text-lg font-semibold text-foreground">Direct contact</h3>
               <ul className="mt-5 space-y-4 text-sm">
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-4 w-4 text-accent" />
@@ -223,9 +219,7 @@ function ContactPage() {
                     <p className="mt-3 font-display text-lg font-semibold text-surface-foreground">
                       Our Location
                     </p>
-                    <p className="mt-1 text-sm text-surface-foreground/70">
-                      {site.address}
-                    </p>
+                    <p className="mt-1 text-sm text-surface-foreground/70">{site.address}</p>
                   </div>
                 </div>
               </div>
@@ -260,7 +254,10 @@ function Field({
   );
   return (
     <div className={className}>
-      <label htmlFor={name} className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <label
+        htmlFor={name}
+        className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+      >
         {label}
       </label>
       {textarea ? (

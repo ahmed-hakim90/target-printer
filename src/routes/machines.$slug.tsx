@@ -4,11 +4,7 @@ import { useState } from "react";
 import { Download, ArrowLeft } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MachineCard } from "@/components/site/MachineCard";
-import {
-  QuoteButton,
-  WhatsAppButton,
-  EmailButton,
-} from "@/components/site/CTAButtons";
+import { QuoteButton, WhatsAppButton, EmailButton } from "@/components/site/CTAButtons";
 import { findMachine, relatedMachines, site, type Machine } from "@/constants";
 import { previewGate } from "@/lib/preview-gate";
 
@@ -102,9 +98,7 @@ function MachineDetailPage() {
                   onClick={() => setActive(i)}
                   className={
                     "overflow-hidden rounded-lg border bg-surface " +
-                    (i === active
-                      ? "border-accent ring-2 ring-accent/40"
-                      : "border-border")
+                    (i === active ? "border-accent ring-2 ring-accent/40" : "border-border")
                   }
                 >
                   <img
@@ -121,23 +115,16 @@ function MachineDetailPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-foreground">
-              Specifications
-            </h2>
+            <h2 className="font-display text-2xl font-semibold text-foreground">Specifications</h2>
             <div className="mt-4 overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm">
                 <tbody>
                   {machine.specs.map((s, i) => (
-                    <tr
-                      key={s.label}
-                      className={i % 2 ? "bg-secondary" : "bg-background"}
-                    >
+                    <tr key={s.label} className={i % 2 ? "bg-secondary" : "bg-background"}>
                       <th className="w-1/2 px-4 py-3 text-left font-medium text-muted-foreground">
                         {s.label}
                       </th>
-                      <td className="px-4 py-3 font-medium text-foreground">
-                        {s.value}
-                      </td>
+                      <td className="px-4 py-3 font-medium text-foreground">{s.value}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -161,10 +148,7 @@ function MachineDetailPage() {
       {/* TECHNICAL DETAILS */}
       <section className="bg-secondary py-20 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.3fr]">
-          <SectionHeader
-            eyebrow="Technical Overview"
-            title="Engineered for continuous duty."
-          />
+          <SectionHeader eyebrow="Technical Overview" title="Engineered for continuous duty." />
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             {machine.description.map((p, i) => (
               <p key={i}>{p}</p>
@@ -182,8 +166,8 @@ function MachineDetailPage() {
                 Request a quotation for the {machine.name}
               </h2>
               <p className="mt-3 max-w-2xl text-base text-muted-foreground">
-                Send your application details and our engineering team will
-                respond with pricing, lead time, and integration notes.
+                Send your application details and our engineering team will respond with pricing,
+                lead time, and integration notes.
               </p>
             </div>
             <div className="flex flex-col gap-2 md:items-end">
@@ -192,10 +176,7 @@ function MachineDetailPage() {
                 size="lg"
                 message={`Hello, I would like a quotation for the ${machine.name}.`}
               />
-              <EmailButton
-                size="lg"
-                subject={`Quotation request: ${machine.name}`}
-              />
+              <EmailButton size="lg" subject={`Quotation request: ${machine.name}`} />
             </div>
           </div>
         </div>
@@ -205,10 +186,7 @@ function MachineDetailPage() {
       {related.length > 0 && (
         <section className="bg-background pb-24">
           <div className="container-x">
-            <SectionHeader
-              eyebrow="Related Machines"
-              title="Other equipment in this category."
-            />
+            <SectionHeader eyebrow="Related Machines" title="Other equipment in this category." />
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((m) => (
                 <MachineCard key={m.slug} machine={m} />

@@ -36,8 +36,7 @@ function ProductsPage() {
               {products.hero.eyebrow}
             </div>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-              {products.hero.title}{" "}
-              <span className="text-accent">{products.hero.titleAccent}</span>
+              {products.hero.title} <span className="text-accent">{products.hero.titleAccent}</span>
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
               {products.hero.lead}
@@ -71,9 +70,7 @@ function ProductsPage() {
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
-                  {title}
-                </h3>
+                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>
               </li>
             ))}
           </ul>
@@ -82,10 +79,7 @@ function ProductsPage() {
 
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader
-            eyebrow={products.industries.eyebrow}
-            title={products.industries.title}
-          />
+          <SectionHeader eyebrow={products.industries.eyebrow} title={products.industries.title} />
           <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
             {products.industries.intro}
           </p>
@@ -95,9 +89,7 @@ function ProductsPage() {
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
-                  {label}
-                </h3>
+                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{label}</h3>
               </li>
             ))}
           </ul>
@@ -116,10 +108,7 @@ function ProductsPage() {
         </div>
       </section>
 
-      <CTASection
-        title={products.cta.title}
-        description={products.cta.description}
-      />
+      <CTASection title={products.cta.title} description={products.cta.description} />
     </>
   );
 }
