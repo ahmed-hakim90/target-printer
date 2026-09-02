@@ -8,6 +8,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { partCategoryLabels, parts_list, site } from "@/constants";
 import { cn } from "@/lib/utils";
 import { previewGate } from "@/lib/preview-gate";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/parts")({
   head: () => ({
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/parts")({
 });
 
 function PartsPage() {
+  const { t } = useLanguage();
   const [active, setActive] = useState<(typeof partCategoryLabels)[number]>("All");
 
   const filtered = active === "All" ? parts_list : parts_list.filter((p) => p.category === active);
@@ -45,10 +47,10 @@ function PartsPage() {
         <div className="container-x py-16 md:py-24">
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             <span className="h-px w-10 bg-accent" />
-            Auxiliary Parts
+            {t("Auxiliary Parts")}
           </div>
           <h1 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-            Spare parts that keep your machines running.
+            {t("Spare parts that keep your machines running.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
             From precision bearings to custom PLC cabinets, we stock and source the components your
@@ -73,7 +75,7 @@ function PartsPage() {
                     : "border-border bg-background text-muted-foreground hover:border-foreground hover:text-foreground",
                 )}
               >
-                {c}
+                {t(c)}
               </button>
             ))}
           </div>

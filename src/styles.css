@@ -118,6 +118,18 @@
     font-feature-settings: "cv11", "ss01";
   }
 
+  [dir="rtl"] body {
+    font-family: "Noto Sans Arabic", "Manrope", sans-serif;
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5 {
+    letter-spacing: 0;
+  }
+
   h1,
   h2,
   h3,
@@ -131,6 +143,27 @@
   ::selection {
     background-color: var(--color-accent);
     color: var(--color-accent-foreground);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

@@ -1,4 +1,5 @@
 import { EmailButton, QuoteButton, WhatsAppButton } from "./CTAButtons";
+import { useLanguage } from "@/lib/language";
 
 export function CTASection({
   title = "Ready to power your production line?",
@@ -7,6 +8,7 @@ export function CTASection({
   title?: string;
   description?: string;
 }) {
+  const { t, language } = useLanguage();
   return (
     <section className="relative overflow-hidden bg-surface text-surface-foreground">
       <div className="absolute inset-0 hero-grid-bg opacity-60" aria-hidden />
@@ -18,13 +20,13 @@ export function CTASection({
         <div>
           <div className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
             <span className="h-px w-8 bg-accent" />
-            Let's build together
+            {language === "ar" ? "لننجح معًا" : "Let's build together"}
           </div>
           <h2 className="text-balance font-display text-3xl font-semibold leading-[1.1] md:text-4xl lg:text-5xl">
-            {title}
+            {t(title)}
           </h2>
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/70 md:text-lg">
-            {description}
+            {t(description)}
           </p>
         </div>
         <div className="flex flex-col gap-3 md:items-end">

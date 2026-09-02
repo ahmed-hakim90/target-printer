@@ -2,8 +2,10 @@ import { ArrowRight } from "lucide-react";
 import { InternalLink } from "./InternalLink";
 import { QuoteButton, WhatsAppButton } from "./CTAButtons";
 import type { Machine } from "@/constants";
+import { useLanguage } from "@/lib/language";
 
 export function MachineCard({ machine }: { machine: Machine }) {
+  const { t } = useLanguage();
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 hover:border-accent/40">
       <InternalLink
@@ -40,7 +42,7 @@ export function MachineCard({ machine }: { machine: Machine }) {
             params={{ slug: machine.slug }}
             className="inline-flex items-center justify-between border-b border-border pb-3 text-sm font-semibold text-foreground transition-colors hover:text-accent"
           >
-            View Details <ArrowRight className="h-4 w-4" />
+            {t("View Details")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
           </InternalLink>
           <div className="grid grid-cols-2 gap-2 pt-1">
             <QuoteButton size="sm" label="Request Quote" product={machine.name} />

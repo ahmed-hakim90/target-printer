@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { CTASection } from "@/components/site/CTASection";
 import { about } from "@/constants/about";
 import { previewGate } from "@/lib/preview-gate";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -23,6 +24,8 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const { localize } = useLanguage();
+  const content = localize(about);
   return (
     <>
       <section className="bg-surface text-surface-foreground">
@@ -30,19 +33,19 @@ function AboutPage() {
           <div>
             <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
               <span className="h-px w-10 bg-accent" />
-              {about.hero.eyebrow}
+              {content.hero.eyebrow}
             </div>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-              {about.hero.title} <span className="text-accent">{about.hero.titleAccent}</span>
+              {content.hero.title} <span className="text-accent">{content.hero.titleAccent}</span>
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-              {about.hero.lead}
+              {content.hero.lead}
             </p>
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/10">
             <img
-              src={about.heroImage}
-              alt={about.heroImageAlt}
+              src={content.heroImage}
+              alt={content.heroImageAlt}
               loading="lazy"
               width={1600}
               height={1000}
@@ -55,11 +58,11 @@ function AboutPage() {
       <section className="bg-background py-20 md:py-28">
         <div className="container-x">
           <SectionHeader
-            eyebrow={about.companyProfile.eyebrow}
-            title={about.companyProfile.title}
+            eyebrow={content.companyProfile.eyebrow}
+            title={content.companyProfile.title}
           />
           <div className="mt-12 max-w-3xl space-y-6">
-            {about.companyProfile.paragraphs.map((paragraph, index) => (
+            {content.companyProfile.paragraphs.map((paragraph, index) => (
               <p
                 key={`${index}-${paragraph.slice(0, 48)}`}
                 className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
@@ -74,12 +77,12 @@ function AboutPage() {
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
           <SectionHeader
-            eyebrow={about.experience.eyebrow}
-            title={about.experience.title}
-            description={about.experience.description}
+            eyebrow={content.experience.eyebrow}
+            title={content.experience.title}
+            description={content.experience.description}
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
-            {about.milestones.map((m) => (
+            {content.milestones.map((m) => (
               <div key={m.year} className="bg-background p-7">
                 <div className="font-display text-3xl font-semibold text-accent">{m.year}</div>
                 <div className="mt-3 font-display text-lg font-semibold text-foreground">
@@ -95,11 +98,11 @@ function AboutPage() {
       <section className="bg-background py-20 md:py-28">
         <div className="container-x">
           <SectionHeader
-            eyebrow={about.strengthsSection.eyebrow}
-            title={about.strengthsSection.title}
+            eyebrow={content.strengthsSection.eyebrow}
+            title={content.strengthsSection.title}
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {about.strengths.map(({ icon: Icon, title, desc }) => (
+            {content.strengths.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="bg-background p-7">
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" />
@@ -112,7 +115,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <CTASection title={about.cta.title} description={about.cta.description} />
+      <CTASection title={content.cta.title} description={content.cta.description} />
     </>
   );
 }

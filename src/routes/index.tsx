@@ -25,6 +25,7 @@ import { QuoteButton } from "@/components/site/CTAButtons";
 import { CTASection } from "@/components/site/CTASection";
 import { images } from "@/constants/images";
 import { site } from "@/constants";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -62,6 +63,7 @@ const products = [
 ] as const;
 
 function HomePage() {
+  const { t } = useLanguage();
   const [principle, setPrinciple] = useState<"vision" | "values" | "mission">("vision");
   const [newsletterState, setNewsletterState] = useState<"idle" | "error" | "success">("idle");
   const principles = {
@@ -91,12 +93,12 @@ function HomePage() {
             className="relative z-10"
           >
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[.14em] text-accent">
-              <Sparkles className="h-3.5 w-3.5" /> Made in Egypt
+              <Sparkles className="h-3.5 w-3.5" /> {t("Made in Egypt")}
             </div>
             <h1 className="max-w-2xl text-balance text-5xl font-extrabold leading-[.98] text-primary sm:text-6xl lg:text-7xl">
-              Print bigger.
+              {t("Print bigger.")}
               <br />
-              <span className="text-accent">Build smarter.</span>
+              <span className="text-accent">{t("Build smarter.")}</span>
             </h1>
             <p lang="ar" dir="rtl" className="mt-5 w-fit text-2xl font-bold text-primary">
               صناعة مصرية بطموح عالمي
@@ -111,14 +113,14 @@ function HomePage() {
                 to="/machines"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-primary/25 bg-white px-6 font-semibold text-primary hover:border-primary"
               >
-                Explore products <ArrowRight className="h-4 w-4" />
+                {t("Explore products")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
             </div>
             <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-primary/70">
               {["Reliable quality", "Technical support", "Genuine spare parts"].map((x) => (
                 <span key={x} className="flex items-center gap-2">
                   <BadgeCheck className="h-4 w-4 text-accent" />
-                  {x}
+                  {t(x)}
                 </span>
               ))}
             </div>
@@ -236,7 +238,7 @@ function HomePage() {
                 {value}
               </strong>
               <span className="mt-2 block text-sm font-semibold text-muted-foreground">
-                {label}
+                {t(label)}
               </span>
             </div>
           ))}
@@ -287,7 +289,7 @@ function HomePage() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 text-lg font-extrabold text-primary">{title as string}</h3>
+                <h3 className="mt-5 text-lg font-extrabold text-primary">{t(title as string)}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{desc as string}</p>
                 <Link
                   to="/services"
@@ -305,12 +307,12 @@ function HomePage() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.2em] text-blue-300">
-              Made in Egypt
+              {t("Made in Egypt")}
             </p>
             <h2 className="mt-4 text-4xl font-extrabold md:text-5xl">
-              Engineered here.
+              {t("Engineered here.")}
               <br />
-              Ready for the world.
+              {t("Ready for the world.")}
             </h2>
             <p className="mt-5 max-w-xl leading-7 text-white/70">
               Target combines international printing technology with local assembly, testing,
@@ -318,7 +320,7 @@ function HomePage() {
               installation.
             </p>
             <Link to="/about" className="mt-7 inline-flex items-center gap-2 font-bold text-white">
-              Discover our story <ArrowRight className="h-4 w-4" />
+              {t("Discover our story")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </div>
           <img
@@ -357,7 +359,7 @@ function HomePage() {
                 className="rounded-xl border border-border bg-white p-6"
               >
                 <Icon className="h-6 w-6 text-accent" />
-                <h3 className="mt-5 font-extrabold text-primary">{title as string}</h3>
+                <h3 className="mt-5 font-extrabold text-primary">{t(title as string)}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{desc as string}</p>
               </article>
             ))}
@@ -389,7 +391,7 @@ function HomePage() {
                 </div>
                 <div className="relative flex h-full flex-col justify-end">
                   <Zap className="mb-4 h-6 w-6 text-blue-300" />
-                  <h3 className="text-xl font-bold">{x}</h3>
+                  <h3 className="text-xl font-bold">{t(x)}</h3>
                   <span className="mt-3 text-sm text-white/70">Explore solution →</span>
                 </div>
               </Link>
@@ -415,7 +417,7 @@ function HomePage() {
                   onClick={() => setPrinciple(key)}
                   className={`rounded-md px-4 py-2 text-sm font-bold transition ${principle === key ? "bg-primary text-white" : "bg-secondary text-muted-foreground hover:text-primary"}`}
                 >
-                  {principles[key].label}
+                  {t(principles[key].label)}
                 </button>
               ))}
             </div>
@@ -427,7 +429,7 @@ function HomePage() {
               role="tabpanel"
             >
               <h3 className="max-w-2xl text-2xl font-extrabold text-primary md:text-3xl">
-                {principles[principle].title}
+                {t(principles[principle].title)}
               </h3>
               <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
                 {principles[principle].body}
@@ -546,9 +548,11 @@ function HomePage() {
         <div className="container-x grid items-center gap-8 lg:grid-cols-[1fr_auto]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.18em] text-blue-300">
-              Become a Target partner
+              {t("Become a Target partner")}
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold">Grow with our distribution network.</h2>
+            <h2 className="mt-3 text-3xl font-extrabold">
+              {t("Grow with our distribution network.")}
+            </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">
               Competitive pricing, marketing support, product training and reliable after-sales
               service.
@@ -558,7 +562,7 @@ function HomePage() {
             to="/contact"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-6 font-bold text-primary"
           >
-            Apply now <ArrowRight className="h-4 w-4" />
+            {t("Apply now")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
           </Link>
         </div>
       </section>
@@ -571,13 +575,14 @@ function HomePage() {
 }
 
 function Header({ kicker, title, text }: { kicker: string; title: string; text?: string }) {
+  const { t } = useLanguage();
   return (
     <div className="max-w-2xl">
-      <p className="text-xs font-extrabold uppercase tracking-[.18em] text-accent">{kicker}</p>
+      <p className="text-xs font-extrabold uppercase tracking-[.18em] text-accent">{t(kicker)}</p>
       <h2 className="mt-3 text-balance text-3xl font-extrabold leading-tight text-primary md:text-4xl">
-        {title}
+        {t(title)}
       </h2>
-      {text && <p className="mt-4 leading-7 text-muted-foreground">{text}</p>}
+      {text && <p className="mt-4 leading-7 text-muted-foreground">{t(text)}</p>}
     </div>
   );
 }

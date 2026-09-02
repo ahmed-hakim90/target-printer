@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 import { mailLink, site, waLink } from "@/constants";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/language";
 
 type Variant = "accent" | "solid" | "outline" | "ghost" | "whatsapp" | "surface";
 type Size = "sm" | "md" | "lg";
@@ -39,6 +40,7 @@ export function QuoteButton({
   label?: string;
   product?: string;
 }) {
+  const { t } = useLanguage();
   if (site.previewMode) {
     const message = product
       ? `Hello, I'd like a quote for: ${product}`
@@ -50,7 +52,7 @@ export function QuoteButton({
         rel="noopener noreferrer"
         className={cn(base, variants[variant], sizes[size], className)}
       >
-        {label}
+        {t(label)}
         <ArrowRight className="h-4 w-4" />
       </a>
     );
@@ -62,7 +64,7 @@ export function QuoteButton({
       search={product ? { product } : undefined}
       className={cn(base, variants[variant], sizes[size], className)}
     >
-      {label}
+      {t(label)}
       <ArrowRight className="h-4 w-4" />
     </Link>
   );
@@ -81,6 +83,7 @@ export function WhatsAppButton({
   label?: string;
   message?: string;
 }) {
+  const { t } = useLanguage();
   return (
     <a
       href={waLink(message)}
@@ -89,7 +92,7 @@ export function WhatsAppButton({
       className={cn(base, variants[variant], sizes[size], className)}
     >
       <MessageCircle className="h-4 w-4" />
-      {label}
+      {t(label)}
     </a>
   );
 }
@@ -107,10 +110,11 @@ export function EmailButton({
   label?: string;
   subject?: string;
 }) {
+  const { t } = useLanguage();
   return (
     <a href={mailLink(subject)} className={cn(base, variants[variant], sizes[size], className)}>
       <Mail className="h-4 w-4" />
-      {label}
+      {t(label)}
     </a>
   );
 }
@@ -128,12 +132,13 @@ export function ExploreButton({
   size?: Size;
   className?: string;
 }) {
+  const { t } = useLanguage();
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if (site.previewMode) {
     return (
       <span className={cn(classes, "cursor-default")} aria-disabled="true">
-        {label}
+        {t(label)}
         <ArrowRight className="h-4 w-4" />
       </span>
     );
@@ -141,7 +146,7 @@ export function ExploreButton({
 
   return (
     <Link to={to} className={classes}>
-      {label}
+      {t(label)}
       <ArrowRight className="h-4 w-4" />
     </Link>
   );

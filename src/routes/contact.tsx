@@ -6,6 +6,7 @@ import { Facebook, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { mailLink, site, waLink } from "@/constants";
 import { cn } from "@/lib/utils";
 import { previewGate } from "@/lib/preview-gate";
+import { useLanguage } from "@/lib/language";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -52,6 +53,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { t, language } = useLanguage();
   const { product } = Route.useSearch();
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -95,10 +97,10 @@ function ContactPage() {
         <div className="container-x py-16 md:py-24">
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             <span className="h-px w-10 bg-accent" />
-            Contact
+            {t("Contact")}
           </div>
           <h1 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-            Talk to our engineering team.
+            {t("Talk to our engineering team.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
             Whether you need a machine quotation, a technical consultation, or a hard-to-find spare
@@ -116,24 +118,24 @@ function ContactPage() {
             className="rounded-2xl border border-border bg-card p-6 md:p-10"
           >
             <h2 className="font-display text-2xl font-semibold text-foreground">
-              Send us a message
+              {t("Send us a message")}
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">Fields marked * are required.</p>
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
-              <Field label="Name *" name="name" error={errors.name} />
-              <Field label="Company Name *" name="company" error={errors.company} />
-              <Field label="Email *" name="email" type="email" error={errors.email} />
-              <Field label="Phone *" name="phone" type="tel" error={errors.phone} />
+              <Field label={t("Name *")} name="name" error={errors.name} />
+              <Field label={t("Company Name *")} name="company" error={errors.company} />
+              <Field label={t("Email *")} name="email" type="email" error={errors.email} />
+              <Field label={t("Phone *")} name="phone" type="tel" error={errors.phone} />
               <Field
-                label="Interested Product"
+                label={t("Interested Product")}
                 name="product"
                 defaultValue={product ?? ""}
                 error={errors.product}
                 className="md:col-span-2"
               />
               <Field
-                label="Message *"
+                label={t("Message *")}
                 name="message"
                 error={errors.message}
                 className="md:col-span-2"
@@ -146,7 +148,11 @@ function ContactPage() {
               disabled={submitting}
               className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-md bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90 disabled:opacity-60 md:w-auto"
             >
-              {submitting ? "Opening your email…" : "Submit Inquiry"}
+              {submitting
+                ? language === "ar"
+                  ? "جارٍ فتح البريد…"
+                  : "Opening your email…"
+                : t("Submit Inquiry")}
             </button>
             <p className="mt-3 text-xs text-muted-foreground">
               Submitting opens your email client with the message pre-filled.
@@ -156,7 +162,9 @@ function ContactPage() {
           {/* INFO */}
           <aside className="space-y-6">
             <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <h3 className="font-display text-lg font-semibold text-foreground">Direct contact</h3>
+              <h3 className="font-display text-lg font-semibold text-foreground">
+                {t("Direct contact")}
+              </h3>
               <ul className="mt-5 space-y-4 text-sm">
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-4 w-4 text-accent" />
@@ -217,7 +225,7 @@ function ContactPage() {
                   <div>
                     <MapPin className="mx-auto h-7 w-7 text-accent" />
                     <p className="mt-3 font-display text-lg font-semibold text-surface-foreground">
-                      Our Location
+                      {t("Our Location")}
                     </p>
                     <p className="mt-1 text-sm text-surface-foreground/70">{site.address}</p>
                   </div>

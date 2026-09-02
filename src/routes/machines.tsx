@@ -8,6 +8,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { categories, machines, site } from "@/constants";
 import { cn } from "@/lib/utils";
 import { previewGate } from "@/lib/preview-gate";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/machines")({
   head: () => ({
@@ -33,6 +34,7 @@ export const Route = createFileRoute("/machines")({
 });
 
 function MachinesPage() {
+  const { t } = useLanguage();
   const [active, setActive] = useState<(typeof categories)[number]>("All");
 
   const filtered = active === "All" ? machines : machines.filter((m) => m.category === active);
@@ -43,10 +45,10 @@ function MachinesPage() {
         <div className="container-x py-16 md:py-24">
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             <span className="h-px w-10 bg-accent" />
-            Machinery Catalog
+            {t("Machinery Catalog")}
           </div>
           <h1 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-            Production machines for every stage of the line.
+            {t("Production machines for every stage of the line.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
             Each machine in our catalog is selected for industrial-grade durability and supported by
@@ -69,7 +71,7 @@ function MachinesPage() {
                     : "border-border bg-background text-muted-foreground hover:border-foreground hover:text-foreground",
                 )}
               >
-                {c}
+                {t(c)}
               </button>
             ))}
           </div>
@@ -103,7 +105,7 @@ function MachinesPage() {
 
           {filtered.length === 0 && (
             <p className="mt-12 text-center text-muted-foreground">
-              No machines in this category yet. Contact us for a custom inquiry.
+              {t("No machines in this category yet. Contact us for a custom inquiry.")}
             </p>
           )}
         </div>

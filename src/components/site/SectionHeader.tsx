@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/language";
 
 export function SectionHeader({
   eyebrow,
@@ -15,6 +16,7 @@ export function SectionHeader({
   invert?: boolean;
   className?: string;
 }) {
+  const { t } = useLanguage();
   return (
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow && (
@@ -26,7 +28,7 @@ export function SectionHeader({
           )}
         >
           <span className="h-px w-8 bg-accent" />
-          {eyebrow}
+          {t(eyebrow)}
         </div>
       )}
       <h2
@@ -35,7 +37,7 @@ export function SectionHeader({
           invert ? "text-surface-foreground" : "text-foreground",
         )}
       >
-        {title}
+        {t(title)}
       </h2>
       {description && (
         <p
@@ -44,7 +46,7 @@ export function SectionHeader({
             invert ? "text-surface-foreground/70" : "text-muted-foreground",
           )}
         >
-          {description}
+          {t(description)}
         </p>
       )}
     </div>

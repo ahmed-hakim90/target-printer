@@ -7,6 +7,7 @@ import { MachineCard } from "@/components/site/MachineCard";
 import { QuoteButton, WhatsAppButton, EmailButton } from "@/components/site/CTAButtons";
 import { findMachine, relatedMachines, site, type Machine } from "@/constants";
 import { previewGate } from "@/lib/preview-gate";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/machines_/$slug")({
   loader: ({ params }): { machine: Machine } => {
@@ -51,6 +52,7 @@ export const Route = createFileRoute("/machines_/$slug")({
 });
 
 function MachineDetailPage() {
+  const { t, language } = useLanguage();
   const { machine } = Route.useLoaderData() as { machine: Machine };
   const [active, setActive] = useState(0);
   const related = relatedMachines(machine);
@@ -64,7 +66,7 @@ function MachineDetailPage() {
             to="/machines"
             className="inline-flex items-center gap-2 text-sm font-medium text-surface-foreground/70 hover:text-accent"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to machines
+            <ArrowLeft className="h-4 w-4 rtl:rotate-180" /> {t("Back to machines")}
           </Link>
           <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             {machine.category}
@@ -117,7 +119,9 @@ function MachineDetailPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-foreground">Specifications</h2>
+            <h2 className="font-display text-2xl font-semibold text-foreground">
+              {t("Specifications")}
+            </h2>
             <div className="mt-4 overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm">
                 <tbody>
@@ -166,7 +170,9 @@ function MachineDetailPage() {
           <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
             <div>
               <h2 className="font-display text-2xl font-semibold text-foreground md:text-3xl">
-                Request a quotation for the {machine.name}
+                {language === "ar"
+                  ? `اطلب عرض سعر لـ ${machine.name}`
+                  : `Request a quotation for the ${machine.name}`}
               </h2>
               <p className="mt-3 max-w-2xl text-base text-muted-foreground">
                 Send your application details and our engineering team will respond with pricing,

@@ -13,6 +13,8 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { RouteLoading } from "@/components/site/RouteLoading";
+import { ScrollMotion } from "@/components/site/ScrollMotion";
+import { LanguageProvider } from "@/lib/language";
 import { site } from "@/constants";
 
 function NotFoundComponent() {
@@ -132,14 +134,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background">
-        <Navbar />
-        <main className="flex-1">
-          <AnimatedOutlet />
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
-      </div>
+      <LanguageProvider>
+        <div className="flex min-h-screen flex-col bg-background">
+          <Navbar />
+          <main className="flex-1">
+            <AnimatedOutlet />
+          </main>
+          <Footer />
+          <FloatingWhatsApp />
+          <ScrollMotion />
+        </div>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

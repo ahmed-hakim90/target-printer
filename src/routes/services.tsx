@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { CTASection } from "@/components/site/CTASection";
 import { services } from "@/constants/services";
 import { previewGate } from "@/lib/preview-gate";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -26,7 +27,9 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
-  const { trackRecord } = services;
+  const { localize } = useLanguage();
+  const content = localize(services);
+  const { trackRecord } = content;
 
   return (
     <>
@@ -35,19 +38,19 @@ function ServicesPage() {
           <div>
             <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
               <span className="h-px w-10 bg-accent" />
-              {services.hero.eyebrow}
+              {content.hero.eyebrow}
             </div>
             <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-              {services.hero.title} <span className="text-accent">{services.hero.titleAccent}</span>
+              {content.hero.title} <span className="text-accent">{content.hero.titleAccent}</span>
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-              {services.hero.lead}
+              {content.hero.lead}
             </p>
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/10">
             <img
-              src={services.heroImage}
-              alt={services.heroImageAlt}
+              src={content.heroImage}
+              alt={content.heroImageAlt}
               loading="lazy"
               width={1600}
               height={1000}
@@ -59,18 +62,18 @@ function ServicesPage() {
 
       <section className="bg-background py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader title={services.comprehensive.title} />
+          <SectionHeader title={content.comprehensive.title} />
           <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {services.comprehensive.body}
+            {content.comprehensive.body}
           </p>
         </div>
       </section>
 
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader eyebrow={services.turnkey.eyebrow} title={services.turnkey.title} />
+          <SectionHeader eyebrow={content.turnkey.eyebrow} title={content.turnkey.title} />
           <div className="mt-12 max-w-3xl space-y-6">
-            {services.turnkey.paragraphs.map((paragraph) => (
+            {content.turnkey.paragraphs.map((paragraph) => (
               <p
                 key={paragraph.slice(0, 48)}
                 className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
@@ -84,9 +87,9 @@ function ServicesPage() {
 
       <section className="bg-background py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader title={services.turnkeyServices.title} />
+          <SectionHeader title={content.turnkeyServices.title} />
           <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {services.turnkeyServices.items.map(({ icon: Icon, title, desc }) => (
+            {content.turnkeyServices.items.map(({ icon: Icon, title, desc }) => (
               <li key={title} className="bg-background p-7">
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" aria-hidden />
@@ -101,12 +104,12 @@ function ServicesPage() {
 
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader title={services.industries.title} />
+          <SectionHeader title={content.industries.title} />
           <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {services.industries.intro}
+            {content.industries.intro}
           </p>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
-            {services.industries.items.map(({ icon: Icon, label, desc }) => (
+            {content.industries.items.map(({ icon: Icon, label, desc }) => (
               <li key={label} className="bg-background p-7">
                 <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
                   <Icon className="h-5 w-5" aria-hidden />
@@ -121,16 +124,16 @@ function ServicesPage() {
 
       <section className="bg-background py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader title={services.projectManagement.title} />
+          <SectionHeader title={content.projectManagement.title} />
           <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {services.projectManagement.body}
+            {content.projectManagement.body}
           </p>
         </div>
       </section>
 
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader title={services.trackRecord.title} />
+          <SectionHeader title={content.trackRecord.title} />
           <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
             {trackRecord.lead} Browse our{" "}
             <Link
@@ -151,7 +154,7 @@ function ServicesPage() {
         </div>
       </section>
 
-      <CTASection title={services.cta.title} description={services.cta.description} />
+      <CTASection title={content.cta.title} description={content.cta.description} />
     </>
   );
 }

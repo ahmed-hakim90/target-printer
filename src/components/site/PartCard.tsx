@@ -1,7 +1,9 @@
 import { QuoteButton, WhatsAppButton } from "./CTAButtons";
 import type { Part } from "@/constants";
+import { useLanguage } from "@/lib/language";
 
 export function PartCard({ part }: { part: Part }) {
+  const { language } = useLanguage();
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 hover:border-accent/40">
       <div className="relative aspect-[4/3] overflow-hidden bg-surface">
@@ -25,7 +27,11 @@ export function PartCard({ part }: { part: Part }) {
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{part.summary}</p>
         </div>
         <div className="mt-auto grid grid-cols-2 gap-2">
-          <QuoteButton size="sm" label="Inquire" product={part.name} />
+          <QuoteButton
+            size="sm"
+            label={language === "ar" ? "استفسر" : "Inquire"}
+            product={part.name}
+          />
           <WhatsAppButton
             size="sm"
             label="WhatsApp"

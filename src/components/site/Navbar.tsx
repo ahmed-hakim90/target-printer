@@ -6,8 +6,10 @@ import { images } from "@/constants/images";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { QuoteButton } from "./CTAButtons";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/language";
 
 export function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -46,17 +48,18 @@ export function Navbar() {
               inactiveProps={{ className: "text-muted-foreground" }}
               className="relative px-4 py-2 text-sm font-medium tracking-tight transition-colors hover:text-foreground after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-accent after:transition-transform"
             >
-              {item.label}
+              {t(item.label)}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
           <button
-            aria-label="Switch language"
-            className="hidden h-9 items-center gap-1.5 px-2 text-xs font-bold text-muted-foreground hover:text-primary sm:flex"
+            aria-label={t("Switch language")}
+            onClick={() => setLanguage(language === "en" ? "ar" : "en")}
+            className="flex h-9 items-center gap-1.5 px-1 text-xs font-bold text-muted-foreground hover:text-primary sm:px-2"
           >
-            <Globe2 className="h-4 w-4" /> EN
+            <Globe2 className="h-4 w-4" /> {language === "en" ? "العربية" : "English"}
           </button>
           <QuoteButton size="sm" className="hidden md:inline-flex" />
           <button
@@ -88,7 +91,7 @@ export function Navbar() {
                 inactiveProps={{ className: "text-muted-foreground" }}
                 className="rounded-md px-4 py-3 text-base font-medium transition-colors hover:bg-muted hover:text-foreground"
               >
-                {item.label}
+                {t(item.label)}
               </Link>
             ))}
           </nav>
