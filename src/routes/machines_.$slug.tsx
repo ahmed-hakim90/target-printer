@@ -1,14 +1,14 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { useState } from "react";
-import { Download, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MachineCard } from "@/components/site/MachineCard";
 import { QuoteButton, WhatsAppButton, EmailButton } from "@/components/site/CTAButtons";
 import { findMachine, relatedMachines, site, type Machine } from "@/constants";
 import { previewGate } from "@/lib/preview-gate";
 
-export const Route = createFileRoute("/machines/$slug")({
+export const Route = createFileRoute("/machines_/$slug")({
   loader: ({ params }): { machine: Machine } => {
     const machine = findMachine(params.slug);
     if (!machine) throw notFound();
@@ -82,36 +82,38 @@ function MachineDetailPage() {
       <section className="bg-background py-16 md:py-20">
         <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <div className="overflow-hidden rounded-xl border border-border bg-surface">
+            <div className="overflow-hidden rounded-xl border border-border bg-[#f5f8fc]">
               <img
                 src={machine.gallery[active]}
                 alt={machine.name}
                 width={1280}
                 height={960}
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-[4/3] w-full object-contain p-6"
               />
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-3">
-              {machine.gallery.map((g, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActive(i)}
-                  className={
-                    "overflow-hidden rounded-lg border bg-surface " +
-                    (i === active ? "border-accent ring-2 ring-accent/40" : "border-border")
-                  }
-                >
-                  <img
-                    src={g}
-                    alt={`${machine.name} ${i + 1}`}
-                    loading="lazy"
-                    width={400}
-                    height={300}
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+            {machine.gallery.length > 1 && (
+              <div className="mt-3 grid grid-cols-3 gap-3">
+                {machine.gallery.map((g, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={
+                      "overflow-hidden rounded-lg border bg-surface " +
+                      (i === active ? "border-accent ring-2 ring-accent/40" : "border-border")
+                    }
+                  >
+                    <img
+                      src={g}
+                      alt={`${machine.name} ${i + 1}`}
+                      loading="lazy"
+                      width={400}
+                      height={300}
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div>
@@ -120,7 +122,10 @@ function MachineDetailPage() {
               <table className="w-full text-sm">
                 <tbody>
                   {machine.specs.map((s, i) => (
-                    <tr key={s.label} className={i % 2 ? "bg-secondary" : "bg-background"}>
+                    <tr
+                      key={`${s.label}-${i}`}
+                      className={i % 2 ? "bg-secondary" : "bg-background"}
+                    >
                       <th className="w-1/2 px-4 py-3 text-left font-medium text-muted-foreground">
                         {s.label}
                       </th>
@@ -133,13 +138,11 @@ function MachineDetailPage() {
 
             <div className="mt-6 flex flex-col gap-2">
               <QuoteButton size="lg" product={machine.name} />
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-secondary"
-              >
-                <Download className="h-4 w-4" /> Download Brochure (PDF)
-              </a>
+              <WhatsAppButton
+                size="lg"
+                label="Request product brochure"
+                message={`Hello, please send me the product brochure for ${machine.name}.`}
+              />
             </div>
           </div>
         </div>
@@ -148,7 +151,7 @@ function MachineDetailPage() {
       {/* TECHNICAL DETAILS */}
       <section className="bg-secondary py-20 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.3fr]">
-          <SectionHeader eyebrow="Technical Overview" title="Engineered for continuous duty." />
+          <SectionHeader eyebrow="Product Overview" title="Supported from setup to production." />
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             {machine.description.map((p, i) => (
               <p key={i}>{p}</p>

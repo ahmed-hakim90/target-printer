@@ -31,6 +31,7 @@ The implementation preserves the reference's Target-blue identity, split hero, p
 - Initial P2: About-page paragraph keys collided because two paragraphs shared the same opening text. Fixed by including the paragraph index; rebuilt and rechecked.
 - Initial P2: floating WhatsApp copy still named the previous OIS brand. Replaced with Target Printers product-inquiry wording.
 - Post-fix evidence: production build passes and all public routes render without 404s or horizontal overflow.
+- Product-detail correction: the nested route was flattened so product URLs now render their own page rather than the catalog parent. All 27 source product records are present, and the TA-604Pro page was verified with its source image, 21 specification rows, quote flow, brochure request, and related products.
 
 ## Follow-up polish
 
