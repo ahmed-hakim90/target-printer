@@ -17,7 +17,7 @@ export const Route = createFileRoute("/parts")({
       {
         name: "description",
         content:
-          "OEM-grade industrial spare parts: bearings, hydraulic cylinders, gears, conveyors, motors, and custom control panels — kept in stock and ready to ship.",
+          "Genuine spare parts and consumables for printers and photocopiers, backed by professional installation and technical support.",
       },
       {
         property: "og:title",
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/parts")({
       },
       {
         property: "og:description",
-        content: "Genuine industrial spare parts with fast lead times and engineering support.",
+        content: "Genuine printer and photocopier parts with professional technical support.",
       },
       { property: "og:url", content: "/parts" },
     ],
@@ -53,8 +53,9 @@ function PartsPage() {
             {t("Spare parts that keep your machines running.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            From precision bearings to custom PLC cabinets, we stock and source the components your
-            maintenance teams need to minimize downtime.
+            {t(
+              "We provide genuine printer and photocopier parts—from inks and drums to rollers and mechanical components—with professional fitting and support.",
+            )}
           </p>
         </div>
       </section>
@@ -117,7 +118,7 @@ function PartsPage() {
 
       <CTASection
         title="Need a part that isn't listed?"
-        description="Our sourcing team can locate OEM and aftermarket components for nearly any industrial machine. Send us the reference."
+        description="Send us your printer or photocopier model and part reference. Our technical team will help identify and source the correct genuine component."
       />
     </>
   );

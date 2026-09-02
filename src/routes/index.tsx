@@ -8,12 +8,10 @@ import {
   Gauge,
   Headphones,
   PackageCheck,
-  Quote,
   RefreshCw,
   Settings,
   ShieldCheck,
   Sparkles,
-  Star,
   Truck,
   Wrench,
   Zap,
@@ -26,6 +24,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { images } from "@/constants/images";
 import { site } from "@/constants";
 import { useLanguage } from "@/lib/language";
+import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -446,44 +445,7 @@ function HomePage() {
             title="Their trust is the measure of our work."
             text="Real feedback from teams that rely on Modern Egypt for equipment and technical support."
           />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {[
-              [
-                "Ahmed Fawzy",
-                "Purchasing Manager — Al Raya Contracting",
-                "We purchased printers and copiers for the company. The equipment was original, delivery was on time and the technical support made a real difference.",
-              ],
-              [
-                "Sara Khaled",
-                "Administration Manager — Origin Group",
-                "Installation was quick and the service team was very cooperative. The improvement in our daily document workflow was immediately noticeable.",
-              ],
-              [
-                "Yasmin Abdelaziz",
-                "IT Manager — Elite Educational Academy",
-                "Their preventive follow-up stopped many issues before they interrupted work. Strong equipment and a professional, honest support team.",
-              ],
-            ].map(([name, role, review]) => (
-              <figure
-                key={name}
-                className="flex h-full flex-col rounded-xl border border-border bg-white p-7"
-              >
-                <div className="flex gap-1 text-[#f4b740]" aria-label="5 out of 5 stars">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <Quote className="mt-7 h-8 w-8 text-accent/25" />
-                <blockquote className="mt-3 flex-1 leading-7 text-foreground/80">
-                  “{review}”
-                </blockquote>
-                <figcaption className="mt-6 border-t border-border pt-5">
-                  <strong className="block text-primary">{name}</strong>
-                  <span className="mt-1 block text-xs leading-5 text-muted-foreground">{role}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 

@@ -36,8 +36,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: "Manrope", "Noto Sans Arabic", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Manrope", "Noto Sans Arabic", sans-serif;
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cairo", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -119,7 +119,7 @@
   }
 
   [dir="rtl"] body {
-    font-family: "Noto Sans Arabic", "Manrope", sans-serif;
+    font-family: "Cairo", ui-sans-serif, system-ui, sans-serif;
   }
 
   [dir="rtl"] h1,

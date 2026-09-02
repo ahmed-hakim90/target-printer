@@ -1,7 +1,7 @@
 # Design QA — Target Printers
 
 - Source visual truth: `/var/folders/3m/vwzv8hc14j3gdlkm8wtvscg80000gn/T/codex-clipboard-f0a8ca23-ca07-47cb-af3b-fcd45b8fccb7.png`
-- Implementation screenshot: `/Users/hakimo/Developer/ois-industrial-hub/qa-desktop.png`
+- Implementation screenshot: `/Users/hakimo/Developer/ois-industrial-hub/qa-reviews-focused.png`
 - Combined comparison: `/Users/hakimo/Developer/ois-industrial-hub/design-comparison.png`
 - Source pixels: 760 × 1600. Implementation pixels: 1759 × 5034; browser CSS viewport 1440 × 900 with browser density normalization. Comparison normalized to 1600px height.
 - State: public home page, default viewport state.
@@ -12,7 +12,7 @@ The implementation preserves the reference's Target-blue identity, split hero, p
 
 ## Focused surface review
 
-- Typography: Manrope provides a crisp industrial/product hierarchy; Noto Sans Arabic supports the bilingual tagline without fallback drift.
+- Typography: Cairo is loaded across Arabic and English at weights 400–800, producing a consistent bilingual hierarchy without fallback drift.
 - Layout rhythm: sections use one container and consistent 16/20/24/40/64 spacing; hero and grids reflow cleanly to one column.
 - Colors: Target navy, electric blue, white and cool grey map to the supplied direction with accessible foreground contrast.
 - Image quality: all visible brand and product assets are real company-source files; no generated or placeholder imagery is present.
@@ -34,10 +34,11 @@ The implementation preserves the reference's Target-blue identity, split hero, p
 - Product-detail correction: the nested route was flattened so product URLs now render their own page rather than the catalog parent. All 27 source product records are present, and the TA-604Pro page was verified with its source image, 21 specification rows, quote flow, brochure request, and related products.
 - Home-content completion: added source-aligned statistics, six service offerings, five Modern Egypt differentiators, interactive vision/values/mission tabs, three customer reviews, innovation updates with validation states, and the Target partner callout. Desktop and 390px mobile renders were checked with no horizontal overflow or console errors.
 - Site-system completion: added persisted English/Arabic switching, RTL direction, Arabic typography, localized navigation/core catalog/contact/about/service content, global section reveal motion, reduced-motion fallback, and shared route skeleton states. Arabic home, catalog and contact routes were browser-tested at 390px with 14 animated home sections and no console errors.
+- September refinement: confirmed the source company explicitly supplies genuine printer and photocopier spare parts, then removed unrelated industrial-parts wording. Switched the full site to Cairo and converted all three available reviews into a looping drag-enabled carousel with previous/next controls, pause-on-interaction, automatic resume and reduced-motion handling.
+- Post-fix evidence: at 1600px the carousel transform advanced automatically after 3.2 seconds and manual controls remained accessible; at 390px Arabic mode reported `dir=rtl`, Cairo as the computed body font, localized review labels and zero horizontal overflow. The spare-parts route contained printer/copier-specific copy and no legacy bearings or PLC-cabinet copy.
 
 ## Follow-up polish
 
-- P3: add a real Arabic-language content switch once translated page copy is approved.
 - P3: replace the generic Facebook destination when the company's official page URL is supplied.
 
 final result: passed

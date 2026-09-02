@@ -74,6 +74,21 @@ const ar: Record<string, string> = {
   "Keeping every customer productive.": "نحافظ على إنتاجية كل عميل.",
   "Customer reviews": "آراء العملاء",
   "Their trust is the measure of our work.": "ثقة عملائنا هي مقياس نجاحنا.",
+  "Real feedback from teams that rely on Modern Egypt for equipment and technical support.":
+    "آراء فرق تعتمد على مصر الحديثة في المعدات والدعم الفني.",
+  carousel: "عارض متحرك",
+  "5 out of 5 stars": "5 من 5 نجوم",
+  "Previous review": "الرأي السابق",
+  "Next review": "الرأي التالي",
+  "Purchasing Manager — Al Raya Contracting": "مدير المشتريات — شركة الراية للمقاولات",
+  "Administration Manager — Origin Group": "مديرة الإدارة — مجموعة أوريجين",
+  "IT Manager — Elite Educational Academy": "مديرة تكنولوجيا المعلومات — أكاديمية النخبة التعليمية",
+  "We purchased printers and copiers for the company. The equipment was original, delivery was on time and the technical support made a real difference.":
+    "اشترينا طابعات وماكينات تصوير للشركة. الأجهزة أصلية، والتسليم كان في الموعد، والدعم الفني صنع فرقًا حقيقيًا.",
+  "Installation was quick and the service team was very cooperative. The improvement in our daily document workflow was immediately noticeable.":
+    "تم التركيب بسرعة وكان فريق الخدمة متعاونًا جدًا. لاحظنا فورًا تحسن سير عمل المستندات اليومي.",
+  "Their preventive follow-up stopped many issues before they interrupted work. Strong equipment and a professional, honest support team.":
+    "المتابعة الوقائية منعت مشكلات كثيرة قبل أن توقف العمل. أجهزة قوية وفريق دعم محترف وأمين.",
   "Innovation updates": "آخر المستجدات",
   "Product launches, printing insights and practical ideas.":
     "إطلاقات المنتجات ونصائح الطباعة والأفكار العملية.",
@@ -152,6 +167,8 @@ const ar: Record<string, string> = {
   "Auxiliary Parts": "قطع الغيار والمستلزمات",
   "Spare parts that keep your machines running.": "قطع غيار تحافظ على استمرار تشغيل معداتك.",
   "Auxiliary components and spare parts.": "مكونات وقطع غيار أصلية.",
+  "We provide genuine printer and photocopier parts—from inks and drums to rollers and mechanical components—with professional fitting and support.":
+    "نوفر قطع غيار أصلية للطابعات وماكينات التصوير، من الأحبار والدرامات إلى الرولات والمكونات الميكانيكية، مع تركيب ودعم احترافي.",
 };
 
 type LanguageContextValue = {
