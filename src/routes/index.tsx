@@ -2,14 +2,24 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BadgeCheck,
+  Boxes,
+  CircleDollarSign,
+  Factory,
+  Gauge,
   Headphones,
+  PackageCheck,
+  Quote,
+  RefreshCw,
   Settings,
   ShieldCheck,
   Sparkles,
+  Star,
+  Truck,
   Wrench,
   Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { QuoteButton } from "@/components/site/CTAButtons";
 import { CTASection } from "@/components/site/CTASection";
@@ -52,6 +62,25 @@ const products = [
 ] as const;
 
 function HomePage() {
+  const [principle, setPrinciple] = useState<"vision" | "values" | "mission">("vision");
+  const [newsletterState, setNewsletterState] = useState<"idle" | "error" | "success">("idle");
+  const principles = {
+    vision: {
+      label: "Our vision",
+      title: "Leading the future through innovation and precision.",
+      body: "To be the trusted partner for every organization seeking quality, speed and proven expertise in printing and office imaging.",
+    },
+    values: {
+      label: "Our values",
+      title: "Quality, honesty and lasting responsibility.",
+      body: "We measure success by dependable equipment, transparent advice and relationships that continue long after installation.",
+    },
+    mission: {
+      label: "Our mission",
+      title: "Keeping every customer productive.",
+      body: "We deliver efficient printing and document systems with responsive technical service, genuine parts and practical operator support.",
+    },
+  } as const;
   return (
     <>
       <section className="relative overflow-hidden bg-[#eef5ff]">
@@ -194,6 +223,84 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="border-y border-border bg-white py-14">
+        <div className="container-x grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
+          {[
+            ["48+", "Happy customers"],
+            ["27+", "Products delivered"],
+            ["48+", "Service points"],
+            ["20+", "Years of experience"],
+          ].map(([value, label]) => (
+            <div key={label}>
+              <strong className="block text-4xl font-extrabold text-primary md:text-5xl">
+                {value}
+              </strong>
+              <span className="mt-2 block text-sm font-semibold text-muted-foreground">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container-x">
+          <Header
+            kicker="What we offer"
+            title="Everything your print operation needs."
+            text="Supply, installation and long-term support under one accountable local team."
+          />
+          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+            {[
+              [
+                Truck,
+                "Equipment supply",
+                "Office printers, production systems and finishing equipment selected around your application.",
+              ],
+              [
+                Factory,
+                "Direct importing",
+                "Access to current international technologies and configurations for different production scales.",
+              ],
+              [
+                Wrench,
+                "Technical service",
+                "Fast diagnostics, repairs and planned maintenance that protect uptime.",
+              ],
+              [
+                Boxes,
+                "Genuine spare parts",
+                "Original inks, heads, rollers, boards and service kits for supported models.",
+              ],
+              [
+                RefreshCw,
+                "Annual contracts",
+                "Preventive visits and practical service plans for companies and institutions.",
+              ],
+              [
+                Gauge,
+                "Technical consultation",
+                "Clear advice on workflow, capacity and running cost before you invest.",
+              ],
+            ].map(([Icon, title, desc]) => (
+              <article key={title as string} className="bg-white p-7 md:p-8">
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent/10 text-accent">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-lg font-extrabold text-primary">{title as string}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{desc as string}</p>
+                <Link
+                  to="/services"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent"
+                >
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-surface py-20 text-white">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -219,6 +326,42 @@ function HomePage() {
             alt="Modern Egypt and Target Printers"
             className="w-full rounded-2xl bg-white/5 object-cover"
           />
+        </div>
+      </section>
+
+      <section className="bg-secondary py-20 md:py-28">
+        <div className="container-x">
+          <Header
+            kicker="Why Modern Egypt"
+            title="A printing partner built around your uptime."
+            text="Technology matters. The support system around it matters more."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              [Settings, "Advanced technology", "Modern systems tested for stable production."],
+              [
+                CircleDollarSign,
+                "Cost effective",
+                "Lower total operating cost and better efficiency.",
+              ],
+              [ShieldCheck, "Quality assurance", "Rigorous testing and dependable specifications."],
+              [Headphones, "Local support", "A technical team available when you need it."],
+              [
+                PackageCheck,
+                "Genuine supply",
+                "Original parts and consumables for consistent output.",
+              ],
+            ].map(([Icon, title, desc]) => (
+              <article
+                key={title as string}
+                className="rounded-xl border border-border bg-white p-6"
+              >
+                <Icon className="h-6 w-6 text-accent" />
+                <h3 className="mt-5 font-extrabold text-primary">{title as string}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{desc as string}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -252,6 +395,171 @@ function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#eef5ff] py-20 md:py-28">
+        <div className="container-x grid items-start gap-12 lg:grid-cols-[.8fr_1.2fr]">
+          <Header
+            kicker="Our foundation"
+            title="A clear purpose behind every solution."
+            text="The principles that guide how Modern Egypt selects equipment, serves customers and grows the Target brand."
+          />
+          <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm md:p-8">
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Company principles">
+              {(Object.keys(principles) as Array<keyof typeof principles>).map((key) => (
+                <button
+                  key={key}
+                  role="tab"
+                  aria-selected={principle === key}
+                  onClick={() => setPrinciple(key)}
+                  className={`rounded-md px-4 py-2 text-sm font-bold transition ${principle === key ? "bg-primary text-white" : "bg-secondary text-muted-foreground hover:text-primary"}`}
+                >
+                  {principles[key].label}
+                </button>
+              ))}
+            </div>
+            <motion.div
+              key={principle}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-8"
+              role="tabpanel"
+            >
+              <h3 className="max-w-2xl text-2xl font-extrabold text-primary md:text-3xl">
+                {principles[principle].title}
+              </h3>
+              <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
+                {principles[principle].body}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container-x">
+          <Header
+            kicker="Customer reviews"
+            title="Their trust is the measure of our work."
+            text="Real feedback from teams that rely on Modern Egypt for equipment and technical support."
+          />
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {[
+              [
+                "Ahmed Fawzy",
+                "Purchasing Manager — Al Raya Contracting",
+                "We purchased printers and copiers for the company. The equipment was original, delivery was on time and the technical support made a real difference.",
+              ],
+              [
+                "Sara Khaled",
+                "Administration Manager — Origin Group",
+                "Installation was quick and the service team was very cooperative. The improvement in our daily document workflow was immediately noticeable.",
+              ],
+              [
+                "Yasmin Abdelaziz",
+                "IT Manager — Elite Educational Academy",
+                "Their preventive follow-up stopped many issues before they interrupted work. Strong equipment and a professional, honest support team.",
+              ],
+            ].map(([name, role, review]) => (
+              <figure
+                key={name}
+                className="flex h-full flex-col rounded-xl border border-border bg-white p-7"
+              >
+                <div className="flex gap-1 text-[#f4b740]" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <Quote className="mt-7 h-8 w-8 text-accent/25" />
+                <blockquote className="mt-3 flex-1 leading-7 text-foreground/80">
+                  “{review}”
+                </blockquote>
+                <figcaption className="mt-6 border-t border-border pt-5">
+                  <strong className="block text-primary">{name}</strong>
+                  <span className="mt-1 block text-xs leading-5 text-muted-foreground">{role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-secondary py-14">
+        <div className="container-x grid items-center gap-8 lg:grid-cols-[1fr_.9fr]">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[.18em] text-accent">
+              Innovation updates
+            </p>
+            <h2 className="mt-3 text-2xl font-extrabold text-primary md:text-3xl">
+              Product launches, printing insights and practical ideas.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Receive occasional updates from the Modern Egypt team—no daily noise.
+            </p>
+          </div>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              const email =
+                new FormData(event.currentTarget).get("newsletter-email")?.toString().trim() ?? "";
+              setNewsletterState(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "success" : "error");
+            }}
+            noValidate
+            className="rounded-xl border border-border bg-white p-3"
+          >
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <label htmlFor="newsletter-email" className="sr-only">
+                Business email
+              </label>
+              <input
+                id="newsletter-email"
+                name="newsletter-email"
+                type="email"
+                placeholder="Business email"
+                aria-invalid={newsletterState === "error"}
+                className="h-12 min-w-0 flex-1 rounded-md border border-border px-4 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+              />
+              <button
+                type="submit"
+                className="h-12 rounded-md bg-primary px-6 text-sm font-bold text-white hover:bg-primary/90"
+              >
+                Get updates
+              </button>
+            </div>
+            {newsletterState === "error" && (
+              <p role="alert" className="px-1 pt-2 text-xs font-semibold text-red-600">
+                Enter a valid email address.
+              </p>
+            )}
+            {newsletterState === "success" && (
+              <p role="status" className="px-1 pt-2 text-xs font-semibold text-emerald-700">
+                Thank you. Your email is ready to be added when the mailing integration is
+                connected.
+              </p>
+            )}
+          </form>
+        </div>
+      </section>
+
+      <section className="bg-primary py-12 text-white">
+        <div className="container-x grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-blue-300">
+              Become a Target partner
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold">Grow with our distribution network.</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">
+              Competitive pricing, marketing support, product training and reliable after-sales
+              service.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-6 font-bold text-primary"
+          >
+            Apply now <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
       <CTASection
