@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MachineCard } from "@/components/site/MachineCard";
 import { QuoteButton, WhatsAppButton, EmailButton } from "@/components/site/CTAButtons";
@@ -9,6 +9,7 @@ import { findMachine, relatedMachines, site, type Machine } from "@/constants";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
 import { SmartImage } from "@/components/site/SmartImage";
+import { catalogHighlightsFor } from "@/constants/catalog";
 
 export const Route = createFileRoute("/machines_/$slug")({
   loader: ({ params }): { machine: Machine } => {
@@ -57,6 +58,7 @@ function MachineDetailPage() {
   const { machine } = Route.useLoaderData() as { machine: Machine };
   const [active, setActive] = useState(0);
   const related = relatedMachines(machine);
+  const catalogHighlights = catalogHighlightsFor(machine.name, language);
 
   return (
     <>
@@ -120,6 +122,21 @@ function MachineDetailPage() {
           </div>
 
           <div>
+            {catalogHighlights.length > 0 && (
+              <div className="mb-7 rounded-xl border border-accent/20 bg-blue-50 p-5">
+                <h2 className="font-display text-lg font-bold text-primary">
+                  {language === "ar" ? "أبرز المزايا في الكتالوج" : "Catalog highlights"}
+                </h2>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {catalogHighlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-2 text-sm text-primary/75">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <h2 className="font-display text-2xl font-semibold text-foreground">
               {t("Specifications")}
             </h2>

@@ -9,6 +9,7 @@ import { partCategoryLabels, parts_list, site } from "@/constants";
 import { cn } from "@/lib/utils";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
+import { catalogConsumables } from "@/constants/catalog";
 
 export const Route = createFileRoute("/parts")({
   head: () => ({
@@ -36,7 +37,7 @@ export const Route = createFileRoute("/parts")({
 });
 
 function PartsPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [active, setActive] = useState<(typeof partCategoryLabels)[number]>("All");
 
   const filtered = active === "All" ? parts_list : parts_list.filter((p) => p.category === active);
@@ -114,6 +115,48 @@ function PartsPage() {
               No parts in this category yet. Contact us for a custom inquiry.
             </p>
           )}
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-secondary py-16 md:py-24">
+        <div className="container-x">
+          <SectionHeader
+            eyebrow={language === "ar" ? "من الكتالوج" : "From the catalog"}
+            title={
+              language === "ar"
+                ? "مستلزمات مكملة لمنظومة الطباعة."
+                : "Consumables that complete the printing system."
+            }
+            description={
+              language === "ar"
+                ? "الأحبار والخامات المذكورة في كتالوج مصر الحديثة، ويتم تأكيد التوافق طبقًا لنوع الماكينة والتطبيق."
+                : "Inks and media listed in the Modern Egypt catalog, with compatibility confirmed for the machine and application."
+            }
+          />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {catalogConsumables.map((group) => {
+              const items = language === "ar" ? group.itemsAr : group.items;
+              return (
+                <article
+                  key={group.series}
+                  className="interactive-card rounded-xl border border-border bg-white p-6"
+                  tabIndex={0}
+                >
+                  <h3 className="text-lg font-extrabold text-primary">
+                    {language === "ar" ? group.seriesAr : group.series}
+                  </h3>
+                  <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                    {items.map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 

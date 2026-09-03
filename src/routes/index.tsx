@@ -26,6 +26,7 @@ import { site } from "@/constants";
 import { useLanguage } from "@/lib/language";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { ProductsCarousel } from "@/components/site/ProductsCarousel";
+import { ComingSoonSection } from "@/components/site/ComingSoonSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -422,6 +423,8 @@ function HomePage() {
           <TestimonialsCarousel />
         </div>
       </section>
+
+      <ComingSoonSection />
 
       <section className="border-y border-border bg-secondary py-14">
         <div className="container-x grid items-center gap-8 lg:grid-cols-[1fr_.9fr]">
