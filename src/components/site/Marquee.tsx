@@ -10,7 +10,7 @@ export function Marquee({
   duration = 32,
   className,
   itemClassName,
-  gapClassName = "me-5",
+  gapClassName = "gap-5",
 }: {
   children: ReactNode[];
   duration?: number;
@@ -93,11 +93,14 @@ export function Marquee({
       role="region"
       aria-label={language === "ar" ? "محتوى متحرك أفقيًا" : "Horizontally scrolling content"}
     >
-      <div className="flex touch-pan-y">
-        {[...children, ...children].map((child, i) => (
+      <div className={cn("flex touch-pan-y", gapClassName)}>
+        {Array.from(
+          { length: Math.max(children.length, 8) },
+          (_, i) => children[i % children.length],
+        ).map((child, i) => (
           <div
             key={i}
-            className={cn("min-w-0 shrink-0", gapClassName, itemClassName)}
+            className={cn("min-w-0 shrink-0", itemClassName)}
             aria-hidden={i >= children.length || undefined}
             inert={i >= children.length || undefined}
           >

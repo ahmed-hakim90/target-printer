@@ -1,44 +1,38 @@
 import { useReducedMotion } from "framer-motion";
+import type { CSSProperties } from "react";
 
-const TWINKLE_DOTS = [
-  { top: "8%", left: "12%", size: 5, delay: 0 },
-  { top: "18%", left: "82%", size: 4, delay: 0.3 },
-  { top: "27%", left: "34%", size: 3, delay: 0.6 },
-  { top: "14%", left: "62%", size: 4, delay: 0.9 },
-  { top: "38%", left: "8%", size: 3, delay: 1.2 },
-  { top: "44%", left: "92%", size: 5, delay: 1.5 },
-  { top: "52%", left: "46%", size: 3, delay: 1.8 },
-  { top: "61%", left: "20%", size: 4, delay: 2.1 },
-  { top: "58%", left: "74%", size: 3, delay: 2.4 },
-  { top: "72%", left: "58%", size: 4, delay: 2.7 },
-  { top: "78%", left: "14%", size: 3, delay: 3.0 },
-  { top: "83%", left: "88%", size: 5, delay: 3.3 },
-  { top: "91%", left: "40%", size: 3, delay: 3.6 },
-  { top: "5%", left: "45%", size: 3, delay: 3.9 },
-  { top: "35%", left: "70%", size: 4, delay: 4.2 },
-  { top: "67%", left: "38%", size: 3, delay: 4.5 },
-  { top: "95%", left: "68%", size: 4, delay: 4.8 },
-  { top: "22%", left: "5%", size: 3, delay: 5.1 },
-] as const;
+const DOTS = Array.from({ length: 28 }, (_, index) => ({
+  top: `${(index * 37 + 11) % 96}%`,
+  left: `${(index * 61 + 7) % 97}%`,
+  size: 2 + (index % 4),
+  delay: -((index * 1.7) % 16),
+  duration: 13 + (index % 7) * 2.5,
+  driftX: `${index % 2 ? "-" : ""}${18 + (index % 5) * 8}px`,
+  driftY: `${index % 3 ? "-" : ""}${14 + (index % 6) * 7}px`,
+}));
 
 export function AmbientDots() {
   const reduce = useReducedMotion();
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <div className="ambient-dot-grid absolute inset-0 opacity-[0.35]" />
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[11] overflow-hidden">
       {!reduce &&
-        TWINKLE_DOTS.map((dot, i) => (
+        DOTS.map((dot, i) => (
           <span
             key={i}
-            className="ambient-twinkle absolute rounded-full bg-accent"
-            style={{
-              top: dot.top,
-              left: dot.left,
-              width: dot.size,
-              height: dot.size,
-              animationDelay: `${dot.delay}s`,
-            }}
+            className="ambient-random-dot absolute rounded-full bg-accent"
+            style={
+              {
+                top: dot.top,
+                left: dot.left,
+                width: dot.size,
+                height: dot.size,
+                animationDelay: `${dot.delay}s`,
+                animationDuration: `${dot.duration}s`,
+                "--dot-x": dot.driftX,
+                "--dot-y": dot.driftY,
+              } as CSSProperties
+            }
           />
         ))}
     </div>

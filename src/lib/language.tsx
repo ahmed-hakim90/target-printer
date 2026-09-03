@@ -35,6 +35,13 @@ const ar: Record<string, string> = {
   "The right printing solution for every business.": "حل الطباعة المناسب لكل نشاط.",
   "Featured products": "منتجات مختارة",
   "Built to perform, supported to last.": "أداء قوي ودعم يدوم.",
+  "Products by category": "المنتجات حسب الفئة",
+  "Explore products around your application.": "استكشف المنتجات حسب احتياج عملك.",
+  "Choose a printing category, compare the available models and request the right configuration for your workflow.":
+    "اختر فئة الطباعة، وقارن الموديلات المتاحة، واطلب التجهيز الأنسب لسير عملك.",
+  "Product categories": "فئات المنتجات",
+  "Products in selected category": "منتجات الفئة المحددة",
+  "Specifications available on request.": "المواصفات متاحة عند الطلب.",
   "Happy customers": "عميل سعيد",
   "Products delivered": "منتج تم توريده",
   "Service points": "نقطة خدمة",

@@ -18,7 +18,7 @@ export const site = {
   email: "info@modernegypt.com.eg",
   phoneDisplay: "0150 008 8874",
   whatsappNumber: "201500088875",
-  facebook: "https://facebook.com/",
+  facebook: "",
   address: "Plot 20, First Central Industrial Zone, District 27, 15 May City, Cairo, Egypt",
   previewMode: false,
   nav: fullNav,

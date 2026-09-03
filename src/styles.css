@@ -240,16 +240,6 @@
     background-size: 56px 56px;
   }
 
-  .ambient-dot-grid {
-    background-image: radial-gradient(
-      circle,
-      color-mix(in oklab, var(--color-accent) 55%, transparent) 1px,
-      transparent 1px
-    );
-    background-size: 34px 34px;
-    animation: ambient-dot-drift 90s linear infinite;
-  }
-
   .ambient-blob {
     animation: ambient-blob-float 22s ease-in-out infinite;
   }
@@ -260,6 +250,18 @@
 
   .ambient-twinkle {
     animation: ambient-twinkle 6s ease-in-out infinite;
+  }
+
+  .ambient-random-dot {
+    opacity: 0.18;
+    box-shadow: 0 0 10px color-mix(in oklab, var(--color-accent) 45%, transparent);
+    animation: ambient-random-float ease-in-out infinite alternate;
+  }
+
+  @media (max-width: 639px) {
+    .ambient-random-dot:nth-child(2n) {
+      display: none;
+    }
   }
 
   .float-slow {
@@ -281,12 +283,17 @@
   }
 }
 
-@keyframes ambient-dot-drift {
-  from {
-    background-position: 0 0;
+@keyframes ambient-random-float {
+  0% {
+    opacity: 0.1;
+    transform: translate3d(0, 0, 0) scale(0.8);
   }
-  to {
-    background-position: 340px 340px;
+  55% {
+    opacity: 0.32;
+  }
+  100% {
+    opacity: 0.16;
+    transform: translate3d(var(--dot-x), var(--dot-y), 0) scale(1.15);
   }
 }
 
@@ -323,7 +330,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ambient-dot-grid,
+  .ambient-random-dot,
   .ambient-blob,
   .ambient-twinkle,
   .float-slow {

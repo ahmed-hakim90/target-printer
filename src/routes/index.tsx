@@ -28,6 +28,7 @@ import { useLanguage } from "@/lib/language";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { ProductsCarousel } from "@/components/site/ProductsCarousel";
 import { ComingSoonSection } from "@/components/site/ComingSoonSection";
+import { CategoryProductShowcase } from "@/components/site/CategoryProductShowcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -153,6 +154,8 @@ function HomePage() {
           ))}
         </StaggerGroup>
       </section>
+
+      <CategoryProductShowcase />
 
       <section className="bg-background/95 py-20 md:py-28">
         <div className="container-x">
