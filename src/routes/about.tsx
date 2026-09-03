@@ -5,6 +5,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { about } from "@/constants/about";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
+import { site } from "@/constants";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -15,9 +16,9 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: about.meta.description },
       { property: "og:title", content: `About ${about.name}` },
       { property: "og:description", content: about.meta.ogDescription },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: `${site.url}/about` },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: `${site.url}/about` }],
   }),
   pendingComponent: RouteLoading,
   component: previewGate(AboutPage),

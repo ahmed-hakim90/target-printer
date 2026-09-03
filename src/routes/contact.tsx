@@ -44,9 +44,9 @@ export const Route = createFileRoute("/contact")({
         content:
           "Request a quotation, ask a technical question, or book a meeting with our engineering team.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: `${site.url}/contact` },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: `${site.url}/contact` }],
   }),
   pendingComponent: RouteLoading,
   component: previewGate(ContactPage),

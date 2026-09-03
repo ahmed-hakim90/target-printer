@@ -7,14 +7,16 @@ import { CTASection } from "@/components/site/CTASection";
 import { services } from "@/constants/services";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
+import { site } from "@/constants";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: `Printing Solutions — ${services.name}` },
       { name: "description", content: services.meta.description },
+      { property: "og:url", content: `${site.url}/services` },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: `${site.url}/services` }],
   }),
   pendingComponent: RouteLoading,
   component: previewGate(ServicesPage),

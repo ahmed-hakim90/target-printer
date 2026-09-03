@@ -27,9 +27,9 @@ export const Route = createFileRoute("/parts")({
         property: "og:description",
         content: "Genuine printer and photocopier parts with professional technical support.",
       },
-      { property: "og:url", content: "/parts" },
+      { property: "og:url", content: `${site.url}/parts` },
     ],
-    links: [{ rel: "canonical", href: "/parts" }],
+    links: [{ rel: "canonical", href: `${site.url}/parts` }],
   }),
   pendingComponent: RouteLoading,
   component: previewGate(PartsPage),
@@ -69,6 +69,7 @@ function PartsPage() {
               <button
                 key={c}
                 onClick={() => setActive(c)}
+                aria-pressed={active === c}
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                   active === c

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+
+Sitemap: https://target-printer.com/sitemap.xml
+Host: target-printer.com

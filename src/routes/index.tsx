@@ -32,7 +32,9 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: `${site.name} — ${site.tagline}` },
       { name: "description", content: site.description },
+      { property: "og:url", content: site.url },
     ],
+    links: [{ rel: "canonical", href: site.url }],
   }),
   pendingComponent: RouteLoading,
   component: HomePage,
@@ -120,6 +122,10 @@ function HomePage() {
             <img
               src={images.hero}
               alt="Target printing systems"
+              width={1500}
+              height={745}
+              fetchPriority="high"
+              decoding="async"
               className="absolute inset-0 h-full w-full rounded-[2rem] object-cover object-center shadow-2xl shadow-blue-950/15"
             />
             <div className="absolute bottom-5 left-5 rounded-xl bg-white/95 p-4 shadow-lg">

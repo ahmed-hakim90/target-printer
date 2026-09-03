@@ -39,6 +39,7 @@ The implementation preserves the reference's Target-blue identity, split hero, p
 - Catalog completion: the 27 source posts were normalized into 19 unique models, preserving supplemental gallery images and non-conflicting specifications. Legacy duplicate URLs resolve to their canonical model detail page.
 - Motion and loading completion: product and review rails loop automatically, support pointer/touch dragging and keyboard controls, pause during interaction, resume afterward and respect reduced motion. Product media now uses stable-ratio loading, error and skeleton states.
 - Brand-logo correction: the top bar now renders the official colored Modern Egypt logo at 44px mobile / 56px desktop height. It was visually checked on the live home route against the white header; no Target logo replaces it.
+- SEO/access/performance pass: generated and served a valid 25-URL sitemap (six core routes plus 19 canonical products) and robots policy; verified both return HTTP 200. Added absolute canonical/Open Graph URLs, Organization and Product structured data, crawler directives, a keyboard skip link and accessible pressed states. The hero payload dropped from about 1.0 MB to 223 KB, and production vendor chunking removed the client bundle-size warning.
 
 ## Follow-up polish
 

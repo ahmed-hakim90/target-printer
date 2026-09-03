@@ -25,9 +25,9 @@ export const Route = createFileRoute("/machines")({
         content:
           "Explore office, textile, UV DTF and large-format printing equipment with local technical support.",
       },
-      { property: "og:url", content: "/machines" },
+      { property: "og:url", content: `${site.url}/machines` },
     ],
-    links: [{ rel: "canonical", href: "/machines" }],
+    links: [{ rel: "canonical", href: `${site.url}/machines` }],
   }),
   pendingComponent: RouteLoading,
   component: previewGate(MachinesPage),
@@ -64,6 +64,7 @@ function MachinesPage() {
               <button
                 key={c}
                 onClick={() => setActive(c)}
+                aria-pressed={active === c}
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                   active === c

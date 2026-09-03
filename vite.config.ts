@@ -25,6 +25,21 @@ export default defineConfig(({ mode }) => {
       ],
     },
     server: { host: "::", port: 8080 },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes("node_modules")) return;
+            if (id.includes("framer-motion") || id.includes("motion-dom")) return "motion";
+            if (id.includes("lucide-react")) return "icons";
+            if (id.includes("embla-carousel")) return "carousel";
+            if (id.includes("@radix-ui")) return "radix";
+            if (id.includes("@tanstack")) return "tanstack";
+            if (id.includes("react") || id.includes("scheduler")) return "react";
+          },
+        },
+      },
+    },
     plugins: [
       cloudflare({ viteEnvironment: { name: "ssr" } }),
       tanstackStart({

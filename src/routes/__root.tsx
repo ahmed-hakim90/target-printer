@@ -78,11 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#06377c" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:title", content: `${site.name} — ${site.tagline}` },
       { name: "twitter:title", content: `${site.name} — ${site.tagline}` },
       { property: "og:description", content: site.description },
       { name: "twitter:description", content: site.description },
       { property: "og:image", content: `${site.url}${site.ogImagePath}` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:image", content: `${site.url}${site.ogImagePath}` },
     ],
     links: [
@@ -101,9 +104,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: site.name,
+          url: site.url,
+          logo: `${site.url}/og.jpg`,
           email: site.email,
+          telephone: site.phoneDisplay,
           address: site.address,
-          sameAs: [site.facebook],
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: site.phoneDisplay,
+            contactType: "sales and technical support",
+            availableLanguage: ["Arabic", "English"],
+          },
         }),
       },
     ],
@@ -122,6 +133,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="fixed start-4 top-3 z-[100] -translate-y-20 rounded-md bg-primary px-4 py-3 font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+        >
+          Skip to main content
+        </a>
         {children}
         <Scripts />
       </body>
@@ -137,7 +154,7 @@ function RootComponent() {
       <LanguageProvider>
         <div className="flex min-h-screen flex-col bg-background">
           <Navbar />
-          <main className="flex-1">
+          <main id="main-content" tabIndex={-1} className="flex-1">
             <AnimatedOutlet />
           </main>
           <Footer />
