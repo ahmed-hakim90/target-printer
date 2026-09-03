@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const siteUrl = (process.env.SITE_URL || "https://target-printer.com").replace(/\/$/, "");
 const products = JSON.parse(await readFile(new URL("../src/data/products.json", import.meta.url)));
+const partsSource = await readFile(new URL("../src/constants/parts.ts", import.meta.url), "utf8");
 const productKey = (name) =>
   name
     .toLowerCase()
@@ -18,6 +19,7 @@ const productPaths = [...groups.values()].map((group) => {
   const canonical = [...group].sort((a, b) => b.specs.length - a.specs.length)[0];
   return `/machines/${canonical.slug}`;
 });
+const partPaths = [...partsSource.matchAll(/slug: "([^"]+)"/g)].map(([, slug]) => `/parts/${slug}`);
 
 const pages = [
   { path: "/", priority: "1.0", frequency: "weekly" },
@@ -27,6 +29,7 @@ const pages = [
   { path: "/about", priority: "0.6", frequency: "monthly" },
   { path: "/contact", priority: "0.7", frequency: "monthly" },
   ...productPaths.map((path) => ({ path, priority: "0.8", frequency: "monthly" })),
+  ...partPaths.map((path) => ({ path, priority: "0.7", frequency: "monthly" })),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

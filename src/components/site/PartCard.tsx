@@ -2,9 +2,13 @@ import { QuoteButton, WhatsAppButton } from "./CTAButtons";
 import type { Part } from "@/constants";
 import { useLanguage } from "@/lib/language";
 import { SmartImage } from "./SmartImage";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 
 export function PartCard({ part }: { part: Part }) {
   const { language } = useLanguage();
+  const name = language === "ar" ? part.nameAr : part.name;
+  const summary = language === "ar" ? part.summaryAr : part.summary;
   return (
     <article
       className="interactive-card group flex flex-col overflow-hidden rounded-xl border border-border bg-card"
@@ -13,7 +17,7 @@ export function PartCard({ part }: { part: Part }) {
       <div className="relative aspect-[4/3] overflow-hidden bg-surface">
         <SmartImage
           src={part.image}
-          alt={part.name}
+          alt={name}
           loading="lazy"
           width={1280}
           height={960}
@@ -26,16 +30,22 @@ export function PartCard({ part }: { part: Part }) {
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div>
           <h3 className="font-display text-lg font-semibold leading-tight text-foreground">
-            {part.name}
+            <Link to="/parts/$slug" params={{ slug: part.slug }} className="hover:text-accent">
+              {name}
+            </Link>
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{part.summary}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{summary}</p>
         </div>
+        <Link
+          to="/parts/$slug"
+          params={{ slug: part.slug }}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-accent"
+        >
+          {language === "ar" ? "عرض التفاصيل" : "View details"}
+          <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+        </Link>
         <div className="mt-auto grid grid-cols-2 gap-2">
-          <QuoteButton
-            size="sm"
-            label={language === "ar" ? "استفسر" : "Inquire"}
-            product={part.name}
-          />
+          <QuoteButton size="sm" label={language === "ar" ? "استفسر" : "Inquire"} product={name} />
           <WhatsAppButton
             size="sm"
             label="WhatsApp"

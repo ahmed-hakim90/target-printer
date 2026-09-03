@@ -144,6 +144,9 @@ export const machines: Machine[] = Array.from(machineGroups.values()).map((group
   };
 });
 export const parts_list = partCatalog.map(resolvePart);
+export const findPart = (slug: string) => parts_list.find((part) => part.slug === slug);
+export const relatedParts = (part: Part, limit = 3) =>
+  parts_list.filter((candidate) => candidate.slug !== part.slug).slice(0, limit);
 
 export const categories = ["All", ...machineCategories.map((c) => c.label)] as const;
 

@@ -1,4 +1,4 @@
-import { useState, type ImgHTMLAttributes } from "react";
+import { useEffect, useRef, useState, type ImgHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 export function SmartImage({
@@ -8,6 +8,14 @@ export function SmartImage({
   ...props
 }: ImgHTMLAttributes<HTMLImageElement>) {
   const [state, setState] = useState<"loading" | "loaded" | "error">("loading");
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const image = imageRef.current;
+    if (!image?.complete) return;
+    setState(image.naturalWidth > 0 ? "loaded" : "error");
+  }, [props.src]);
+
   return (
     <span className="relative block h-full w-full overflow-hidden bg-muted">
       {state === "loading" && (
@@ -19,6 +27,7 @@ export function SmartImage({
         </span>
       )}
       <img
+        ref={imageRef}
         {...props}
         className={cn(
           className,

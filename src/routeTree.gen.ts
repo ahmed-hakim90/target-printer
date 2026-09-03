@@ -16,6 +16,7 @@ import { Route as MachinesRouteImport } from './routes/machines'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PartsSlugRouteImport } from './routes/parts_.$slug'
 import { Route as MachinesSlugRouteImport } from './routes/machines_.$slug'
 
 const ServicesRoute = ServicesRouteImport.update({
@@ -53,6 +54,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartsSlugRoute = PartsSlugRouteImport.update({
+  id: '/parts_/$slug',
+  path: '/parts/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MachinesSlugRoute = MachinesSlugRouteImport.update({
   id: '/machines_/$slug',
   path: '/machines/$slug',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/machines/$slug': typeof MachinesSlugRoute
+  '/parts/$slug': typeof PartsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/machines/$slug': typeof MachinesSlugRoute
+  '/parts/$slug': typeof PartsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/machines_/$slug': typeof MachinesSlugRoute
+  '/parts_/$slug': typeof PartsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/services'
     | '/machines/$slug'
+    | '/parts/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/services'
     | '/machines/$slug'
+    | '/parts/$slug'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/services'
     | '/machines_/$slug'
+    | '/parts_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
   MachinesSlugRoute: typeof MachinesSlugRoute
+  PartsSlugRoute: typeof PartsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/parts_/$slug': {
+      id: '/parts_/$slug'
+      path: '/parts/$slug'
+      fullPath: '/parts/$slug'
+      preLoaderRoute: typeof PartsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/machines_/$slug': {
       id: '/machines_/$slug'
       path: '/machines/$slug'
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
   MachinesSlugRoute: MachinesSlugRoute,
+  PartsSlugRoute: PartsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
