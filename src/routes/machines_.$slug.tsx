@@ -8,6 +8,7 @@ import { QuoteButton, WhatsAppButton, EmailButton } from "@/components/site/CTAB
 import { findMachine, relatedMachines, site, type Machine } from "@/constants";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
+import { SmartImage } from "@/components/site/SmartImage";
 
 export const Route = createFileRoute("/machines_/$slug")({
   loader: ({ params }): { machine: Machine } => {
@@ -85,7 +86,7 @@ function MachineDetailPage() {
         <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <div className="overflow-hidden rounded-xl border border-border bg-[#f5f8fc]">
-              <img
+              <SmartImage
                 src={machine.gallery[active]}
                 alt={machine.name}
                 width={1280}
@@ -104,7 +105,7 @@ function MachineDetailPage() {
                       (i === active ? "border-accent ring-2 ring-accent/40" : "border-border")
                     }
                   >
-                    <img
+                    <SmartImage
                       src={g}
                       alt={`${machine.name} ${i + 1}`}
                       loading="lazy"

@@ -30,11 +30,15 @@ export function Navbar() {
       )}
     >
       <div className="container-x flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center gap-2.5" aria-label={site.name}>
+        <Link
+          to="/"
+          className="flex shrink-0 items-center rounded-md px-1 py-1"
+          aria-label={language === "ar" ? "مصر الحديثة" : "Modern Egypt"}
+        >
           <img
             src={images.logo}
-            alt="Target Printers"
-            className="h-10 w-auto object-contain md:h-12"
+            alt={language === "ar" ? "شعار مصر الحديثة" : "Modern Egypt logo"}
+            className="h-11 w-auto object-contain md:h-14"
           />
         </Link>
 

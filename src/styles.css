@@ -144,6 +144,11 @@
     background-color: var(--color-accent);
     color: var(--color-accent-foreground);
   }
+
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--color-accent) 72%, white);
+    outline-offset: 3px;
+  }
 }
 
 .scroll-reveal {
@@ -168,6 +173,44 @@
 }
 
 @layer utilities {
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .interactive-card {
+    transition:
+      transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 240ms ease,
+      border-color 240ms ease;
+  }
+  .interactive-card:hover,
+  .interactive-card:focus-visible {
+    transform: translateY(-5px);
+    border-color: color-mix(in oklab, var(--color-accent) 45%, var(--color-border));
+    box-shadow: 0 18px 45px oklch(0.22 0.06 255 / 0.12);
+  }
+  .carousel-control {
+    display: grid;
+    height: 2.75rem;
+    width: 2.75rem;
+    place-items: center;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: white;
+    color: var(--color-primary);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+  .carousel-control:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+  }
   .container-x {
     width: 100%;
     margin-inline: auto;

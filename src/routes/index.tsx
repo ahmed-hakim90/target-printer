@@ -25,6 +25,7 @@ import { images } from "@/constants/images";
 import { site } from "@/constants";
 import { useLanguage } from "@/lib/language";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
+import { ProductsCarousel } from "@/components/site/ProductsCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,21 +45,6 @@ const categories = [
   ["Large format", "Indoor and outdoor print production", images.machineCategories.welding],
   ["Finishing", "Cutters and laminators", images.machineCategories.packaging],
   ["Consumables", "Original inks and spare parts", images.machineCategories.materialHandling],
-] as const;
-
-const products = [
-  [
-    "Plotter Cutter",
-    "Precision contour cutting for signage and apparel.",
-    images.machineCategories.cutting,
-  ],
-  [
-    "Laminator",
-    "Professional wide-format finishing and protection.",
-    images.machineCategories.packaging,
-  ],
-  ["KingJet KJ-1804", "Large-format indoor and outdoor printer.", images.machineCategories.welding],
-  ["Target TA-300UV", "A3/A2 UV DTF sticker printer for growing businesses.", images.uv],
 ] as const;
 
 function HomePage() {
@@ -85,7 +71,7 @@ function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-[#eef5ff]">
-        <div className="container-x grid min-h-[650px] items-center gap-10 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:py-20">
+        <div className="container-x grid min-h-[680px] items-center gap-10 py-16 lg:grid-cols-[.4fr_.6fr] lg:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -128,7 +114,7 @@ function HomePage() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.12 }}
-            className="relative min-h-[360px] lg:min-h-[520px]"
+            className="relative min-h-[390px] lg:min-h-[570px]"
           >
             <div className="absolute inset-0 rounded-[2rem] bg-white/70" />
             <img
@@ -175,8 +161,8 @@ function HomePage() {
                 className="group grid grid-cols-[1fr_120px] overflow-hidden rounded-xl border border-border bg-white p-5 transition hover:-translate-y-1 hover:border-accent hover:shadow-lg"
               >
                 <div>
-                  <h3 className="font-bold text-primary">{name}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{desc}</p>
+                  <h3 className="font-bold text-primary">{t(name)}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{t(desc)}</p>
                   <ArrowRight className="mt-5 h-4 w-4 text-accent transition-transform group-hover:translate-x-1" />
                 </div>
                 <img src={img} alt="" className="h-28 w-full object-contain" />
@@ -197,30 +183,7 @@ function HomePage() {
               View all products <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {products.map(([name, desc, img]) => (
-              <article key={name} className="group rounded-xl border border-border bg-white p-5">
-                <div className="grid aspect-[4/3] place-items-center rounded-lg bg-[#f5f8fc]">
-                  <img
-                    src={img}
-                    alt={name}
-                    className="h-full w-full object-contain p-3 transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <p className="mt-5 text-[11px] font-bold uppercase tracking-widest text-accent">
-                  Target professional series
-                </p>
-                <h3 className="mt-2 text-lg font-extrabold text-primary">{name}</h3>
-                <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">{desc}</p>
-                <QuoteButton
-                  product={name}
-                  variant="solid"
-                  className="mt-5 w-full"
-                  label="Request details"
-                />
-              </article>
-            ))}
-          </div>
+          <ProductsCarousel />
         </div>
       </section>
 
@@ -284,8 +247,12 @@ function HomePage() {
                 "Clear advice on workflow, capacity and running cost before you invest.",
               ],
             ].map(([Icon, title, desc]) => (
-              <article key={title as string} className="bg-white p-7 md:p-8">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent/10 text-accent">
+              <article
+                key={title as string}
+                className="interactive-card group bg-white p-7 md:p-8"
+                tabIndex={0}
+              >
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white group-focus:bg-accent group-focus:text-white">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 text-lg font-extrabold text-primary">{t(title as string)}</h3>
@@ -355,7 +322,8 @@ function HomePage() {
             ].map(([Icon, title, desc]) => (
               <article
                 key={title as string}
-                className="rounded-xl border border-border bg-white p-6"
+                className="interactive-card rounded-xl border border-border bg-white p-6"
+                tabIndex={0}
               >
                 <Icon className="h-6 w-6 text-accent" />
                 <h3 className="mt-5 font-extrabold text-primary">{t(title as string)}</h3>

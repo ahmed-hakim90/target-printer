@@ -8,7 +8,8 @@ export const machineCategories = [
     label: "UV DTF Printers",
     image: images.machineCategories.hydraulicPress,
   },
-  { id: "cutting", label: "DTF & Textile Printers", image: images.machineCategories.cutting },
+  { id: "cutting", label: "DTF Printers", image: images.machineCategories.cutting },
+  { id: "dtg", label: "DTG & Textile Printers", image: images.machineCategories.cutting },
   { id: "packaging", label: "Finishing Equipment", image: images.machineCategories.packaging },
   { id: "welding", label: "Production Printers", image: images.machineCategories.welding },
   {

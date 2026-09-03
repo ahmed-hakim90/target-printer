@@ -13,17 +13,17 @@ import { useLanguage } from "@/lib/language";
 export const Route = createFileRoute("/machines")({
   head: () => ({
     meta: [
-      { title: `Industrial Machines Catalog — ${site.name}` },
+      { title: `Printing Equipment Catalog — ${site.name}` },
       {
         name: "description",
         content:
-          "Browse the Target Printers catalog: CNC machining centers, hydraulic presses, fiber laser cutters, packaging lines, robotic welding cells, and material handling equipment.",
+          "Browse 19 unique Target printer models for offices, DTF, DTG, UV DTF, large-format production and finishing.",
       },
-      { property: "og:title", content: `Industrial Machines — ${site.name}` },
+      { property: "og:title", content: `Printing Equipment — ${site.name}` },
       {
         property: "og:description",
         content:
-          "Explore our full range of industrial machines, from CNC and cutting to packaging and handling.",
+          "Explore office, textile, UV DTF and large-format printing equipment with local technical support.",
       },
       { property: "og:url", content: "/machines" },
     ],
@@ -51,8 +51,8 @@ function MachinesPage() {
             {t("Production machines for every stage of the line.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            Each machine in our catalog is selected for industrial-grade durability and supported by
-            our in-house engineering team.
+            Every system is selected for dependable output and backed by installation, training,
+            genuine parts and local technical support.
           </p>
         </div>
       </section>

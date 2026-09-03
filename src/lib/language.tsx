@@ -104,6 +104,8 @@ const ar: Record<string, string> = {
   "Office Printers": "طابعات مكتبية",
   "UV DTF Printers": "طابعات UV DTF",
   "DTF & Textile Printers": "طابعات DTF والمنسوجات",
+  "DTF Printers": "طابعات DTF",
+  "DTG & Textile Printers": "طابعات DTG والمنسوجات",
   "Finishing Equipment": "معدات التشطيب",
   "Production Printers": "ماكينات الإنتاج",
   "Large Format & Eco Solvent": "طباعة عريضة وإيكو سولفنت",
@@ -169,6 +171,103 @@ const ar: Record<string, string> = {
   "Auxiliary components and spare parts.": "مكونات وقطع غيار أصلية.",
   "We provide genuine printer and photocopier parts—from inks and drums to rollers and mechanical components—with professional fitting and support.":
     "نوفر قطع غيار أصلية للطابعات وماكينات التصوير، من الأحبار والدرامات إلى الرولات والمكونات الميكانيكية، مع تركيب ودعم احترافي.",
+  "Office printers": "طابعات المكاتب",
+  "Fast, reliable document printing": "طباعة مستندات سريعة وموثوقة",
+  "DTF printers": "طابعات DTF",
+  "Direct-to-film production systems": "أنظمة إنتاج الطباعة المباشرة على الفيلم",
+  "UV DTF printers": "طابعات UV DTF",
+  "Premium transfers for hard surfaces": "نقل احترافي للأسطح الصلبة",
+  "Large format": "الطباعة العريضة",
+  "Indoor and outdoor print production": "إنتاج للطباعة الداخلية والخارجية",
+  Finishing: "التشطيب",
+  "Cutters and laminators": "معدات القص والتغليف الحراري",
+  Consumables: "المستلزمات",
+  "Original inks and spare parts": "أحبار وقطع غيار أصلية",
+  "Printing Solutions": "حلول الطباعة",
+  "Everything your business needs to": "كل ما يحتاجه نشاطك لكي",
+  "print without interruption.": "يطبع دون توقف.",
+  "One local team for equipment selection, direct supply, professional installation, operator training, maintenance and genuine parts.":
+    "فريق محلي واحد لاختيار المعدات والتوريد المباشر والتركيب الاحترافي وتدريب المشغلين والصيانة وقطع الغيار الأصلية.",
+  "Unique product models": "موديلًا فريدًا",
+  "Integrated services": "خدمات متكاملة",
+  "End-to-end support": "دعم متكامل",
+  "From the first consultation to every production day.": "من الاستشارة الأولى إلى كل يوم إنتاج.",
+  "We begin with your application, expected volume, media and working size—not a generic machine list. Then our team recommends the right configuration and stays responsible for installation, training and after-sales support.":
+    "نبدأ بتطبيقك وحجم الإنتاج والخامة ومقاس العمل، وليس بقائمة ماكينات عامة. بعدها نرشح التجهيز المناسب ونظل مسؤولين عن التركيب والتدريب وخدمة ما بعد البيع.",
+  "Needs assessment & consultation": "دراسة الاحتياج والاستشارة",
+  "Equipment supply & direct import": "توريد المعدات والاستيراد المباشر",
+  "Installation & commissioning": "التركيب والتشغيل",
+  "Operator training": "تدريب المشغلين",
+  "Maintenance & repairs": "الصيانة والإصلاح",
+  "Genuine parts & consumables": "قطع الغيار والمستلزمات الأصلية",
+  "Printing applications": "تطبيقات الطباعة",
+  "Solutions designed around what you produce.": "حلول مصممة حول ما تنتجه.",
+  "Labels & packaging": "الملصقات والتغليف",
+  "Garment logos & direct printing": "شعارات الملابس والطباعة المباشرة",
+  "Textile solutions": "حلول المنسوجات",
+  "Consumables & accessories": "المستلزمات والإكسسوارات",
+  "Signage & banners": "اللافتات والبنرات",
+  "Cups, bottles & cylinders": "الأكواب والزجاجات والأسطوانات",
+  "How we work": "كيف نعمل",
+  "A clear path to reliable production.": "مسار واضح نحو إنتاج موثوق.",
+  Understand: "نفهم",
+  Recommend: "نرشح",
+  Install: "نركب ونشغّل",
+  Support: "ندعم",
+  "Installation, training and local support": "تركيب وتدريب ودعم محلي",
+  "About Modern Egypt": "عن مصر الحديثة",
+  "Twenty years of printing expertise.": "عشرون عامًا من خبرة الطباعة.",
+  "One dependable local partner.": "وشريك محلي تعتمد عليه.",
+  "Our story": "قصتنا",
+  "Built to keep Egyptian businesses productive.": "نحافظ على إنتاجية الأعمال المصرية.",
+  "Modern Egypt established": "تأسيس مصر الحديثة",
+  Today: "اليوم",
+  "Modern technology": "تكنولوجيا حديثة",
+  "Quality & trust": "الجودة والثقة",
+  "Continuous support": "دعم مستمر",
+  "Competitive value": "قيمة تنافسية",
+  "Experience that continues after the sale.": "خبرة تستمر بعد البيع.",
+  "The standards behind every recommendation.": "معايير واضحة وراء كل ترشيح.",
+  "Previous product": "المنتج السابق",
+  "Next product": "المنتج التالي",
+  "A practical recommendation based on your application, volume, working size, budget and running cost.":
+    "ترشيح عملي مبني على تطبيقك وحجم الإنتاج ومقاس العمل والميزانية وتكلفة التشغيل.",
+  "Office, DTF, UV DTF and large-format systems sourced with the correct configuration and warranty.":
+    "أنظمة مكتبية وDTF وUV DTF وطباعة عريضة بالتجهيز الصحيح والضمان المناسب.",
+  "Professional setup, calibration and output testing before the machine enters production.":
+    "تركيب ومعايرة واختبار احترافي للمخرجات قبل دخول الماكينة مرحلة الإنتاج.",
+  "Hands-on guidance for daily operation, media handling, routine care and consistent output quality.":
+    "تدريب عملي على التشغيل اليومي والتعامل مع الخامات والعناية الدورية وثبات جودة الطباعة.",
+  "Scheduled and emergency service with accurate diagnostics to reduce downtime and protect equipment life.":
+    "صيانة دورية وطارئة وتشخيص دقيق لتقليل التوقف والحفاظ على العمر التشغيلي للمعدات.",
+  "Original inks, drums, rollers, heads, electrical components and maintenance kits for supported models.":
+    "أحبار ودرامات ورولات ورؤوس طباعة ومكونات كهربائية وأطقم صيانة أصلية للموديلات المدعومة.",
+  "High-quality customized labels and print solutions for accurate brand presentation.":
+    "ملصقات مخصصة وحلول طباعة عالية الجودة لعرض العلامة التجارية بدقة.",
+  "TPU logo and direct-to-garment production for professional results across multiple fabrics.":
+    "حلول شعارات TPU وطباعة مباشرة على الملابس بنتائج احترافية لمختلف الأقمشة.",
+  "Stable color, sharp detail and practical workflows for textile printing businesses.":
+    "ألوان ثابتة وتفاصيل واضحة وسير عمل عملي لمشروعات طباعة المنسوجات.",
+  "Approved inks, media and accessories selected for reliable day-to-day production.":
+    "أحبار وخامات وإكسسوارات معتمدة لضمان إنتاج يومي موثوق.",
+  "Indoor and outdoor wide-format solutions for banners, graphics and advertising applications.":
+    "حلول طباعة عريضة داخلية وخارجية للبنرات والجرافيك والتطبيقات الإعلانية.",
+  "UV DTF technology for detailed transfers and full-coverage cylindrical applications.":
+    "تقنية UV DTF لنقل التفاصيل وتغطية تطبيقات الأكواب والزجاجات والأسطح الأسطوانية.",
+  "We review what you print, your production volume and required quality.":
+    "نراجع ما تطبعه وحجم إنتاجك ومستوى الجودة المطلوب.",
+  "You receive a clear equipment configuration, quotation and support plan.":
+    "تحصل على تجهيز واضح للمعدات وعرض سعر وخطة دعم.",
+  "Our technicians install, calibrate, test and train your operators.":
+    "يركب الفنيون المعدات ويعايرونها ويختبرونها ويدربون المشغلين.",
+  "We remain available for preventive service, genuine parts and assistance.":
+    "نظل متاحين للصيانة الوقائية وقطع الغيار الأصلية والدعم الفني.",
+  "Support that continues after installation.": "دعم يستمر بعد التركيب.",
+  "Choose on-demand support or an annual maintenance agreement with preventive visits, service reporting and prioritized response.":
+    "اختر الدعم عند الطلب أو عقد صيانة سنويًا يتضمن زيارات وقائية وتقارير خدمة وأولوية استجابة.",
+  "Tell us what you need to print.": "أخبرنا بما تحتاج إلى طباعته.",
+  "Share your application, expected volume and working size. Our team will recommend the right equipment and service plan.":
+    "شاركنا التطبيق وحجم الإنتاج ومقاس العمل، وسيقترح فريقنا المعدات وخطة الخدمة المناسبة.",
 };
 
 type LanguageContextValue = {

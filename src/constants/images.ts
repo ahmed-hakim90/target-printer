@@ -8,7 +8,7 @@ import printerC from "@/assets/target/7a302621201a7238.png";
 import printerD from "@/assets/target/4af7ee40bcac44a2.png";
 import printerE from "@/assets/target/ad87b2eeac86bc2b.png";
 import printerF from "@/assets/target/da1b942c62eca055.png";
-import logo from "@/assets/target/88932cc48905dbd3.png";
+import logo from "@/assets/target/modern-egypt-logo.png";
 
 export const images = {
   hero,

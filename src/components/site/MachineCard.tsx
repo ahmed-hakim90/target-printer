@@ -3,17 +3,21 @@ import { InternalLink } from "./InternalLink";
 import { QuoteButton, WhatsAppButton } from "./CTAButtons";
 import type { Machine } from "@/constants";
 import { useLanguage } from "@/lib/language";
+import { SmartImage } from "./SmartImage";
 
 export function MachineCard({ machine }: { machine: Machine }) {
   const { t } = useLanguage();
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 hover:border-accent/40">
+    <article
+      className="interactive-card group flex flex-col overflow-hidden rounded-xl border border-border bg-card"
+      tabIndex={0}
+    >
       <InternalLink
         to="/machines/$slug"
         params={{ slug: machine.slug }}
         className="relative block aspect-[4/3] overflow-hidden bg-[#f5f8fc]"
       >
-        <img
+        <SmartImage
           src={machine.image}
           alt={machine.name}
           loading="lazy"

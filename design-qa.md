@@ -36,6 +36,9 @@ The implementation preserves the reference's Target-blue identity, split hero, p
 - Site-system completion: added persisted English/Arabic switching, RTL direction, Arabic typography, localized navigation/core catalog/contact/about/service content, global section reveal motion, reduced-motion fallback, and shared route skeleton states. Arabic home, catalog and contact routes were browser-tested at 390px with 14 animated home sections and no console errors.
 - September refinement: confirmed the source company explicitly supplies genuine printer and photocopier spare parts, then removed unrelated industrial-parts wording. Switched the full site to Cairo and converted all three available reviews into a looping drag-enabled carousel with previous/next controls, pause-on-interaction, automatic resume and reduced-motion handling.
 - Post-fix evidence: at 1600px the carousel transform advanced automatically after 3.2 seconds and manual controls remained accessible; at 390px Arabic mode reported `dir=rtl`, Cairo as the computed body font, localized review labels and zero horizontal overflow. The spare-parts route contained printer/copier-specific copy and no legacy bearings or PLC-cabinet copy.
+- Catalog completion: the 27 source posts were normalized into 19 unique models, preserving supplemental gallery images and non-conflicting specifications. Legacy duplicate URLs resolve to their canonical model detail page.
+- Motion and loading completion: product and review rails loop automatically, support pointer/touch dragging and keyboard controls, pause during interaction, resume afterward and respect reduced motion. Product media now uses stable-ratio loading, error and skeleton states.
+- Brand-logo correction: the top bar now renders the official colored Modern Egypt logo at 44px mobile / 56px desktop height. It was visually checked on the live home route against the white header; no Target logo replaces it.
 
 ## Follow-up polish
 

@@ -29,7 +29,7 @@ function AboutPage() {
   return (
     <>
       <section className="bg-surface text-surface-foreground">
-        <div className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:items-center">
+        <div className="container-x grid min-h-[620px] gap-12 py-20 md:py-28 lg:grid-cols-[.4fr_.6fr] lg:items-center">
           <div>
             <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
               <span className="h-px w-10 bg-accent" />
@@ -83,7 +83,7 @@ function AboutPage() {
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
             {content.milestones.map((m) => (
-              <div key={m.year} className="bg-background p-7">
+              <div key={m.year} className="interactive-card bg-background p-7" tabIndex={0}>
                 <div className="font-display text-3xl font-semibold text-accent">{m.year}</div>
                 <div className="mt-3 font-display text-lg font-semibold text-foreground">
                   {m.title}
@@ -103,8 +103,8 @@ function AboutPage() {
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {content.strengths.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-background p-7">
-                <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
+              <div key={title} className="interactive-card group bg-background p-7" tabIndex={0}>
+                <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white group-focus:bg-accent group-focus:text-white">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>

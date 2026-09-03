@@ -6,8 +6,10 @@
 - Brand direction: deep Target blue, white product canvases, Cairo typography across Arabic and English, restrained elevation, real company assets only.
 - Responsive rule: desktop uses product grids and a split hero; mobile reprioritizes to one column with persistent access to WhatsApp.
 - Scope decision: all existing routes are enabled; inquiry submission intentionally opens the user's email client while WhatsApp remains an immediate alternative.
-- Localization: English and Arabic share a persisted language context; Arabic switches the document to RTL and uses Noto Sans Arabic. Directional icons mirror logically.
+- Localization: English and Arabic share a persisted language context; Arabic switches the document to RTL and both languages use Cairo. Directional icons mirror logically.
 - Motion: every route section enters through one IntersectionObserver-based motion system, with reduced-motion support. Route-level skeletons cover navigation loading and product grids.
 - Social links: WhatsApp, email, telephone and the source site's confirmed YouTube video are active. Facebook, Instagram and LinkedIn icons remain visibly disabled until the company supplies official profile URLs; the legacy site exposes icons without destinations.
 - Spare-parts scope: retained because the source company explicitly supplies genuine printer and photocopier parts; copy is constrained to inks, drums, rollers, print heads, electrical parts and maintenance kits rather than unrelated industrial components.
 - Testimonials: all available reviews render in a looping, drag-enabled carousel. Autoplay pauses during pointer, hover or keyboard interaction, resumes afterward, and respects reduced-motion preferences.
+- Catalog normalization: the 27 source records resolve to 19 unique product models. Duplicate posts map to one canonical detail page while their distinct images and non-conflicting specifications are retained.
+- Header identity: the navigation uses Modern Egypt's official blue logo asset. The former white source variant was not reused because it disappeared against the light header; no substitute Target logo is shown.

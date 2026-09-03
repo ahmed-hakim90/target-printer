@@ -1,13 +1,17 @@
 import { QuoteButton, WhatsAppButton } from "./CTAButtons";
 import type { Part } from "@/constants";
 import { useLanguage } from "@/lib/language";
+import { SmartImage } from "./SmartImage";
 
 export function PartCard({ part }: { part: Part }) {
   const { language } = useLanguage();
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 hover:border-accent/40">
+    <article
+      className="interactive-card group flex flex-col overflow-hidden rounded-xl border border-border bg-card"
+      tabIndex={0}
+    >
       <div className="relative aspect-[4/3] overflow-hidden bg-surface">
-        <img
+        <SmartImage
           src={part.image}
           alt={part.name}
           loading="lazy"

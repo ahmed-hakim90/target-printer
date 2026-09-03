@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { useState } from "react";
 import { z } from "zod";
-import { Facebook, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { mailLink, site, waLink } from "@/constants";
 import { cn } from "@/lib/utils";
 import { previewGate } from "@/lib/preview-gate";
@@ -198,15 +198,6 @@ function ContactPage() {
                   className="grid h-11 w-11 place-items-center rounded-md bg-[oklch(0.7_0.18_150)] text-white hover:opacity-90"
                 >
                   <MessageCircle className="h-5 w-5" />
-                </a>
-                <a
-                  href={site.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="grid h-11 w-11 place-items-center rounded-md bg-[oklch(0.45_0.18_260)] text-white hover:opacity-90"
-                >
-                  <Facebook className="h-5 w-5" />
                 </a>
                 <a
                   href={mailLink()}

@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { RouteLoading } from "@/components/site/RouteLoading";
-import { SectionHeader } from "@/components/site/SectionHeader";
+import { QuoteButton, WhatsAppButton } from "@/components/site/CTAButtons";
 import { CTASection } from "@/components/site/CTASection";
 import { services } from "@/constants/services";
 import { previewGate } from "@/lib/preview-gate";
@@ -9,16 +11,8 @@ import { useLanguage } from "@/lib/language";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      {
-        title: `Services — ${services.name} Turnkey & Industrial Support`,
-      },
+      { title: `Printing Solutions — ${services.name}` },
       { name: "description", content: services.meta.description },
-      {
-        property: "og:title",
-        content: `Services — ${services.name}`,
-      },
-      { property: "og:description", content: services.meta.ogDescription },
-      { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),
@@ -27,134 +21,135 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
-  const { localize } = useLanguage();
-  const content = localize(services);
-  const { trackRecord } = content;
-
+  const { localize, t } = useLanguage();
+  const c = localize(services);
   return (
     <>
-      <section className="bg-surface text-surface-foreground">
-        <div className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:items-center">
-          <div>
-            <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              <span className="h-px w-10 bg-accent" />
-              {content.hero.eyebrow}
-            </div>
-            <h1 className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl">
-              {content.hero.title} <span className="text-accent">{content.hero.titleAccent}</span>
+      <section className="relative overflow-hidden bg-surface text-surface-foreground">
+        <div className="container-x grid min-h-[640px] items-center gap-12 py-20 lg:grid-cols-[.4fr_.6fr] lg:py-24">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+            <p className="eyebrow">{c.hero.eyebrow}</p>
+            <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              {c.hero.title} <span className="text-accent">{c.hero.titleAccent}</span>
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-              {content.hero.lead}
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-2xl border border-white/10">
-            <img
-              src={content.heroImage}
-              alt={content.heroImageAlt}
-              loading="lazy"
-              width={1600}
-              height={1000}
-              className="h-full w-full object-cover"
-            />
-          </div>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">{c.hero.lead}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <QuoteButton size="lg" />
+              <WhatsAppButton size="lg" />
+            </div>
+            <div className="mt-10 grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
+              {c.pillars.map((x) => (
+                <div key={x.label}>
+                  <strong className="block text-2xl">{x.value}</strong>
+                  <span className="text-xs text-white/55">{x.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative"
+          >
+            <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-2 shadow-2xl">
+              <img
+                src={c.heroImage}
+                alt={c.heroImageAlt}
+                width={1600}
+                height={1000}
+                className="min-h-80 w-full rounded-xl object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-5 start-5 rounded-xl bg-primary px-5 py-4 shadow-xl">
+              <span className="flex items-center gap-2 text-sm font-bold">
+                <CheckCircle2 className="h-5 w-5 text-accent" />
+                {t("Installation, training and local support")}
+              </span>
+            </div>
+          </motion.div>
         </div>
       </section>
-
-      <section className="bg-background py-20 md:py-28">
-        <div className="container-x">
-          <SectionHeader title={content.comprehensive.title} />
-          <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {content.comprehensive.body}
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-secondary py-20 md:py-28">
-        <div className="container-x">
-          <SectionHeader eyebrow={content.turnkey.eyebrow} title={content.turnkey.title} />
-          <div className="mt-12 max-w-3xl space-y-6">
-            {content.turnkey.paragraphs.map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 48)}
-                className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
+      <section className="py-20 md:py-28">
+        <div className="container-x grid gap-12 lg:grid-cols-[.7fr_1.3fr]">
+          <div>
+            <p className="eyebrow">{c.intro.eyebrow}</p>
+            <h2 className="mt-4 text-balance text-3xl font-extrabold text-primary md:text-5xl">
+              {c.intro.title}
+            </h2>
+            <p className="mt-5 leading-7 text-muted-foreground">{c.intro.body}</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {c.services.map(({ icon: Icon, title, desc }, i) => (
+              <article
+                key={title}
+                className="interactive-card group rounded-xl border bg-white p-6"
+                tabIndex={0}
               >
-                {paragraph}
-              </p>
+                <div className="flex justify-between">
+                  <span className="grid h-12 w-12 place-items-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white group-focus:bg-accent group-focus:text-white">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <span className="text-xs font-bold text-muted-foreground">0{i + 1}</span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-primary">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{desc}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
-      <section className="bg-background py-20 md:py-28">
-        <div className="container-x">
-          <SectionHeader title={content.turnkeyServices.title} />
-          <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {content.turnkeyServices.items.map(({ icon: Icon, title, desc }) => (
-              <li key={title} className="bg-background p-7">
-                <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <section className="bg-secondary py-20 md:py-28">
         <div className="container-x">
-          <SectionHeader title={content.industries.title} />
-          <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {content.industries.intro}
-          </p>
-          <ul className="mt-10 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
-            {content.industries.items.map(({ icon: Icon, label, desc }) => (
-              <li key={label} className="bg-background p-7">
-                <div className="grid h-11 w-11 place-items-center rounded-md bg-accent/10 text-accent">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{label}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+          <p className="eyebrow">{t("Printing applications")}</p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-extrabold text-primary md:text-5xl">
+            {t("Solutions designed around what you produce.")}
+          </h2>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {c.applications.map(({ icon: Icon, title, desc }) => (
+              <article
+                key={title}
+                tabIndex={0}
+                className="interactive-card rounded-xl border bg-white p-7"
+              >
+                <Icon className="h-7 w-7 text-accent" />
+                <h3 className="mt-7 text-xl font-bold text-primary">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-20 md:py-28">
+        <div className="container-x">
+          <p className="eyebrow">{t("How we work")}</p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-extrabold text-primary md:text-5xl">
+            {t("A clear path to reliable production.")}
+          </h2>
+          <ol className="mt-12 grid gap-4 lg:grid-cols-4">
+            {c.process.map(([n, title, desc]) => (
+              <li key={n} tabIndex={0} className="interactive-card rounded-xl border bg-white p-6">
+                <span className="text-3xl font-extrabold text-accent/40">{n}</span>
+                <h3 className="mt-8 text-xl font-bold text-primary">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{desc}</p>
               </li>
             ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="bg-background py-20 md:py-28">
-        <div className="container-x">
-          <SectionHeader title={content.projectManagement.title} />
-          <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {content.projectManagement.body}
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-secondary py-20 md:py-28">
-        <div className="container-x">
-          <SectionHeader title={content.trackRecord.title} />
-          <p className="mt-12 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {trackRecord.lead} Browse our{" "}
+          </ol>
+          <div className="mt-12 grid items-center gap-8 rounded-2xl bg-primary p-8 text-white md:grid-cols-[1fr_auto]">
+            <div>
+              <h3 className="text-2xl font-extrabold">{c.promise.title}</h3>
+              <p className="mt-3 max-w-3xl text-white/70">{c.promise.body}</p>
+            </div>
             <Link
-              to={trackRecord.portfolio.to}
-              className="font-medium text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
+              to="/contact"
+              className="inline-flex h-12 items-center gap-2 rounded-md bg-white px-6 font-bold text-primary transition hover:-translate-y-1 focus-visible:ring-4"
             >
-              {trackRecord.portfolio.label}
-            </Link>{" "}
-            to see how we&apos;ve helped our clients achieve their goals, and read our{" "}
-            <Link
-              to={trackRecord.testimonials.to}
-              className="font-medium text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
-            >
-              {trackRecord.testimonials.label}
-            </Link>{" "}
-            {trackRecord.closing}
-          </p>
+              {t("Request a Quote")}
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+            </Link>
+          </div>
         </div>
       </section>
-
-      <CTASection title={content.cta.title} description={content.cta.description} />
+      <CTASection title={c.cta.title} description={c.cta.description} />
     </>
   );
 }

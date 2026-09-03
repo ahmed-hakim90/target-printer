@@ -1,115 +1,118 @@
 import {
-  Building2,
-  ClipboardList,
-  Factory,
-  FlaskConical,
+  BadgeCheck,
+  Boxes,
+  ClipboardCheck,
   GraduationCap,
-  HardHat,
-  Package,
-  PenTool,
-  Gauge,
+  Headphones,
+  Settings,
+  ShieldCheck,
+  Wrench,
 } from "lucide-react";
 import { images } from "./images";
 
 export const services = {
-  name: "Target",
+  name: "Target Printers",
   heroImage: images.hero,
-  heroImageAlt: "Industrial installation and turnkey project services",
+  heroImageAlt: "Target printing equipment supported by Modern Egypt",
   meta: {
     description:
-      "Installation, maintenance, repairs, spare parts, and turnkey project delivery — from feasibility and design through commissioning, training, and ongoing support.",
+      "Printing equipment supply, installation, training, maintenance, genuine spare parts and annual support contracts.",
     ogDescription:
-      "Comprehensive industrial services and end-to-end turnkey project solutions from Target — single point of responsibility from concept to completion.",
+      "End-to-end printing solutions from equipment selection through daily production.",
   },
   hero: {
-    eyebrow: "Our Services",
-    title: "Comprehensive services for",
-    titleAccent: "seamless operations.",
-    lead: "Beyond top-quality machinery, we deliver installation, maintenance, repairs, spare parts, and customized solutions — backed by skilled technicians and engineers focused on maximizing uptime.",
+    eyebrow: "Printing Solutions",
+    title: "Everything your business needs to",
+    titleAccent: "print without interruption.",
+    lead: "One local team for equipment selection, direct supply, professional installation, operator training, maintenance and genuine parts.",
   },
-  comprehensive: {
-    title: "Comprehensive Services",
-    body: "In addition to our top-quality machinery, we provide a comprehensive range of services to ensure your experience with us is seamless and hassle-free. Our team of skilled technicians and engineers is dedicated to offering services such as installation, maintenance, repairs, and spare parts supply. We also provide customized solutions tailored to your specific requirements. With our prompt and reliable service, you can maximize the uptime of your machinery and minimize downtime.",
+  pillars: [
+    { value: "20+", label: "Years of experience" },
+    { value: "19", label: "Unique product models" },
+    { value: "6", label: "Integrated services" },
+  ],
+  intro: {
+    eyebrow: "End-to-end support",
+    title: "From the first consultation to every production day.",
+    body: "We begin with your application, expected volume, media and working size—not a generic machine list. Then our team recommends the right configuration and stays responsible for installation, training and after-sales support.",
   },
-  turnkey: {
-    eyebrow: "Turnkey Project Solutions",
-    title: "From Concept to Completion",
-    paragraphs: [
-      "Welcome to Target, your trusted partner for comprehensive turnkey project delivery. As a leading provider of end-to-end solutions, we manage every aspect of your complex projects, allowing you to focus on your core business objectives.",
-      "At Target, we understand the challenges of managing large-scale, multi-faceted projects. That's why we've developed a proven, streamlined process to handle the entire project lifecycle, from initial planning to final commissioning. By serving as your single point of responsibility, we ensure seamless coordination, efficient resource allocation, and successful project outcomes.",
-    ],
-  },
-  turnkeyServices: {
-    title: "Our Turnkey Services",
-    items: [
-      {
-        icon: ClipboardList,
-        title: "Feasibility Studies and Planning",
-        desc: "Our experienced team conducts in-depth assessments to determine the viability and scope of your project.",
-      },
-      {
-        icon: PenTool,
-        title: "Design and Engineering",
-        desc: "We provide cutting-edge design and engineering services to bring your vision to life, optimizing functionality and cost-effectiveness.",
-      },
-      {
-        icon: Package,
-        title: "Procurement and Sourcing",
-        desc: "Our extensive supply chain network allows us to procure high-quality materials and equipment at the best possible terms.",
-      },
-      {
-        icon: HardHat,
-        title: "Construction and Installation",
-        desc: "Our skilled professionals execute the construction and installation process with the utmost precision and safety.",
-      },
-      {
-        icon: Gauge,
-        title: "Commissioning and Testing",
-        desc: "We meticulously commission and test all systems to ensure optimal performance and compliance with industry standards.",
-      },
-      {
-        icon: GraduationCap,
-        title: "Training and Support",
-        desc: "We provide comprehensive training and ongoing support to ensure the long-term success of your project.",
-      },
-    ],
-  },
-  industries: {
-    title: "Industries We Serve",
-    intro:
-      "Target has a proven track record of delivering turnkey solutions across a diverse range of industries, including:",
-    items: [
-      {
-        icon: Factory,
-        label: "Industrial",
-        desc: "Manufacturing facilities, warehouses, and logistics hubs.",
-      },
-      {
-        icon: Building2,
-        label: "Infrastructure",
-        desc: "Transportation, utilities, and public works projects.",
-      },
-      {
-        icon: FlaskConical,
-        label: "Pharma",
-        desc: "Factories, research facilities.",
-      },
-    ],
-  },
-  projectManagement: {
-    title: "Our Project Management Approach",
-    body: "At the heart of our turnkey project delivery is our robust project management methodology. Our dedicated project managers work closely with you, employing advanced tools and techniques to ensure seamless coordination, effective risk mitigation, and timely project completion.",
-  },
-  trackRecord: {
-    title: "Proven Track Record of Success",
-    lead: "Over the years, Target has successfully completed numerous turnkey projects, earning a reputation for excellence in project delivery.",
-    portfolio: { label: "portfolio", to: "/machines" as const },
-    testimonials: { label: "client testimonials", to: "/contact" as const },
-    closing: "to learn more about their experience working with us.",
+  services: [
+    {
+      icon: ClipboardCheck,
+      title: "Needs assessment & consultation",
+      desc: "A practical recommendation based on your application, volume, working size, budget and running cost.",
+    },
+    {
+      icon: Boxes,
+      title: "Equipment supply & direct import",
+      desc: "Office, DTF, UV DTF and large-format systems sourced with the correct configuration and warranty.",
+    },
+    {
+      icon: Settings,
+      title: "Installation & commissioning",
+      desc: "Professional setup, calibration and output testing before the machine enters production.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Operator training",
+      desc: "Hands-on guidance for daily operation, media handling, routine care and consistent output quality.",
+    },
+    {
+      icon: Wrench,
+      title: "Maintenance & repairs",
+      desc: "Scheduled and emergency service with accurate diagnostics to reduce downtime and protect equipment life.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Genuine parts & consumables",
+      desc: "Original inks, drums, rollers, heads, electrical components and maintenance kits for supported models.",
+    },
+  ],
+  applications: [
+    {
+      icon: BadgeCheck,
+      title: "Labels & packaging",
+      desc: "High-quality customized labels and print solutions for accurate brand presentation.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Garment logos & direct printing",
+      desc: "TPU logo and direct-to-garment production for professional results across multiple fabrics.",
+    },
+    {
+      icon: Headphones,
+      title: "Textile solutions",
+      desc: "Stable color, sharp detail and practical workflows for textile printing businesses.",
+    },
+    {
+      icon: Boxes,
+      title: "Consumables & accessories",
+      desc: "Approved inks, media and accessories selected for reliable day-to-day production.",
+    },
+    {
+      icon: Settings,
+      title: "Signage & banners",
+      desc: "Indoor and outdoor wide-format solutions for banners, graphics and advertising applications.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Cups, bottles & cylinders",
+      desc: "UV DTF technology for detailed transfers and full-coverage cylindrical applications.",
+    },
+  ],
+  process: [
+    ["01", "Understand", "We review what you print, your production volume and required quality."],
+    ["02", "Recommend", "You receive a clear equipment configuration, quotation and support plan."],
+    ["03", "Install", "Our technicians install, calibrate, test and train your operators."],
+    ["04", "Support", "We remain available for preventive service, genuine parts and assistance."],
+  ],
+  promise: {
+    title: "Support that continues after installation.",
+    body: "Choose on-demand support or an annual maintenance agreement with preventive visits, service reporting and prioritized response.",
   },
   cta: {
-    title: "Ready to discuss your next project?",
+    title: "Tell us what you need to print.",
     description:
-      "From installation and maintenance to full turnkey delivery, our team is ready to scope solutions tailored to your requirements.",
+      "Share your application, expected volume and working size. Our team will recommend the right equipment and service plan.",
   },
 } as const;

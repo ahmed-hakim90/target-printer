@@ -26,7 +26,10 @@ const partCategoryById = Object.fromEntries(partCategories.map((c) => [c.id, c])
 >;
 
 function resolveMachine(raw: MachineRaw): Machine {
-  const cat = machineCategoryById[raw.categoryId];
+  const effectiveCategoryId = /dtg|direct-to-garment|embroidery|\bdte\b/i.test(raw.name)
+    ? ("dtg" as const)
+    : raw.categoryId;
+  const cat = machineCategoryById[effectiveCategoryId];
   const productImage = raw.image || cat.image;
   const knownLabels = [
     "Working Environment",
@@ -83,6 +86,7 @@ function resolveMachine(raw: MachineRaw): Machine {
   });
   return {
     ...raw,
+    categoryId: effectiveCategoryId,
     category: cat.label,
     specs,
     image: productImage,
@@ -99,14 +103,60 @@ function resolvePart(raw: PartRaw): Part {
   };
 }
 
-export const machines = machineCatalog.map(resolveMachine);
+const productKey = (name: string) =>
+  name
+    .toLowerCase()
+    .replace(/office printer/g, "")
+    .replace(/[^a-z0-9]/g, "");
+
+const resolvedMachines = machineCatalog.map(resolveMachine);
+const machineGroups = new Map<string, Machine[]>();
+resolvedMachines.forEach((machine) => {
+  const key = productKey(machine.name);
+  machineGroups.set(key, [...(machineGroups.get(key) ?? []), machine]);
+});
+
+export const machines: Machine[] = Array.from(machineGroups.values()).map((group) => {
+  const primary = [...group].sort((a, b) => b.specs.length - a.specs.length)[0];
+  const primaryLabels = new Set(primary.specs.map((spec) => spec.label.toLowerCase()));
+  const supplementalSpecs = group
+    .filter((machine) => machine.slug !== primary.slug)
+    .flatMap((machine) => machine.specs)
+    .filter(
+      (spec) =>
+        spec.label !== "Feature" &&
+        spec.label !== "Product information" &&
+        !primaryLabels.has(spec.label.toLowerCase()),
+    );
+  const uniqueSpecs = Array.from(
+    new Map(
+      [...primary.specs, ...supplementalSpecs].map((spec) => [
+        `${spec.label.toLowerCase()}::${spec.value.toLowerCase()}`,
+        spec,
+      ]),
+    ).values(),
+  );
+  return {
+    ...primary,
+    description: Array.from(new Set(group.flatMap((machine) => machine.description))),
+    specs: uniqueSpecs,
+    gallery: Array.from(new Set(group.map((machine) => machine.image).filter(Boolean))),
+  };
+});
 export const parts_list = partCatalog.map(resolvePart);
 
 export const categories = ["All", ...machineCategories.map((c) => c.label)] as const;
 
 export const partCategoryLabels = ["All", ...partCategories.map((c) => c.label)] as const;
 
-export const findMachine = (slug: string) => machines.find((m) => m.slug === slug);
+export const findMachine = (slug: string) => {
+  const exact = machines.find((machine) => machine.slug === slug);
+  if (exact) return exact;
+  const raw = resolvedMachines.find((machine) => machine.slug === slug);
+  return raw
+    ? machines.find((machine) => productKey(machine.name) === productKey(raw.name))
+    : undefined;
+};
 
 export const relatedMachines = (m: Machine) =>
   machines.filter((x) => x.categoryId === m.categoryId && x.slug !== m.slug).slice(0, 3);
