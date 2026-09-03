@@ -140,15 +140,15 @@ function MachineDetailPage() {
             <h2 className="font-display text-2xl font-semibold text-foreground">
               {t("Specifications")}
             </h2>
-            <div className="mt-4 overflow-hidden rounded-xl border border-border">
-              <table className="w-full text-sm">
+            <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+              <table className="w-full min-w-[22rem] text-sm">
                 <tbody>
                   {machine.specs.map((s, i) => (
                     <tr
                       key={`${s.label}-${i}`}
                       className={i % 2 ? "bg-secondary" : "bg-background"}
                     >
-                      <th className="w-1/2 px-4 py-3 text-left font-medium text-muted-foreground">
+                      <th className="w-1/2 px-4 py-3 text-start font-medium text-muted-foreground">
                         {s.label}
                       </th>
                       <td className="px-4 py-3 font-medium text-foreground">{s.value}</td>
@@ -193,8 +193,9 @@ function MachineDetailPage() {
                   : `Request a quotation for the ${machine.name}`}
               </h2>
               <p className="mt-3 max-w-2xl text-base text-muted-foreground">
-                Send your application details and our engineering team will respond with pricing,
-                lead time, and integration notes.
+                {t(
+                  "Send your application details and our engineering team will respond with pricing, lead time, and integration notes.",
+                )}
               </p>
             </div>
             <div className="flex flex-col gap-2 md:items-end">
@@ -216,7 +217,9 @@ function MachineDetailPage() {
             <SectionHeader eyebrow="Related Machines" title="Other equipment in this category." />
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((m) => (
-                <MachineCard key={m.slug} machine={m} />
+                <div key={m.slug}>
+                  <MachineCard machine={m} />
+                </div>
               ))}
             </div>
           </div>

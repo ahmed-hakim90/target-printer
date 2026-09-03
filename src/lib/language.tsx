@@ -268,6 +268,126 @@ const ar: Record<string, string> = {
   "Tell us what you need to print.": "أخبرنا بما تحتاج إلى طباعته.",
   "Share your application, expected volume and working size. Our team will recommend the right equipment and service plan.":
     "شاركنا التطبيق وحجم الإنتاج ومقاس العمل، وسيقترح فريقنا المعدات وخطة الخدمة المناسبة.",
+
+  "View all products": "عرض جميع المنتجات",
+  "Explore solution": "استكشف الحل",
+  "Company principles": "مبادئ الشركة",
+  "Receive occasional updates from the Modern Egypt team—no daily noise.":
+    "احصل على تحديثات من حين لآخر من فريق مصر الحديثة، بدون إزعاج يومي.",
+  "Thank you. Your email is ready to be added when the mailing integration is connected.":
+    "شكرًا لك. بريدك الإلكتروني جاهز للإضافة عند تفعيل خدمة النشرة البريدية.",
+  "Competitive pricing, marketing support, product training and reliable after-sales service.":
+    "أسعار تنافسية، دعم تسويقي، تدريب على المنتجات، وخدمة ما بعد بيع موثوقة.",
+  "From everyday office output to high-volume textile and signage production.":
+    "من الطباعة المكتبية اليومية إلى الإنتاج الكبير للمنسوجات واللافتات.",
+  "Supply, installation and long-term support under one accountable local team.":
+    "توريد وتركيب ودعم طويل الأمد من فريق محلي واحد مسؤول.",
+  "Technology matters. The support system around it matters more.":
+    "التقنية مهمة، ومنظومة الدعم حولها أهم.",
+  "Tailored print ecosystems for office teams, textile producers, advertising businesses and industrial applications.":
+    "منظومات طباعة مصممة لفرق المكاتب ومنتجي المنسوجات وشركات الدعاية والتطبيقات الصناعية.",
+  "The principles that guide how Modern Egypt selects equipment, serves customers and grows the Target brand.":
+    "المبادئ التي توجّه اختيار مصر الحديثة للمعدات وخدمة العملاء وتطوير علامة Target.",
+  "Office printers, production systems and finishing equipment selected around your application.":
+    "طابعات مكتبية وأنظمة إنتاج ومعدات تشطيب يتم اختيارها حسب تطبيقك.",
+  "Access to current international technologies and configurations for different production scales.":
+    "وصول إلى أحدث التقنيات العالمية وتجهيزات تناسب أحجام إنتاج مختلفة.",
+  "Fast diagnostics, repairs and planned maintenance that protect uptime.":
+    "تشخيص سريع وإصلاح وصيانة مجدولة تحافظ على استمرارية التشغيل.",
+  "Original inks, heads, rollers, boards and service kits for supported models.":
+    "أحبار ورؤوس طباعة ورولات وبطاقات وأطقم صيانة أصلية للموديلات المدعومة.",
+  "Preventive visits and practical service plans for companies and institutions.":
+    "زيارات وقائية وخطط صيانة عملية للشركات والمؤسسات.",
+  "Clear advice on workflow, capacity and running cost before you invest.":
+    "استشارة واضحة حول سير العمل والطاقة الإنتاجية وتكلفة التشغيل قبل الاستثمار.",
+  "High-performance printing systems engineered for businesses that expect consistent quality, dependable uptime, and expert local support.":
+    "أنظمة طباعة عالية الأداء مصممة للشركات التي تتوقع جودة ثابتة وتشغيلًا موثوقًا ودعمًا محليًا متخصصًا.",
+  "Machine models": "موديل ماكينة",
+  "Ready to upgrade your print production?": "جاهز لتطوير خط إنتاج الطباعة لديك؟",
+  "Tell us what you print, your expected volume and working size. Our team will recommend the right system and support plan.":
+    "أخبرنا بما تطبعه وحجم إنتاجك المتوقع ومقاس العمل، وسيرشح فريقنا النظام المناسب وخطة الدعم.",
+  "Need a part that isn't listed?": "تحتاج قطعة غير مدرجة؟",
+  "Send us your printer or photocopier model and part reference. Our technical team will help identify and source the correct genuine component.":
+    "أرسل لنا موديل الطابعة أو ماكينة التصوير ورقم القطعة، وسيساعدك فريقنا الفني في تحديد وتوفير القطعة الأصلية الصحيحة.",
+  "Name is required": "الاسم مطلوب",
+  "Company is required": "اسم الشركة مطلوب",
+  "Invalid email address": "بريد إلكتروني غير صحيح",
+  "Phone is required": "رقم الهاتف مطلوب",
+  "Invalid phone": "رقم هاتف غير صحيح",
+  "Message is too short": "الرسالة قصيرة جدًا",
+  "Whether you need a machine quotation, a technical consultation, or a hard-to-find spare part — we respond within one business day.":
+    "سواء احتجت عرض سعر لماكينة، أو استشارة فنية، أو قطعة غيار نادرة — نرد خلال يوم عمل واحد.",
+  "Fields marked * are required.": "الحقول المُعلّمة بـ * مطلوبة.",
+  "Submitting opens your email client with the message pre-filled.":
+    "الإرسال يفتح برنامج البريد الإلكتروني لديك مع تعبئة الرسالة مسبقًا.",
+  "Every system is selected for dependable output and backed by installation, training, genuine parts and local technical support.":
+    "كل نظام يتم اختياره لضمان أداء موثوق، مدعومًا بالتركيب والتدريب وقطع الغيار الأصلية والدعم الفني المحلي.",
+  "Send your application details and our engineering team will respond with pricing, lead time, and integration notes.":
+    "أرسل تفاصيل تطبيقك وسيرد فريقنا الهندسي بالسعر ومدة التوريد وملاحظات التشغيل.",
+  "No parts in this category yet. Contact us for a custom inquiry.":
+    "لا توجد قطع في هذا التصنيف حاليًا. تواصل معنا لطلب مخصص.",
+  "Inks & Consumables": "الأحبار والمستلزمات",
+  "Print Heads": "رؤوس الطباعة",
+  "UV Components": "مكونات UV",
+  "Media Handling": "التعامل مع الخامات",
+  "Electrical Parts": "القطع الكهربائية",
+  "Maintenance Kits": "أطقم الصيانة",
+  "All rights reserved.": "جميع الحقوق محفوظة.",
+  "Made in Egypt. Built for ambitious businesses.": "صُنع في مصر. لأصحاب الأعمال الطموحين.",
+  "Instagram link pending confirmation": "رابط إنستجرام قيد التأكيد",
+  "Official link pending confirmation": "الرابط الرسمي قيد التأكيد",
+  "LinkedIn link pending confirmation": "رابط لينكدإن قيد التأكيد",
+  YouTube: "يوتيوب",
+  "Facebook link pending confirmation": "رابط فيسبوك قيد التأكيد",
+  Email: "البريد الإلكتروني",
+  "Open menu": "فتح القائمة",
+  "Chat on WhatsApp": "تواصل عبر واتساب",
+  "Page not found": "الصفحة غير موجودة",
+  "The page you're looking for doesn't exist or has been moved.":
+    "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+  "Back to home": "العودة للرئيسية",
+  "This page didn't load": "لم يتم تحميل هذه الصفحة",
+  "Something went wrong on our end. You can try again or head back home.":
+    "حدث خطأ من جانبنا. يمكنك المحاولة مرة أخرى أو العودة للرئيسية.",
+  "Try again": "حاول مرة أخرى",
+  "Go home": "العودة للرئيسية",
+
+  "Modern Egypt has supplied printers, photocopiers, genuine parts and technical support to Egyptian organizations since 2005.":
+    "توفر مصر الحديثة طابعات وماكينات تصوير وقطع غيار أصلية ودعمًا فنيًا للمؤسسات المصرية منذ عام 2005.",
+  "Discover the experience, values and local support behind Target Printers by Modern Egypt.":
+    "اكتشف الخبرة والقيم والدعم المحلي وراء طابعات Target من مصر الحديثة.",
+  "Established in 2005, Modern Egypt Supplies & Import grew into a trusted specialist in printers, photocopiers, genuine parts and professional after-sales service.":
+    "تأسست مصر الحديثة للتوريدات والاستيراد عام 2005، وتطورت لتصبح متخصصًا موثوقًا في الطابعات وماكينات التصوير وقطع الغيار الأصلية وخدمة ما بعد البيع الاحترافية.",
+  "Modern Egypt Supplies & Import was established in 2005 with a clear goal: provide organizations and companies with complete, high-quality printing and document-processing solutions.":
+    "تأسست مصر الحديثة للتوريدات والاستيراد عام 2005 بهدف واضح: تزويد المؤسسات والشركات بحلول متكاملة وعالية الجودة للطباعة ومعالجة المستندات.",
+  "Our work combines equipment supply and direct import with professional installation, maintenance, annual service contracts, genuine spare parts and technical consultation.":
+    "يجمع عملنا بين توريد المعدات والاستيراد المباشر والتركيب الاحترافي والصيانة وعقود الخدمة السنوية وقطع الغيار الأصلية والاستشارات الفنية.",
+  "Through the Target Printers brand, we bring together modern printing technology, practical local knowledge and a service team that remains accountable after installation.":
+    "من خلال علامة Target للطابعات، نجمع بين تقنية الطباعة الحديثة والخبرة المحلية العملية وفريق خدمة يظل مسؤولًا بعد التركيب.",
+  "The company began serving the Egyptian printer and photocopier market.":
+    "بدأت الشركة خدمة سوق الطابعات وماكينات التصوير في مصر.",
+  "Two decades of equipment supply, service and long-term customer relationships.":
+    "عقدان من توريد المعدات والخدمة والعلاقات طويلة الأمد مع العملاء.",
+  "A growing range of office and production printing systems supported locally.":
+    "مجموعة متنامية من أنظمة الطباعة المكتبية والإنتاجية المدعومة محليًا.",
+  "Current equipment selected for consistent quality and efficient operation.":
+    "معدات حديثة يتم اختيارها لضمان جودة ثابتة وتشغيل فعّال.",
+  "Dependable specifications, genuine supplies and accountable service.":
+    "مواصفات موثوقة وتوريدات أصلية وخدمة مسؤولة.",
+  "A local technical team from installation through preventive maintenance.":
+    "فريق فني محلي من التركيب وحتى الصيانة الوقائية.",
+  "The right balance of purchase cost, running cost and long-term support.":
+    "التوازن الصحيح بين تكلفة الشراء وتكلفة التشغيل والدعم طويل الأمد.",
+  "Every milestone reflects one priority: reliable equipment and support that protects customer uptime.":
+    "كل محطة تعكس أولوية واحدة: معدات ودعم موثوقان يحافظان على استمرارية تشغيل العميل.",
+  "Build a more reliable print workflow.": "طوّر منظومة طباعة أكثر موثوقية.",
+  "Modern systems tested for stable production.": "أنظمة حديثة مختبرة لإنتاج مستقر.",
+  "Lower total operating cost and better efficiency.": "تكلفة تشغيل أقل وكفاءة أعلى.",
+  "Rigorous testing and dependable specifications.": "اختبارات دقيقة ومواصفات موثوقة.",
+  "A technical team available when you need it.": "فريق فني متاح وقت ما تحتاجه.",
+  "Original parts and consumables for consistent output.": "قطع غيار ومستلزمات أصلية لثبات الجودة.",
+  "Tell our team what you print and we will recommend the equipment and support plan that fits your operation.":
+    "أخبر فريقنا بما تطبعه وسنرشح لك المعدات وخطة الدعم المناسبة لعملك.",
 };
 
 type LanguageContextValue = {

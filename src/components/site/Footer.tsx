@@ -90,7 +90,7 @@ export function Footer() {
                   href={waLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="WhatsApp"
+                  aria-label={t("WhatsApp")}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-surface-foreground/80 transition-colors hover:border-accent hover:text-accent"
                 >
                   <MessageCircle className="h-4 w-4" />
@@ -98,8 +98,8 @@ export function Footer() {
               </li>
               <li>
                 <span
-                  aria-label="Instagram link pending confirmation"
-                  title="Official link pending confirmation"
+                  aria-label={t("Instagram link pending confirmation")}
+                  title={t("Official link pending confirmation")}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-surface-foreground/35"
                 >
                   <Instagram className="h-4 w-4" />
@@ -107,8 +107,8 @@ export function Footer() {
               </li>
               <li>
                 <span
-                  aria-label="LinkedIn link pending confirmation"
-                  title="Official link pending confirmation"
+                  aria-label={t("LinkedIn link pending confirmation")}
+                  title={t("Official link pending confirmation")}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-surface-foreground/35"
                 >
                   <Linkedin className="h-4 w-4" />
@@ -119,7 +119,7 @@ export function Footer() {
                   href="https://www.youtube.com/watch?v=VhBl3dHT5SY"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="YouTube"
+                  aria-label={t("YouTube")}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-surface-foreground/80 transition-colors hover:border-accent hover:text-accent"
                 >
                   <Youtube className="h-4 w-4" />
@@ -127,8 +127,8 @@ export function Footer() {
               </li>
               <li>
                 <span
-                  aria-label="Facebook link pending confirmation"
-                  title="Official link pending confirmation"
+                  aria-label={t("Facebook link pending confirmation")}
+                  title={t("Official link pending confirmation")}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-surface-foreground/35"
                 >
                   <Facebook className="h-4 w-4" />
@@ -137,7 +137,7 @@ export function Footer() {
               <li>
                 <a
                   href={mailLink()}
-                  aria-label="Email"
+                  aria-label={t("Email")}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-surface-foreground/80 transition-colors hover:border-accent hover:text-accent"
                 >
                   <Mail className="h-4 w-4" />
@@ -151,9 +151,9 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-surface-foreground/60 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+            © {new Date().getFullYear()} {site.name}. {t("All rights reserved.")}
           </p>
-          <p>Made in Egypt. Built for ambitious businesses.</p>
+          <p>{t("Made in Egypt. Built for ambitious businesses.")}</p>
         </div>
       </div>
     </footer>

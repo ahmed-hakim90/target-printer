@@ -2,11 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { useState } from "react";
 import { z } from "zod";
+import { motion } from "framer-motion";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { mailLink, site, waLink } from "@/constants";
 import { cn } from "@/lib/utils";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
+import { StaggerGroup, StaggerItem } from "@/components/site/Reveal";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -66,7 +68,7 @@ function ContactPage() {
       const f: FormErrors = {};
       for (const issue of result.error.issues) {
         const k = issue.path[0] as keyof FormErrors;
-        if (!f[k]) f[k] = issue.message;
+        if (!f[k]) f[k] = t(issue.message);
       }
       setErrors(f);
       return;
@@ -93,8 +95,14 @@ function ContactPage() {
 
   return (
     <>
-      <section className="bg-surface text-surface-foreground">
-        <div className="container-x py-16 md:py-24">
+      <section className="relative overflow-hidden bg-surface/95 text-surface-foreground">
+        <div className="hero-grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="container-x relative py-16 md:py-24"
+        >
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             <span className="h-px w-10 bg-accent" />
             {t("Contact")}
@@ -103,128 +111,135 @@ function ContactPage() {
             {t("Talk to our engineering team.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            Whether you need a machine quotation, a technical consultation, or a hard-to-find spare
-            part — we respond within one business day.
+            {t(
+              "Whether you need a machine quotation, a technical consultation, or a hard-to-find spare part — we respond within one business day.",
+            )}
           </p>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="bg-background py-16 md:py-24">
-        <div className="container-x grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+      <section className="bg-background/95 py-16 md:py-24">
+        <StaggerGroup className="container-x grid gap-12 lg:grid-cols-[1.3fr_1fr]">
           {/* FORM */}
-          <form
-            onSubmit={onSubmit}
-            noValidate
-            className="rounded-2xl border border-border bg-card p-6 md:p-10"
-          >
-            <h2 className="font-display text-2xl font-semibold text-foreground">
-              {t("Send us a message")}
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground">Fields marked * are required.</p>
-
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
-              <Field label={t("Name *")} name="name" error={errors.name} />
-              <Field label={t("Company Name *")} name="company" error={errors.company} />
-              <Field label={t("Email *")} name="email" type="email" error={errors.email} />
-              <Field label={t("Phone *")} name="phone" type="tel" error={errors.phone} />
-              <Field
-                label={t("Interested Product")}
-                name="product"
-                defaultValue={product ?? ""}
-                error={errors.product}
-                className="md:col-span-2"
-              />
-              <Field
-                label={t("Message *")}
-                name="message"
-                error={errors.message}
-                className="md:col-span-2"
-                textarea
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={submitting}
-              className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-md bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90 disabled:opacity-60 md:w-auto"
+          <StaggerItem>
+            <form
+              onSubmit={onSubmit}
+              noValidate
+              className="rounded-2xl border border-border bg-card p-6 md:p-10"
             >
-              {submitting
-                ? language === "ar"
-                  ? "جارٍ فتح البريد…"
-                  : "Opening your email…"
-                : t("Submit Inquiry")}
-            </button>
-            <p className="mt-3 text-xs text-muted-foreground">
-              Submitting opens your email client with the message pre-filled.
-            </p>
-          </form>
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                {t("Send us a message")}
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {t("Fields marked * are required.")}
+              </p>
+
+              <div className="mt-8 grid gap-5 md:grid-cols-2">
+                <Field label={t("Name *")} name="name" error={errors.name} />
+                <Field label={t("Company Name *")} name="company" error={errors.company} />
+                <Field label={t("Email *")} name="email" type="email" error={errors.email} />
+                <Field label={t("Phone *")} name="phone" type="tel" error={errors.phone} />
+                <Field
+                  label={t("Interested Product")}
+                  name="product"
+                  defaultValue={product ?? ""}
+                  error={errors.product}
+                  className="md:col-span-2"
+                />
+                <Field
+                  label={t("Message *")}
+                  name="message"
+                  error={errors.message}
+                  className="md:col-span-2"
+                  textarea
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-md bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90 disabled:opacity-60 md:w-auto"
+              >
+                {submitting
+                  ? language === "ar"
+                    ? "جارٍ فتح البريد…"
+                    : "Opening your email…"
+                  : t("Submit Inquiry")}
+              </button>
+              <p className="mt-3 text-xs text-muted-foreground">
+                {t("Submitting opens your email client with the message pre-filled.")}
+              </p>
+            </form>
+          </StaggerItem>
 
           {/* INFO */}
-          <aside className="space-y-6">
-            <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <h3 className="font-display text-lg font-semibold text-foreground">
-                {t("Direct contact")}
-              </h3>
-              <ul className="mt-5 space-y-4 text-sm">
-                <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 text-accent" />
-                  <span className="text-foreground">{site.address}</span>
-                </li>
-                <li>
+          <StaggerItem>
+            <aside className="space-y-6">
+              <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+                <h3 className="font-display text-lg font-semibold text-foreground">
+                  {t("Direct contact")}
+                </h3>
+                <ul className="mt-5 space-y-4 text-sm">
+                  <li className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 text-accent" />
+                    <span className="text-foreground">{site.address}</span>
+                  </li>
+                  <li>
+                    <a
+                      href={mailLink()}
+                      className="flex items-start gap-3 text-foreground hover:text-accent"
+                    >
+                      <Mail className="mt-0.5 h-4 w-4 text-accent" />
+                      {site.email}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`tel:${site.phoneDisplay.replace(/\s/g, "")}`}
+                      className="flex items-start gap-3 text-foreground hover:text-accent"
+                    >
+                      <Phone className="mt-0.5 h-4 w-4 text-accent" />
+                      {site.phoneDisplay}
+                    </a>
+                  </li>
+                </ul>
+                <div className="mt-6 flex gap-2">
+                  <a
+                    href={waLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("WhatsApp")}
+                    className="grid h-11 w-11 place-items-center rounded-md bg-[oklch(0.7_0.18_150)] text-white hover:opacity-90"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                  </a>
                   <a
                     href={mailLink()}
-                    className="flex items-start gap-3 text-foreground hover:text-accent"
+                    aria-label={t("Email Us")}
+                    className="grid h-11 w-11 place-items-center rounded-md bg-primary text-primary-foreground hover:opacity-90"
                   >
-                    <Mail className="mt-0.5 h-4 w-4 text-accent" />
-                    {site.email}
+                    <Mail className="h-5 w-5" />
                   </a>
-                </li>
-                <li>
-                  <a
-                    href={`tel:${site.phoneDisplay.replace(/\s/g, "")}`}
-                    className="flex items-start gap-3 text-foreground hover:text-accent"
-                  >
-                    <Phone className="mt-0.5 h-4 w-4 text-accent" />
-                    {site.phoneDisplay}
-                  </a>
-                </li>
-              </ul>
-              <div className="mt-6 flex gap-2">
-                <a
-                  href={waLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="grid h-11 w-11 place-items-center rounded-md bg-[oklch(0.7_0.18_150)] text-white hover:opacity-90"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                </a>
-                <a
-                  href={mailLink()}
-                  aria-label="Email"
-                  className="grid h-11 w-11 place-items-center rounded-md bg-primary text-primary-foreground hover:opacity-90"
-                >
-                  <Mail className="h-5 w-5" />
-                </a>
+                </div>
               </div>
-            </div>
 
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
-              <div className="relative aspect-[4/3] w-full">
-                <div className="absolute inset-0 hero-grid-bg opacity-50" />
-                <div className="absolute inset-0 grid place-items-center text-center">
-                  <div>
-                    <MapPin className="mx-auto h-7 w-7 text-accent" />
-                    <p className="mt-3 font-display text-lg font-semibold text-surface-foreground">
-                      {t("Our Location")}
-                    </p>
-                    <p className="mt-1 text-sm text-surface-foreground/70">{site.address}</p>
+              <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+                <div className="relative aspect-[4/3] w-full">
+                  <div className="absolute inset-0 hero-grid-bg opacity-50" />
+                  <div className="absolute inset-0 grid place-items-center text-center">
+                    <div>
+                      <MapPin className="mx-auto h-7 w-7 text-accent" />
+                      <p className="mt-3 font-display text-lg font-semibold text-surface-foreground">
+                        {t("Our Location")}
+                      </p>
+                      <p className="mt-1 text-sm text-surface-foreground/70">{site.address}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </aside>
-        </div>
+            </aside>
+          </StaggerItem>
+        </StaggerGroup>
       </section>
     </>
   );

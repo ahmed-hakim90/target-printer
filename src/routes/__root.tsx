@@ -9,29 +9,31 @@ import {
 
 import appCss from "../styles.css?url";
 import { AnimatedOutlet } from "@/components/site/AnimatedOutlet";
+import { AmbientDots } from "@/components/site/AmbientDots";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { ScrollMotion } from "@/components/site/ScrollMotion";
-import { LanguageProvider } from "@/lib/language";
+import { LanguageProvider, useLanguage } from "@/lib/language";
 import { site } from "@/constants";
 
 function NotFoundComponent() {
+  const { t } = useLanguage();
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center bg-background px-4 text-center">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">404</p>
       <h1 className="mt-3 font-display text-4xl font-semibold text-foreground md:text-5xl">
-        Page not found
+        {t("Page not found")}
       </h1>
       <p className="mt-3 max-w-md text-sm text-muted-foreground">
-        The page you're looking for doesn't exist or has been moved.
+        {t("The page you're looking for doesn't exist or has been moved.")}
       </p>
       <Link
         to="/"
         className="mt-6 inline-flex h-11 items-center justify-center rounded-md bg-accent px-5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
       >
-        Back to home
+        {t("Back to home")}
       </Link>
     </div>
   );
@@ -40,11 +42,14 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const { t } = useLanguage();
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center bg-background px-4 text-center">
-      <h1 className="font-display text-2xl font-semibold text-foreground">This page didn't load</h1>
+      <h1 className="font-display text-2xl font-semibold text-foreground">
+        {t("This page didn't load")}
+      </h1>
       <p className="mt-2 max-w-md text-sm text-muted-foreground">
-        Something went wrong on our end. You can try again or head back home.
+        {t("Something went wrong on our end. You can try again or head back home.")}
       </p>
       <div className="mt-6 flex gap-2">
         <button
@@ -54,13 +59,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           }}
           className="inline-flex h-11 items-center justify-center rounded-md bg-accent px-5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
         >
-          Try again
+          {t("Try again")}
         </button>
         <a
           href="/"
           className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-5 text-sm font-medium text-foreground hover:bg-secondary"
         >
-          Go home
+          {t("Go home")}
         </a>
       </div>
     </div>
@@ -71,7 +76,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, viewport-fit=cover",
+      },
       { title: `${site.name} — ${site.tagline}` },
       { name: "description", content: site.description },
       { property: "og:site_name", content: site.name },
@@ -152,7 +160,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <div className="flex min-h-screen flex-col bg-background">
+        <AmbientDots />
+        <div className="relative z-10 flex min-h-screen flex-col bg-transparent">
           <Navbar />
           <main id="main-content" tabIndex={-1} className="flex-1">
             <AnimatedOutlet />

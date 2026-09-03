@@ -107,6 +107,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -193,24 +194,6 @@
     border-color: color-mix(in oklab, var(--color-accent) 45%, var(--color-border));
     box-shadow: 0 18px 45px oklch(0.22 0.06 255 / 0.12);
   }
-  .carousel-control {
-    display: grid;
-    height: 2.75rem;
-    width: 2.75rem;
-    place-items: center;
-    border-radius: 9999px;
-    border: 1px solid var(--color-border);
-    background: white;
-    color: var(--color-primary);
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      background-color 180ms ease;
-  }
-  .carousel-control:hover {
-    transform: translateY(-2px);
-    border-color: var(--color-accent);
-  }
   .container-x {
     width: 100%;
     margin-inline: auto;
@@ -240,5 +223,110 @@
       linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
     background-size: 56px 56px;
+  }
+
+  .hero-grid-bg-light {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-primary) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-primary) 6%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+
+  .ambient-dot-grid {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in oklab, var(--color-accent) 55%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 34px 34px;
+    animation: ambient-dot-drift 90s linear infinite;
+  }
+
+  .ambient-blob {
+    animation: ambient-blob-float 22s ease-in-out infinite;
+  }
+
+  .ambient-blob-delay {
+    animation-delay: -11s;
+  }
+
+  .ambient-twinkle {
+    animation: ambient-twinkle 6s ease-in-out infinite;
+  }
+
+  .float-slow {
+    animation: float-slow 5.5s ease-in-out infinite;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes ambient-dot-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 340px 340px;
+  }
+}
+
+@keyframes ambient-blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(3%, -4%) scale(1.08);
+  }
+}
+
+@keyframes ambient-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-dot-grid,
+  .ambient-blob,
+  .ambient-twinkle,
+  .float-slow {
+    animation: none !important;
   }
 }

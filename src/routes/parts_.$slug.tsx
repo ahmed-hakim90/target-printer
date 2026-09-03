@@ -150,7 +150,9 @@ function PartDetailPage() {
           </h2>
           <div className="mt-9 grid gap-6 md:grid-cols-3">
             {related.map((item) => (
-              <PartCard key={item.slug} part={item} />
+              <div key={item.slug}>
+                <PartCard part={item} />
+              </div>
             ))}
           </div>
         </div>

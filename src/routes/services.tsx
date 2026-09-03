@@ -39,11 +39,13 @@ function ServicesPage() {
               <QuoteButton size="lg" />
               <WhatsAppButton size="lg" />
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
+            <div className="mt-10 grid grid-cols-3 gap-2 border-t border-white/10 pt-6 sm:gap-3">
               {c.pillars.map((x) => (
                 <div key={x.label}>
-                  <strong className="block text-2xl">{x.value}</strong>
-                  <span className="text-xs text-white/55">{x.label}</span>
+                  <strong className="block text-xl sm:text-2xl">{x.value}</strong>
+                  <span className="text-[11px] leading-snug text-white/55 sm:text-xs">
+                    {x.label}
+                  </span>
                 </div>
               ))}
             </div>

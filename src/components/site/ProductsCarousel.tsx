@@ -1,5 +1,4 @@
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useRef } from "react";
 import { machines } from "@/constants";
 import { MachineCard } from "./MachineCard";
@@ -13,7 +12,10 @@ export function ProductsCarousel() {
     direction: language === "ar" ? "rtl" : "ltr",
   });
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const stop = useCallback(() => {
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = null;
     if (timer.current) clearInterval(timer.current);
     timer.current = null;
   }, []);
@@ -24,24 +26,38 @@ export function ProductsCarousel() {
   }, [api]);
   useEffect(() => {
     start();
-    return stop;
+    return () => {
+      stop();
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    };
   }, [start, stop]);
   const resume = () => {
     stop();
-    window.setTimeout(start, 900);
+    resumeTimer.current = window.setTimeout(start, 900);
   };
   return (
     <div className="mt-10">
       <div
         ref={viewportRef}
-        className="overflow-hidden cursor-grab active:cursor-grabbing"
+        className="no-scrollbar cursor-grab overflow-hidden active:cursor-grabbing"
         onPointerDown={stop}
         onPointerUp={resume}
         onPointerCancel={resume}
         onMouseEnter={stop}
-        onMouseLeave={start}
+        onMouseLeave={resume}
         onFocusCapture={stop}
-        onBlurCapture={start}
+        onBlurCapture={resume}
+        onKeyDown={(event) => {
+          if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+          event.preventDefault();
+          stop();
+          const forward =
+            language === "ar" ? event.key === "ArrowLeft" : event.key === "ArrowRight";
+          if (forward) api?.scrollNext();
+          else api?.scrollPrev();
+          resume();
+        }}
+        tabIndex={0}
         aria-label={t("Featured products")}
         aria-roledescription={t("carousel")}
       >
@@ -55,32 +71,6 @@ export function ProductsCarousel() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="mt-6 flex justify-end gap-2">
-        <button
-          type="button"
-          onClick={() => {
-            stop();
-            api?.scrollPrev();
-            resume();
-          }}
-          className="carousel-control"
-          aria-label={t("Previous product")}
-        >
-          <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            stop();
-            api?.scrollNext();
-            resume();
-          }}
-          className="carousel-control bg-primary text-white hover:bg-accent"
-          aria-label={t("Next product")}
-        >
-          <ArrowRight className="h-5 w-5 rtl:rotate-180" />
-        </button>
       </div>
     </div>
   );

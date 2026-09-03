@@ -23,7 +23,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-colors",
+        "sticky top-0 z-50 w-full border-b pt-[env(safe-area-inset-top)] transition-colors",
         scrolled
           ? "border-border bg-background/85 backdrop-blur-md"
           : "border-transparent bg-background",
@@ -61,14 +61,14 @@ export function Navbar() {
           <button
             aria-label={t("Switch language")}
             onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-            className="flex h-9 items-center gap-1.5 px-1 text-xs font-bold text-muted-foreground hover:text-primary sm:px-2"
+            className="flex h-10 items-center gap-1.5 px-2 text-xs font-bold text-muted-foreground hover:text-primary"
           >
             <Globe2 className="h-4 w-4" /> {language === "en" ? "العربية" : "English"}
           </button>
           <QuoteButton size="sm" className="hidden md:inline-flex" />
           <button
             onClick={() => setOpen(true)}
-            aria-label="Open menu"
+            aria-label={t("Open menu")}
             className="grid h-10 w-10 place-items-center rounded-md border border-border lg:hidden"
           >
             <Menu className="h-5 w-5" />
@@ -81,7 +81,7 @@ export function Navbar() {
           side="right"
           className="flex w-[min(100vw-2rem,20rem)] flex-col gap-0 p-0 sm:max-w-xs"
         >
-          <SheetHeader className="border-b border-border px-6 py-5 text-left">
+          <SheetHeader className="border-b border-border px-6 py-5 text-start">
             <SheetTitle className="font-display text-base">{site.name}</SheetTitle>
           </SheetHeader>
           <nav className="flex flex-1 flex-col px-2 py-2">

@@ -1,4 +1,5 @@
 import { EmailButton, QuoteButton, WhatsAppButton } from "./CTAButtons";
+import { Reveal } from "./Reveal";
 import { useLanguage } from "@/lib/language";
 
 export function CTASection({
@@ -10,14 +11,14 @@ export function CTASection({
 }) {
   const { t, language } = useLanguage();
   return (
-    <section className="relative overflow-hidden bg-surface text-surface-foreground">
+    <section className="relative overflow-hidden bg-surface/95 text-surface-foreground">
       <div className="absolute inset-0 hero-grid-bg opacity-60" aria-hidden />
       <div
-        className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-accent/20 to-transparent"
+        className="absolute inset-y-0 end-0 w-1/3 bg-gradient-to-l from-accent/20 to-transparent rtl:bg-gradient-to-r"
         aria-hidden
       />
       <div className="container-x relative grid gap-10 py-20 md:grid-cols-[1.4fr_1fr] md:items-center md:py-28">
-        <div>
+        <Reveal>
           <div className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
             <span className="h-px w-8 bg-accent" />
             {language === "ar" ? "لننجح معًا" : "Let's build together"}
@@ -28,12 +29,12 @@ export function CTASection({
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-surface-foreground/70 md:text-lg">
             {t(description)}
           </p>
-        </div>
-        <div className="flex flex-col gap-3 md:items-end">
+        </Reveal>
+        <Reveal delay={0.1} className="flex flex-col gap-3 md:items-end">
           <QuoteButton size="lg" />
           <WhatsAppButton size="lg" variant="whatsapp" />
           <EmailButton size="lg" variant="surface" />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

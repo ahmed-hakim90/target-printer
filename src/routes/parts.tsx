@@ -65,14 +65,14 @@ function PartsPage() {
         <div className="container-x">
           <SectionHeader eyebrow="Catalog" title="Auxiliary components and spare parts." />
 
-          <div className="mt-10 flex flex-wrap gap-2">
+          <div className="no-scrollbar -mx-5 mt-10 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
             {partCategoryLabels.map((c) => (
               <button
                 key={c}
                 onClick={() => setActive(c)}
                 aria-pressed={active === c}
                 className={cn(
-                  "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                  "shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                   active === c
                     ? "border-accent bg-accent text-accent-foreground"
                     : "border-border bg-background text-muted-foreground hover:border-foreground hover:text-foreground",
@@ -112,7 +112,7 @@ function PartsPage() {
 
           {filtered.length === 0 && (
             <p className="mt-12 text-center text-muted-foreground">
-              No parts in this category yet. Contact us for a custom inquiry.
+              {t("No parts in this category yet. Contact us for a custom inquiry.")}
             </p>
           )}
         </div>

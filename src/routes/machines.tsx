@@ -51,22 +51,23 @@ function MachinesPage() {
             {t("Production machines for every stage of the line.")}
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-surface-foreground/75 md:text-lg">
-            Every system is selected for dependable output and backed by installation, training,
-            genuine parts and local technical support.
+            {t(
+              "Every system is selected for dependable output and backed by installation, training, genuine parts and local technical support.",
+            )}
           </p>
         </div>
       </section>
 
       <section className="bg-background py-16 md:py-20">
         <div className="container-x">
-          <div className="flex flex-wrap gap-2">
+          <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
             {categories.map((c) => (
               <button
                 key={c}
                 onClick={() => setActive(c)}
                 aria-pressed={active === c}
                 className={cn(
-                  "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                  "shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                   active === c
                     ? "border-accent bg-accent text-accent-foreground"
                     : "border-border bg-background text-muted-foreground hover:border-foreground hover:text-foreground",

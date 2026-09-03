@@ -1,6 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight, Quote, Star } from "lucide-react";
-import { useCallback, useEffect, useRef } from "react";
+import { Quote, Star } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/language";
 import aquafix from "@/assets/target/client-aquafix.png";
 import trustnetic from "@/assets/target/client-trustnetic.png";
@@ -36,16 +36,21 @@ const reviews = [
 export function TestimonialsCarousel() {
   const { language, t } = useLanguage();
   const [viewportRef, api] = useEmblaCarousel({
-    align: "start",
+    align: "center",
     direction: language === "ar" ? "rtl" : "ltr",
     dragFree: false,
     loop: true,
+    startIndex: 1,
   });
+  const [selectedIndex, setSelectedIndex] = useState(1);
   const paused = useRef(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const stop = useCallback(() => {
     paused.current = true;
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = null;
     if (timer.current) clearInterval(timer.current);
     timer.current = null;
   }, []);
@@ -64,84 +69,119 @@ export function TestimonialsCarousel() {
     return () => {
       if (timer.current) clearInterval(timer.current);
       timer.current = null;
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+      resumeTimer.current = null;
     };
   }, [start]);
 
+  useEffect(() => {
+    if (!api) return;
+    const updateSelected = () => setSelectedIndex(api.selectedScrollSnap());
+    updateSelected();
+    api.on("select", updateSelected);
+    api.on("reInit", updateSelected);
+    return () => {
+      api.off("select", updateSelected);
+      api.off("reInit", updateSelected);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    // Re-measure once the webfont finishes loading: Embla can compute
+    // slide widths/centering before "Cairo" swaps in, especially on a
+    // slower mobile connection, leaving the selected card off-center.
+    document.fonts?.ready.then(() => api.reInit());
+  }, [api]);
+
   const resumeSoon = () => {
     stop();
-    window.setTimeout(start, 900);
+    resumeTimer.current = window.setTimeout(start, 900);
   };
+
+  const trackReviews = [...reviews, ...reviews];
 
   return (
     <div className="mt-10">
       <div
         ref={viewportRef}
-        className="cursor-grab overflow-hidden active:cursor-grabbing"
+        className="no-scrollbar cursor-grab overflow-hidden active:cursor-grabbing"
         onPointerDown={stop}
         onPointerUp={resumeSoon}
         onPointerCancel={resumeSoon}
         onMouseEnter={stop}
-        onMouseLeave={start}
+        onMouseLeave={resumeSoon}
         onFocusCapture={stop}
-        onBlurCapture={start}
+        onBlurCapture={resumeSoon}
+        onKeyDown={(event) => {
+          if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+          event.preventDefault();
+          stop();
+          const forward =
+            language === "ar" ? event.key === "ArrowLeft" : event.key === "ArrowRight";
+          if (forward) api?.scrollNext();
+          else api?.scrollPrev();
+          resumeSoon();
+        }}
+        tabIndex={0}
         aria-roledescription={t("carousel")}
         aria-label={t("Customer reviews")}
       >
-        <div className="flex touch-pan-y gap-5">
-          {reviews.map(({ name, role, review, logo, logoClass }) => (
-            <div
-              key={name}
-              className="min-w-0 flex-[0_0_88%] sm:basis-[58%] lg:basis-[42%] xl:basis-[36%]"
-            >
-              <figure className="flex h-full min-h-80 flex-col rounded-xl border border-border bg-white p-7 shadow-sm">
-                <div className={`flex h-16 w-44 items-center rounded-lg p-3 ${logoClass}`}>
-                  <img src={logo} alt="" className="max-h-10 w-full object-contain" />
-                </div>
-                <div className="flex gap-1 text-[#f4b740]" aria-label={t("5 out of 5 stars")}>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
-                  ))}
-                </div>
-                <Quote className="mt-7 h-8 w-8 text-accent/25" aria-hidden="true" />
-                <blockquote className="mt-3 flex-1 leading-7 text-foreground/80">
-                  “{t(review)}”
-                </blockquote>
-                <figcaption className="mt-6 border-t border-border pt-5">
-                  <strong className="block text-primary">{name}</strong>
-                  <span className="mt-1 block text-xs leading-5 text-muted-foreground">
-                    {t(role)}
-                  </span>
-                </figcaption>
-              </figure>
-            </div>
-          ))}
+        <div className="flex min-h-[27rem] touch-pan-y items-center gap-5 py-4 md:min-h-[33rem] lg:min-h-[29rem]">
+          {trackReviews.map(({ name, role, review, logo, logoClass }, index) => {
+            const isSelected = selectedIndex === index;
+            const duplicate = index >= reviews.length;
+            return (
+              <div
+                key={`${name}-${duplicate ? "duplicate" : "original"}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-current={
+                  !duplicate && selectedIndex % reviews.length === index ? "true" : undefined
+                }
+                aria-hidden={duplicate || undefined}
+                inert={duplicate || undefined}
+                className={`min-w-0 flex-[0_0_88%] transition-[transform,opacity] duration-500 ease-out sm:basis-[70%] md:basis-[calc((100%-2.5rem)/3)] ${
+                  isSelected
+                    ? "relative z-10 opacity-100 md:scale-100"
+                    : "opacity-100 md:scale-[.94] md:opacity-70"
+                }`}
+              >
+                <figure
+                  className={`flex min-h-[25rem] flex-col rounded-2xl border bg-white p-6 transition-[height,border-color,box-shadow,transform] duration-500 ease-out md:p-7 ${
+                    isSelected
+                      ? "border-accent/40 shadow-2xl shadow-blue-950/15 md:h-[31rem] md:-translate-y-1 lg:h-[27rem]"
+                      : "border-border shadow-sm md:h-[27rem] lg:h-[23rem]"
+                  }`}
+                >
+                  <div
+                    className={`flex h-14 w-36 items-center rounded-lg p-3 lg:w-40 ${logoClass}`}
+                  >
+                    <img src={logo} alt="" className="max-h-10 w-full object-contain" />
+                  </div>
+                  <div
+                    className="mt-5 flex gap-1 text-[#f4b740]"
+                    aria-label={t("5 out of 5 stars")}
+                  >
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+                    ))}
+                  </div>
+                  <Quote className="mt-7 h-8 w-8 text-accent/25" aria-hidden="true" />
+                  <blockquote className="mt-3 flex-1 leading-7 text-foreground/80">
+                    “{t(review)}”
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-border pt-5">
+                    <strong className="block text-primary">{name}</strong>
+                    <span className="mt-1 block text-xs leading-5 text-muted-foreground">
+                      {t(role)}
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
+            );
+          })}
         </div>
-      </div>
-      <div className="mt-6 flex items-center justify-end gap-2">
-        <button
-          type="button"
-          onClick={() => {
-            stop();
-            api?.scrollPrev();
-            resumeSoon();
-          }}
-          className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={t("Previous review")}
-        >
-          <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            stop();
-            api?.scrollNext();
-            resumeSoon();
-          }}
-          className="grid h-11 w-11 place-items-center rounded-full bg-primary text-white transition hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={t("Next review")}
-        >
-          <ArrowRight className="h-5 w-5 rtl:rotate-180" />
-        </button>
       </div>
     </div>
   );

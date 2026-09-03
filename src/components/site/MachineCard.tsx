@@ -9,7 +9,7 @@ export function MachineCard({ machine }: { machine: Machine }) {
   const { t } = useLanguage();
   return (
     <article
-      className="interactive-card group flex flex-col overflow-hidden rounded-xl border border-border bg-card"
+      className="interactive-card group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card"
       tabIndex={0}
     >
       <InternalLink
@@ -25,8 +25,8 @@ export function MachineCard({ machine }: { machine: Machine }) {
           height={960}
           className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-foreground backdrop-blur">
-          {machine.category}
+        <span className="absolute start-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-foreground backdrop-blur">
+          {t(machine.category)}
         </span>
       </InternalLink>
 
