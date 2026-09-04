@@ -30,14 +30,14 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-x relative grid min-h-[720px] min-w-0 items-center gap-12 py-12 sm:py-16 lg:grid-cols-[.46fr_.54fr] lg:py-20">
+      <div className="container-x relative grid min-w-0 items-center gap-9 py-10 sm:py-14 md:min-h-[calc(100svh-5rem)] md:grid-cols-[.44fr_.56fr] md:gap-8 md:py-12 lg:grid-cols-[.4fr_.6fr] lg:gap-12 lg:py-16">
         <StaggerGroup className="relative z-10 min-w-0">
-          <StaggerItem className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[.14em] text-accent">
+          <StaggerItem className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white/90 px-3 py-1.5 text-xs font-bold uppercase tracking-[.14em] text-accent shadow-sm backdrop-blur-sm sm:mb-5">
             <Sparkles className="h-3.5 w-3.5" /> {t("Made in Egypt")}
           </StaggerItem>
 
           <StaggerItem>
-            <h1 className="max-w-2xl text-balance text-4xl font-extrabold leading-[1.15] text-primary rtl:leading-[1.45] sm:text-6xl sm:leading-[1.05] sm:rtl:leading-[1.35] lg:text-7xl lg:leading-[.98] lg:rtl:leading-[1.25]">
+            <h1 className="max-w-2xl text-balance text-[2.65rem] font-extrabold leading-[1.08] text-primary rtl:leading-[1.4] sm:text-6xl sm:leading-[1.05] sm:rtl:leading-[1.35] md:text-5xl lg:text-[4.4rem] lg:leading-[.98] lg:rtl:leading-[1.25] xl:text-[5rem]">
               {t("Print bigger.")}
               <br />
               <span className="text-accent">{t("Build smarter.")}</span>
@@ -48,21 +48,21 @@ export function Hero() {
             <p
               lang="ar"
               dir="rtl"
-              className="mt-5 w-fit max-w-full text-xl font-bold text-primary sm:text-2xl"
+              className="mt-4 w-fit max-w-full text-xl font-bold text-primary sm:mt-5 sm:text-2xl md:text-lg lg:text-2xl"
             >
               صناعة مصرية بطموح عالمي
             </p>
           </StaggerItem>
 
           <StaggerItem>
-            <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground sm:text-lg">
+            <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:mt-5 sm:text-lg sm:leading-8 md:text-sm md:leading-7 lg:text-lg lg:leading-8">
               {t(
                 "High-performance printing systems engineered for businesses that expect consistent quality, dependable uptime, and expert local support.",
               )}
             </p>
           </StaggerItem>
 
-          <StaggerItem className="mt-7 grid max-w-md grid-cols-3 items-start gap-0">
+          <StaggerItem className="mt-5 grid max-w-md grid-cols-3 items-start gap-0 sm:mt-7">
             {stats.map(([value, label], i) => (
               <div key={label} className="flex min-w-0 items-center">
                 <div className="min-w-0 flex-1 pe-2 sm:pe-4">
@@ -76,7 +76,7 @@ export function Hero() {
             ))}
           </StaggerItem>
 
-          <StaggerItem className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
+          <StaggerItem className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 md:grid md:grid-cols-1 lg:flex lg:flex-wrap">
             <QuoteButton size="lg" className="w-full sm:w-auto" />
             <Link
               to="/machines"
@@ -86,7 +86,7 @@ export function Hero() {
             </Link>
           </StaggerItem>
 
-          <StaggerItem className="mt-9 grid gap-3 text-sm font-semibold text-primary/70 sm:flex sm:flex-wrap sm:gap-x-6">
+          <StaggerItem className="mt-7 hidden gap-3 text-sm font-semibold text-primary/70 sm:flex sm:flex-wrap sm:gap-x-6 lg:mt-9">
             {trustPoints.map((x) => (
               <span key={x} className="flex items-center gap-2">
                 <BadgeCheck className="h-4 w-4 text-accent" />
@@ -100,9 +100,13 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 mx-auto w-full max-w-lg lg:max-w-none"
+          className="relative z-10 mx-auto w-full max-w-lg md:max-w-none lg:-me-4 xl:-me-8"
         >
-          <div className="relative rounded-[2rem] bg-white/75 p-8 shadow-2xl shadow-blue-950/15 backdrop-blur-sm sm:p-12">
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/80 bg-white/80 p-5 shadow-2xl shadow-blue-950/15 backdrop-blur-sm sm:rounded-[2rem] sm:p-10 md:p-6 lg:p-12">
+            <div
+              className="pointer-events-none absolute inset-x-[12%] bottom-5 h-12 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden="true"
+            />
             <img
               src={images.uv}
               alt="Target large-format UV DTF printing system"
@@ -110,14 +114,14 @@ export function Hero() {
               height={630}
               fetchPriority="high"
               decoding="async"
-              className={`mx-auto h-auto w-full max-w-md object-contain drop-shadow-2xl ${reduce ? "" : "float-slow"}`}
+              className={`relative mx-auto h-auto w-full max-w-2xl object-contain drop-shadow-2xl ${reduce ? "" : "float-slow"}`}
             />
           </div>
-          <div className="absolute -bottom-2 start-4 rounded-xl bg-white/95 p-4 shadow-lg sm:start-6">
+          <div className="absolute -bottom-3 start-3 rounded-xl border border-white bg-white/95 p-3 shadow-lg sm:start-6 sm:p-4">
             <strong className="block text-primary">{t("Local expertise")}</strong>
             <span className="text-sm text-muted-foreground">{t("Since 2005")}</span>
           </div>
-          <div className="absolute -top-2 end-4 rounded-xl bg-primary p-4 text-white shadow-lg sm:end-6">
+          <div className="absolute -top-3 end-3 rounded-xl bg-primary p-3 text-white shadow-lg sm:end-6 sm:p-4">
             <strong className="block text-lg">27+</strong>
             <span className="text-xs text-white/70">{t("Machine models")}</span>
           </div>
