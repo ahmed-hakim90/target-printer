@@ -43,8 +43,12 @@ export function ProductsCarousel() {
         onPointerDown={stop}
         onPointerUp={resume}
         onPointerCancel={resume}
-        onMouseEnter={stop}
-        onMouseLeave={resume}
+        onPointerEnter={(event) => {
+          if (event.pointerType === "mouse") stop();
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") resume();
+        }}
         onFocusCapture={stop}
         onBlurCapture={resume}
         onKeyDown={(event) => {

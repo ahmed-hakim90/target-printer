@@ -41,6 +41,7 @@ const ar: Record<string, string> = {
     "اختر فئة الطباعة، وقارن الموديلات المتاحة، واطلب التجهيز الأنسب لسير عملك.",
   "Product categories": "فئات المنتجات",
   "Products in selected category": "منتجات الفئة المحددة",
+  "Choose another product": "اختر منتجًا آخر",
   "Specifications available on request.": "المواصفات متاحة عند الطلب.",
   "Happy customers": "عميل سعيد",
   "Products delivered": "منتج تم توريده",
@@ -101,6 +102,10 @@ const ar: Record<string, string> = {
     "إطلاقات المنتجات ونصائح الطباعة والأفكار العملية.",
   "Business email": "البريد الإلكتروني للعمل",
   "Get updates": "اشترك الآن",
+  "Your inquiry was sent successfully. We will contact you shortly.":
+    "تم إرسال طلبك بنجاح. سنتواصل معك قريبًا.",
+  "We could not send your inquiry. Please try WhatsApp or email us directly.":
+    "تعذّر إرسال طلبك. تواصل معنا عبر واتساب أو البريد الإلكتروني.",
   "Enter a valid email address.": "أدخل بريدًا إلكترونيًا صحيحًا.",
   "Become a Target partner": "كن شريكًا لـ Target",
   "Grow with our distribution network.": "نمُ معنا داخل شبكة الموزعين.",

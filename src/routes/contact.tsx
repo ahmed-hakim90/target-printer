@@ -59,9 +59,11 @@ function ContactPage() {
   const { product } = Route.useSearch();
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
+  const [submissionState, setSubmissionState] = useState<"idle" | "success" | "error">("idle");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     const result = contactSchema.safeParse(data);
     if (!result.success) {
@@ -74,6 +76,7 @@ function ContactPage() {
       return;
     }
     setErrors({});
+    setSubmissionState("idle");
     setSubmitting(true);
     const d = result.data;
     const subject = `Inquiry from ${d.name} (${d.company})${d.product ? ` — ${d.product}` : ""}`;
@@ -89,8 +92,26 @@ function ContactPage() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.location.href = mailLink(subject, body);
-    setTimeout(() => setSubmitting(false), 800);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...d, website: data.website ?? "" }),
+      });
+      const payload = (await response.json().catch(() => null)) as { code?: string } | null;
+      if (response.ok) {
+        form.reset();
+        setSubmissionState("success");
+      } else if (payload?.code === "email_disabled") {
+        window.location.href = mailLink(subject, body);
+      } else {
+        setSubmissionState("error");
+      }
+    } catch {
+      setSubmissionState("error");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -135,6 +156,10 @@ function ContactPage() {
               </p>
 
               <div className="mt-8 grid gap-5 md:grid-cols-2">
+                <div className="absolute -start-[9999px]" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
                 <Field label={t("Name *")} name="name" error={errors.name} />
                 <Field label={t("Company Name *")} name="company" error={errors.company} />
                 <Field label={t("Email *")} name="email" type="email" error={errors.email} />
@@ -162,13 +187,22 @@ function ContactPage() {
               >
                 {submitting
                   ? language === "ar"
-                    ? "جارٍ فتح البريد…"
-                    : "Opening your email…"
+                    ? "جارٍ إرسال الطلب…"
+                    : "Sending inquiry…"
                   : t("Submit Inquiry")}
               </button>
-              <p className="mt-3 text-xs text-muted-foreground">
-                {t("Submitting opens your email client with the message pre-filled.")}
-              </p>
+              <div aria-live="polite" className="mt-3 min-h-5 text-sm">
+                {submissionState === "success" && (
+                  <p className="font-semibold text-emerald-700">
+                    {t("Your inquiry was sent successfully. We will contact you shortly.")}
+                  </p>
+                )}
+                {submissionState === "error" && (
+                  <p className="font-semibold text-destructive">
+                    {t("We could not send your inquiry. Please try WhatsApp or email us directly.")}
+                  </p>
+                )}
+              </div>
             </form>
           </StaggerItem>
 

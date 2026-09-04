@@ -4,4 +4,9 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "vars": {
+    "CONTACT_EMAIL_ENABLED": "false",
+    "CONTACT_EMAIL_FROM": "Target Printers <inquiries@mail.target-printer.com>",
+    "CONTACT_EMAIL_TO": "info@modernegypt.com.eg",
+  },
 }

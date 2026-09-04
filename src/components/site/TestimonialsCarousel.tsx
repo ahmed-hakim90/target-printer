@@ -122,8 +122,12 @@ export function TestimonialsCarousel() {
         aria-roledescription={t("carousel")}
         aria-label={t("Customer reviews")}
         tabIndex={0}
-        onMouseEnter={stop}
-        onMouseLeave={resume}
+        onPointerEnter={(event) => {
+          if (event.pointerType === "mouse") stop();
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") resume();
+        }}
         onFocus={stop}
         onBlur={resume}
         onPointerDown={(event) => {
@@ -175,17 +179,21 @@ export function TestimonialsCarousel() {
         onPointerDown={stop}
         onPointerUp={resume}
         onPointerCancel={resume}
-        onMouseEnter={stop}
-        onMouseLeave={resume}
+        onPointerEnter={(event) => {
+          if (event.pointerType === "mouse") stop();
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") resume();
+        }}
         onFocusCapture={stop}
         onBlurCapture={resume}
         tabIndex={0}
         aria-roledescription={t("carousel")}
         aria-label={t("Customer reviews")}
       >
-        <div className="flex touch-pan-y gap-4 py-3">
+        <div className="-mx-2 flex touch-pan-y py-3">
           {reviews.map((item) => (
-            <div key={item.name} className="min-w-0 flex-[0_0_88%]" role="group">
+            <div key={item.name} className="min-w-0 flex-[0_0_88%] px-2" role="group">
               <ReviewCard item={item} />
             </div>
           ))}

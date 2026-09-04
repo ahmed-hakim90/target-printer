@@ -1,0 +1,7 @@
+# Keep email disabled until mail.target-printer.com is verified in Resend.
+CONTACT_EMAIL_ENABLED="false"
+CONTACT_EMAIL_FROM="Target Printers <inquiries@mail.target-printer.com>"
+CONTACT_EMAIL_TO="info@modernegypt.com.eg"
+
+# Add only to .dev.vars (never commit the real key).
+RESEND_API_KEY="re_replace_with_a_resend_api_key"

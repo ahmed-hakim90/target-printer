@@ -128,8 +128,12 @@ export function Marquee({
         event.stopPropagation();
         dragged.current = false;
       }}
-      onMouseEnter={stop}
-      onMouseLeave={resume}
+      onPointerEnter={(event) => {
+        if (event.pointerType === "mouse") stop();
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "mouse") resume();
+      }}
       onFocusCapture={stop}
       onBlurCapture={resume}
       onScroll={normalizePosition}
