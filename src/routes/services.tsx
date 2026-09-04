@@ -102,7 +102,7 @@ function ServicesPage() {
           </div>
         </div>
       </section>
-      <section className="bg-secondary py-20 md:py-28">
+      <section className="bg-secondary/84 py-20 md:py-28">
         <div className="container-x">
           <p className="eyebrow">{t("Printing applications")}</p>
           <h2 className="mt-4 max-w-3xl text-3xl font-extrabold text-primary md:text-5xl">

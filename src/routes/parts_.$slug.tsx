@@ -140,7 +140,7 @@ function PartDetailPage() {
         </div>
       </section>
 
-      <section className="bg-secondary py-16 md:py-24">
+      <section className="bg-secondary/84 py-16 md:py-24">
         <div className="container-x">
           <p className="eyebrow">{isArabic ? "قطع أخرى" : "Related parts"}</p>
           <h2 className="mt-3 text-3xl font-extrabold text-primary">

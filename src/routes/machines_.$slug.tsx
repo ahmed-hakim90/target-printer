@@ -84,7 +84,7 @@ function MachineDetailPage() {
       </section>
 
       {/* GALLERY + SPECS */}
-      <section className="bg-background py-16 md:py-20">
+      <section className="bg-background/88 py-16 md:py-20">
         <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <div className="overflow-hidden rounded-xl border border-border bg-[#f5f8fc]">
@@ -140,23 +140,29 @@ function MachineDetailPage() {
             <h2 className="font-display text-2xl font-semibold text-foreground">
               {t("Specifications")}
             </h2>
-            <div className="mt-4 overflow-x-auto rounded-xl border border-border">
-              <table className="w-full min-w-[22rem] text-sm">
-                <tbody>
-                  {machine.specs.map((s, i) => (
-                    <tr
-                      key={`${s.label}-${i}`}
-                      className={i % 2 ? "bg-secondary" : "bg-background"}
-                    >
-                      <th className="w-1/2 px-4 py-3 text-start font-medium text-muted-foreground">
-                        {s.label}
-                      </th>
-                      <td className="px-4 py-3 font-medium text-foreground">{s.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            {machine.specs.length > 0 ? (
+              <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+                <table className="w-full min-w-[22rem] text-sm">
+                  <tbody>
+                    {machine.specs.map((s, i) => (
+                      <tr
+                        key={`${s.label}-${i}`}
+                        className={i % 2 ? "bg-secondary" : "bg-background"}
+                      >
+                        <th className="w-1/2 px-4 py-3 text-start font-medium text-muted-foreground">
+                          {s.label}
+                        </th>
+                        <td className="px-4 py-3 font-medium text-foreground">{s.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="mt-4 rounded-xl border border-accent/20 bg-blue-50 p-5 text-sm font-semibold text-primary">
+                {t("Specifications available on request.")}
+              </p>
+            )}
 
             <div className="mt-6 flex flex-col gap-2">
               <QuoteButton size="lg" product={machine.name} />
@@ -171,7 +177,7 @@ function MachineDetailPage() {
       </section>
 
       {/* TECHNICAL DETAILS */}
-      <section className="bg-secondary py-20 md:py-24">
+      <section className="bg-secondary/84 py-20 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.3fr]">
           <SectionHeader eyebrow="Product Overview" title="Supported from setup to production." />
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -183,7 +189,7 @@ function MachineDetailPage() {
       </section>
 
       {/* CONTACT CTA */}
-      <section className="bg-background py-20">
+      <section className="bg-background/88 py-20">
         <div className="container-x rounded-2xl border border-border bg-card p-8 md:p-12">
           <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
             <div>
@@ -212,7 +218,7 @@ function MachineDetailPage() {
 
       {/* RELATED */}
       {related.length > 0 && (
-        <section className="bg-background pb-24">
+        <section className="bg-background/88 pb-24">
           <div className="container-x">
             <SectionHeader eyebrow="Related Machines" title="Other equipment in this category." />
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

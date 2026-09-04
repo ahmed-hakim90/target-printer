@@ -58,7 +58,7 @@ function MachinesPage() {
         </div>
       </section>
 
-      <section className="bg-background py-16 md:py-20">
+      <section className="bg-background/88 py-16 md:py-20">
         <div className="container-x">
           <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
             {categories.map((c) => (

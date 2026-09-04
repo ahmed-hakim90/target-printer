@@ -253,7 +253,7 @@
   }
 
   .ambient-random-dot {
-    opacity: 0.18;
+    opacity: 0.42;
     box-shadow: 0 0 10px color-mix(in oklab, var(--color-accent) 45%, transparent);
     animation: ambient-random-float ease-in-out infinite alternate;
   }
@@ -285,14 +285,14 @@
 
 @keyframes ambient-random-float {
   0% {
-    opacity: 0.1;
+    opacity: 0.24;
     transform: translate3d(0, 0, 0) scale(0.8);
   }
   55% {
-    opacity: 0.32;
+    opacity: 0.58;
   }
   100% {
-    opacity: 0.16;
+    opacity: 0.32;
     transform: translate3d(var(--dot-x), var(--dot-y), 0) scale(1.15);
   }
 }

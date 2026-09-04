@@ -30,8 +30,8 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-x relative grid min-h-[720px] items-center gap-12 py-16 lg:grid-cols-[.46fr_.54fr] lg:py-20">
-        <StaggerGroup className="relative z-10">
+      <div className="container-x relative grid min-h-[720px] min-w-0 items-center gap-12 py-12 sm:py-16 lg:grid-cols-[.46fr_.54fr] lg:py-20">
+        <StaggerGroup className="relative z-10 min-w-0">
           <StaggerItem className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[.14em] text-accent">
             <Sparkles className="h-3.5 w-3.5" /> {t("Made in Egypt")}
           </StaggerItem>
@@ -45,42 +45,48 @@ export function Hero() {
           </StaggerItem>
 
           <StaggerItem>
-            <p lang="ar" dir="rtl" className="mt-5 w-fit text-2xl font-bold text-primary">
+            <p
+              lang="ar"
+              dir="rtl"
+              className="mt-5 w-fit max-w-full text-xl font-bold text-primary sm:text-2xl"
+            >
               صناعة مصرية بطموح عالمي
             </p>
           </StaggerItem>
 
           <StaggerItem>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
+            <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground sm:text-lg">
               {t(
                 "High-performance printing systems engineered for businesses that expect consistent quality, dependable uptime, and expert local support.",
               )}
             </p>
           </StaggerItem>
 
-          <StaggerItem className="mt-7 flex max-w-md flex-wrap items-center gap-x-6 gap-y-3">
+          <StaggerItem className="mt-7 grid max-w-md grid-cols-3 items-start gap-0">
             {stats.map(([value, label], i) => (
-              <div key={label} className="flex items-center gap-6">
-                <div>
+              <div key={label} className="flex min-w-0 items-center">
+                <div className="min-w-0 flex-1 pe-2 sm:pe-4">
                   <strong className="block text-2xl font-extrabold text-primary">{value}</strong>
-                  <span className="text-xs font-semibold text-muted-foreground">{t(label)}</span>
+                  <span className="block text-[11px] font-semibold leading-5 text-muted-foreground sm:text-xs">
+                    {t(label)}
+                  </span>
                 </div>
-                {i < stats.length - 1 && <span className="h-8 w-px bg-primary/15" />}
+                {i < stats.length - 1 && <span className="h-10 w-px shrink-0 bg-primary/15" />}
               </div>
             ))}
           </StaggerItem>
 
-          <StaggerItem className="mt-8 flex flex-wrap gap-3">
-            <QuoteButton size="lg" />
+          <StaggerItem className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
+            <QuoteButton size="lg" className="w-full sm:w-auto" />
             <Link
               to="/machines"
-              className="inline-flex h-12 items-center gap-2 rounded-md border border-primary/25 bg-white px-6 font-semibold text-primary transition hover:border-primary"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-primary/25 bg-white px-6 font-semibold text-primary transition hover:border-primary sm:w-auto"
             >
               {t("Explore products")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </StaggerItem>
 
-          <StaggerItem className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-primary/70">
+          <StaggerItem className="mt-9 grid gap-3 text-sm font-semibold text-primary/70 sm:flex sm:flex-wrap sm:gap-x-6">
             {trustPoints.map((x) => (
               <span key={x} className="flex items-center gap-2">
                 <BadgeCheck className="h-4 w-4 text-accent" />

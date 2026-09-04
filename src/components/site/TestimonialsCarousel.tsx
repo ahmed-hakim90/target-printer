@@ -141,7 +141,7 @@ export function TestimonialsCarousel() {
                 }
                 aria-hidden={duplicate || undefined}
                 inert={duplicate || undefined}
-                className={`min-w-0 flex-[0_0_88%] transition-[transform,opacity] duration-500 ease-out sm:basis-[70%] md:basis-[calc((100%_-_2.5rem)/3)] ${
+                className={`min-w-0 flex-[0_0_88%] transition-[transform,opacity] duration-500 ease-out sm:flex-[0_0_70%] md:flex-[0_0_calc((100%_-_2.5rem)/3)] ${
                   isSelected
                     ? "relative z-10 opacity-100 md:scale-100"
                     : "opacity-100 md:scale-[.94] md:opacity-70"

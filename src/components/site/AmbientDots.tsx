@@ -15,7 +15,7 @@ export function AmbientDots() {
   const reduce = useReducedMotion();
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[11] overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {!reduce &&
         DOTS.map((dot, i) => (
           <span

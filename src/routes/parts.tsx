@@ -61,7 +61,7 @@ function PartsPage() {
         </div>
       </section>
 
-      <section className="bg-background py-16 md:py-20">
+      <section className="bg-background/88 py-16 md:py-20">
         <div className="container-x">
           <SectionHeader eyebrow="Catalog" title="Auxiliary components and spare parts." />
 
@@ -118,7 +118,7 @@ function PartsPage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-secondary py-16 md:py-24">
+      <section className="border-y border-border bg-secondary/84 py-16 md:py-24">
         <div className="container-x">
           <SectionHeader
             eyebrow={language === "ar" ? "من الكتالوج" : "From the catalog"}

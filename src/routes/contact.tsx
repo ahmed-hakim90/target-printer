@@ -118,7 +118,7 @@ function ContactPage() {
         </motion.div>
       </section>
 
-      <section className="bg-background/95 py-16 md:py-24">
+      <section className="bg-background/88 py-16 md:py-24">
         <StaggerGroup className="container-x grid gap-12 lg:grid-cols-[1.3fr_1fr]">
           {/* FORM */}
           <StaggerItem>

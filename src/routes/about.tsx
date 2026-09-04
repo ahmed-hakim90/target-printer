@@ -68,7 +68,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-background/95 py-20 md:py-28">
+      <section className="bg-background/88 py-20 md:py-28">
         <div className="container-x">
           <SectionHeader
             eyebrow={content.companyProfile.eyebrow}
@@ -87,7 +87,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-secondary/90 py-20 md:py-28">
+      <section className="bg-secondary/84 py-20 md:py-28">
         <div className="container-x">
           <SectionHeader
             eyebrow={content.experience.eyebrow}
@@ -110,7 +110,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-background/95 py-20 md:py-28">
+      <section className="bg-background/88 py-20 md:py-28">
         <div className="container-x">
           <SectionHeader
             eyebrow={content.strengthsSection.eyebrow}

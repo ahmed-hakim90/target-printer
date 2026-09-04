@@ -77,7 +77,7 @@ function HomePage() {
     <>
       <Hero />
 
-      <section className="border-b border-border bg-white/95 py-10">
+      <section className="border-b border-border bg-white/88 py-10">
         <div className="container-x grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-4">
           {[
             [ShieldCheck, "Original quality"],
@@ -93,7 +93,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="bg-background/95 py-20 md:py-28">
+      <section className="bg-background/88 py-20 md:py-28">
         <div className="container-x">
           <Header
             kicker="Explore Target"
@@ -119,7 +119,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="bg-secondary/90 py-20 md:py-28">
+      <section className="bg-secondary/84 py-20 md:py-28">
         <div className="container-x">
           <div className="flex items-end justify-between gap-6">
             <Header kicker="Featured products" title="Built to perform, supported to last." />
@@ -134,7 +134,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-white/95 py-14">
+      <section className="border-y border-border bg-white/88 py-14">
         <StaggerGroup className="container-x grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
           {[
             ["48+", "Happy customers"],
@@ -157,7 +157,7 @@ function HomePage() {
 
       <CategoryProductShowcase />
 
-      <section className="bg-background/95 py-20 md:py-28">
+      <section className="bg-background/88 py-20 md:py-28">
         <div className="container-x">
           <Header
             kicker="What we offer"
@@ -250,7 +250,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="bg-secondary/90 py-20 md:py-28">
+      <section className="bg-secondary/84 py-20 md:py-28">
         <div className="container-x">
           <Header
             kicker="Why Modern Egypt"
@@ -287,7 +287,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="bg-background/95 py-20 md:py-28">
+      <section className="bg-background/88 py-20 md:py-28">
         <div className="container-x">
           <Header
             kicker="Business solutions"
@@ -365,7 +365,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section id="customer-reviews" className="scroll-mt-20 bg-background/95 py-20 md:py-28">
+      <section id="customer-reviews" className="scroll-mt-20 bg-background/88 py-20 md:py-28">
         <div className="container-x">
           <Header
             kicker="Customer reviews"
@@ -378,7 +378,7 @@ function HomePage() {
 
       <ComingSoonSection />
 
-      <section className="border-y border-border bg-secondary/90 py-14">
+      <section className="border-y border-border bg-secondary/84 py-14">
         <div className="container-x grid items-center gap-8 lg:grid-cols-[1fr_.9fr]">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[.18em] text-accent">

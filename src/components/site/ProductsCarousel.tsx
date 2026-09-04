@@ -65,7 +65,7 @@ export function ProductsCarousel() {
           {machines.map((machine) => (
             <div
               key={machine.slug}
-              className="min-w-0 flex-[0_0_88%] sm:basis-[48%] lg:basis-[31%] xl:basis-[24%]"
+              className="min-w-0 flex-[0_0_88%] sm:flex-[0_0_48%] lg:flex-[0_0_31%] xl:flex-[0_0_24%]"
             >
               <MachineCard machine={machine} />
             </div>

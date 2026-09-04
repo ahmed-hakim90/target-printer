@@ -73,7 +73,7 @@ export function CategoryProductShowcase() {
   if (!active) return null;
 
   return (
-    <section className="relative overflow-hidden border-b border-border bg-[#eef5ff]/82 py-20 md:py-28">
+    <section className="relative overflow-hidden border-b border-border bg-[#eef5ff]/86 py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-3xl">
           <p className="eyebrow">{t("Products by category")}</p>
@@ -167,7 +167,7 @@ export function CategoryProductShowcase() {
 
           <div
             ref={viewportRef}
-            className="no-scrollbar cursor-grab overflow-hidden rounded-2xl active:cursor-grabbing"
+            className="no-scrollbar cursor-grab self-center overflow-hidden rounded-2xl active:cursor-grabbing"
             onPointerDown={stop}
             onPointerUp={resume}
             onPointerCancel={resume}
@@ -177,7 +177,7 @@ export function CategoryProductShowcase() {
             onBlurCapture={resume}
             aria-label={t("Products in selected category")}
           >
-            <div className="flex touch-pan-y gap-4 xl:grid xl:grid-cols-2">
+            <div className="flex touch-pan-y gap-4">
               {slides.map((machine, index) => {
                 const duplicate = index >= products.length;
                 const isActive = machine.slug === active.slug;
@@ -189,7 +189,7 @@ export function CategoryProductShowcase() {
                     aria-pressed={isActive && !duplicate}
                     aria-hidden={duplicate || undefined}
                     tabIndex={duplicate ? -1 : 0}
-                    className={`group min-h-72 min-w-0 flex-[0_0_86%] overflow-hidden rounded-xl border bg-white p-4 text-start transition sm:basis-[46%] xl:min-h-0 xl:basis-auto ${isActive ? "border-accent shadow-lg" : "border-border hover:-translate-y-1 hover:border-accent/60 hover:shadow-md"}`}
+                    className={`group min-h-72 min-w-0 flex-[0_0_86%] overflow-hidden rounded-xl border bg-white p-4 text-start transition sm:flex-[0_0_46%] ${isActive ? "border-accent shadow-lg" : "border-border hover:-translate-y-1 hover:border-accent/60 hover:shadow-md"}`}
                   >
                     <span className="block h-36 overflow-hidden rounded-lg bg-secondary p-3">
                       <SmartImage
