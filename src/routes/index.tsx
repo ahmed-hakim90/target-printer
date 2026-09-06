@@ -119,20 +119,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="bg-secondary/84 py-20 md:py-28">
-        <div className="container-x">
-          <div className="flex items-end justify-between gap-6">
-            <Header kicker="Featured products" title="Built to perform, supported to last." />
-            <Link
-              to="/machines"
-              className="hidden items-center gap-2 text-sm font-bold text-accent md:flex"
-            >
-              {t("View all products")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-            </Link>
-          </div>
-          <ProductsCarousel />
-        </div>
-      </section>
+      <CategoryProductShowcase />
 
       <section className="border-y border-border bg-white/88 py-14">
         <StaggerGroup className="container-x grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
@@ -155,7 +142,20 @@ function HomePage() {
         </StaggerGroup>
       </section>
 
-      <CategoryProductShowcase />
+      <section className="bg-secondary/84 py-20 md:py-28">
+        <div className="container-x">
+          <div className="flex items-end justify-between gap-6">
+            <Header kicker="Featured products" title="Built to perform, supported to last." />
+            <Link
+              to="/machines"
+              className="hidden items-center gap-2 text-sm font-bold text-accent md:flex"
+            >
+              {t("View all products")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+            </Link>
+          </div>
+          <ProductsCarousel />
+        </div>
+      </section>
 
       <section className="bg-background/88 py-20 md:py-28">
         <div className="container-x">

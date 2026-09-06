@@ -1,0 +1,588 @@
+Table Of Contanat
+
+Ofﬁce Printer
+
+Protable Printer
+
+DTF Printer
+
+DTG Printer
+
+UV DTF Printer
+
+ECO Solvent Printer
+
+Other Machines
+
+Consumables
+       Ofﬁce Printer
+        Complementary to Hard work
+
+
+TA.M301
+Product type            A4 MFP Monochrome laser printer
+Print speed             30ppm in A4, performance mode up to 25ppm/
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+                        USB port /USB2.0
+                        Wireless /WIFI(IEEE802.11b/g/n) 2.4Ghz/WPA/WPA2
+Connectivity
+                        Wired Network and Interface /NET (100M)
+                        Bluetooth :V4.2
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     150 sheets（A80 ,4g）
+Supplies type           Integrated drum and toner
+                        A16 ,4K, 32K, Letter, Legal, Folio, A4, B5 (ISO), B5 (JIS), Executive, A5, A5
+Media size and weight   LEF, A6 , B6(ISO), B6(JIS), legal papers, Monarch, envelopes No. 10, DL,
+                        C5, ZL, C, 2, VAT invoice envelopes 120~60g/m²
+Noise level             About 56dB
+Printer Dimension       39x 30 x 25.2cm (WxDxH)
+Net Weight
+                        8.36kg
+(include supplies)
+RAM                     128MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       360W (printing), 1.8W (sleeping)
+
+
+
+
+TA.M3300
+Product type            A4 MFP Monochrome laser printer
+Print speed             30 pages per minute (single side), 12 pages per minute (double side)
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+                        USB port /USB2.0
+                        Wireless /WIFI(IEEE802.11b/g/n) 2.4Ghz/WPA/WPA2
+Connectivity
+                        Wired Network and Interface /NET (100M)
+                        Bluetooth :V4.2
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     150 sheets（A4, 80g）
+Supplies type           Integrated drum and toner
+                        A16 ,4K, 32K, Letter, Legal, Folio, A4, B5 (ISO), B5 (JIS), Executive, A5, A5
+Media size and weight   LEF, A6 , B6(ISO), B6(JIS), legal papers, Monarch, envelopes No. 10, DL,
+                        C5, ZL, C, 2, VAT invoice envelopes 120~60g/m²
+Noise level             About 56dB
+Printer Dimension       39x 30 x 25.2cm (WxDxH)
+Net Weight
+                        7.5kg
+(include supplies)
+RAM                     512MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       360W (printing), 1.8W (sleeping)
+TA.M24000W
+Product type            A4 MFP Monochrome laser printer
+Print speed             23ppm in A4, performance mode up to 25ppm
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+                        USB port /USB2.0
+                        Wireless /WIFI(IEEE802.11b/g/n) 2.4Ghz/WPA/WPA2
+Connectivity
+                        Wired Network and Interface /NET (100M)
+                        Bluetooth :V4.2
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     150 sheets（A80 ,4g）
+Supplies type           Integrated drum and toner
+                        A16 ,4K, 32K, Letter, Legal, Folio, A4, B5 (ISO), B5 (JIS), Executive, A5, A5
+Media size and weight   LEF, A6 , B6(ISO), B6(JIS), legal papers, Monarch, envelopes No. 10, DL,
+                        C5, ZL, C, 2, VAT invoice envelopes 120~60g/m²
+Noise level             About 56dB
+Printer Dimension       39x 30 x 25.2cm (WxDxH)
+Net Weight
+                        8.36kg
+(include supplies)
+RAM                     128MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       360W (printing), 1.8W (sleeping)
+
+
+
+
+TA•M40l ONW
+Product type            A4 MFP Monochrome laser printer
+Print speed             40ppm (single printing), 17ppm (duplex printing)
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+Connectivity            Newtork port, WiFi and USB optional
+Operation interface     4.3 inch color touch screen
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     250 sheets（A4, 80g）
+Supplies type           Separated drum and toner
+Media size and weight   A4, B5 (JIS), A5, letter paper 120~60g/m²
+Noise level             About 56dB
+
+Printer Dimension       44 x 36 x 42.3cm (WxDxH)
+Net Weight              14.3 kg
+(include supplies)
+RAM                     512MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       700W (printing), 1.8W (sleeping)
+TA-M2300W
+Product type            A4 MFP Monochrome laser printer
+Print speed             23ppm in A4, performance mode up to 25ppm
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+                        USB port /USB2.0
+                        Wireless /WIFI(IEEE802.11b/g/n) 2.4Ghz/WPA/WPA2
+Connectivity
+                        Wired Network and Interface /NET (100M)
+                        Bluetooth :V4.2
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     150 sheets（A80 ,4g）
+Supplies type           Integrated drum and toner
+                        A16 ,4K, 32K, Letter, Legal, Folio, A4, B5 (ISO), B5 (JIS), Executive, A5, A5
+Media size and weight   LEF, A6 , B6(ISO), B6(JIS), legal papers, Monarch, envelopes No. 10, DL,
+                        C5, ZL, C, 2, VAT invoice envelopes 120~60g/m²
+Noise level             About 56dB
+Printer Dimension       39x 30 x 25.2cm (WxDxH)
+Net Weight
+                        8.36kg
+(include supplies)
+RAM                     128MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       360W (printing), 1.8W (sleeping)
+
+
+
+
+TA-P2000W
+Product type            A4 MFP Monochrome laser printer
+Print speed             40ppm (single printing), 17ppm (duplex printing)
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+Connectivity            Newtork port, WiFi and USB optional
+Operation interface     4.3 inch color touch screen
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     250 sheets（A4, 80g）
+Supplies type           Separated drum and toner
+Media size and weight   A4, B5 (JIS), A5, letter paper 120~60g/m²
+Noise level             About 56dB
+
+Printer Dimension       44 x 36 x 42.3cm (WxDxH)
+Net Weight              14.3 kg
+(include supplies)
+RAM                     512MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       700W (printing), 1.8W (sleeping)
+TA-P3300DNW
+Product type            A4 MFP Monochrome laser printer
+Print speed             23ppm in A4, performance mode up to 25ppm
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+                        USB port /USB2.0
+                        Wireless /WIFI(IEEE802.11b/g/n) 2.4Ghz/WPA/WPA2
+Connectivity
+                        Wired Network and Interface /NET (100M)
+                        Bluetooth :V4.2
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     150 sheets（A80 ,4g）
+Supplies type           Integrated drum and toner
+                        A16 ,4K, 32K, Letter, Legal, Folio, A4, B5 (ISO), B5 (JIS), Executive, A5, A5
+Media size and weight   LEF, A6 , B6(ISO), B6(JIS), legal papers, Monarch, envelopes No. 10, DL,
+                        C5, ZL, C, 2, VAT invoice envelopes 120~60g/m²
+Noise level             About 56dB
+Printer Dimension       39x 30 x 25.2cm (WxDxH)
+Net Weight
+                        8.36kg
+(include supplies)
+RAM                     128MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       360W (printing), 1.8W (sleeping)
+
+
+
+
+TA-p4400DNW
+Product type            A4 MFP Monochrome laser printer
+Print speed             40ppm (single printing), 17ppm (duplex printing)
+Duplex printing         Automatic
+First print out time    Less than 8 seconds
+Print resolution        600 x 600dpi
+Connectivity            Newtork port, WiFi and USB optional
+Operation interface     4.3 inch color touch screen
+Page yield              500 pg-starter     Re-order 2k、3.5k
+Paper tray capacity     250 sheets（A4, 80g）
+Supplies type           Separated drum and toner
+Media size and weight   A4, B5 (JIS), A5, letter paper 120~60g/m²
+Noise level             About 56dB
+
+Printer Dimension       44 x 36 x 42.3cm (WxDxH)
+Net Weight              14.3 kg
+(include supplies)
+RAM                     512MB
+Processor               1.2GHz
+                        Windows
+Operating system        linux （MX Linux 、Ubuntu 、AntiX 、 PureOS 、Kali Linux 、 Parrot OS
+                        、 Devuan 、 AV Linux 、Deepin）
+Power supply            240-220V, 60/50Hz(110V can choose)
+Power consumption       700W (printing), 1.8W (sleeping)
+   Target TA-602+604
+   DTF Printer with Powder Shaker
+
+
+
+
+  Printer
+  Advantages           High Frequancy        white ink Circulation   Adjustable Pinch          Low Failure
+                     Powder Shaking Dev.            System                Roller                  Rate
+
+Product Speciﬁcation
+Product                  KJ- 602 DTF printer
+Model                    KJ- 602
+Printhead                2*EPSON I-3200A1
+Printing Speed           Output (sqm/h)
+4 Pass                   15 sqm/h
+6 Pass                   10 sqm/h
+8 Pass                   8 sqm/h
+Max Media Width          730mm
+Max Print Width          680mm
+Ink Type                 Waterbased pigment ink
+Color                    Waterbased pigment ink
+Ink Supply System        Continuous ink supply system
+White Ink Cycle          Equipped
+Media Type               PET film
+Heating System           Intelligent embedded heating system & powder melt machine
+Feed & Take up System    Equipped
+Capping & Moisturizing   Auto capping system & moisturizing system
+RIP Software             Maintop, photoprint, CADlink (optional)
+Input Power              AC110V/220V, 50HZ/60HZ, 350W4000-W
+Working Environment      Temperature : °32-18C , humidity : %65-46
+Machine Size             Printer: 1450*750*1750mm, 135kg ; shaker: 1100*1092*2105mm, 229kg
+Packing Size             Printer: 700*820*1950mm, 182kg, 1.160cbm ; shaker: 1136*1120*2200mm, 303kg,2.320cbm
+   Target TA-604Pro 24-Inch DTF Printer
+   For T-Shirt Textile
+
+
+
+
+  Printer
+  Advantages             Computer Stand      Enhanced feed up       3 Color Light Alarm     INK Level Display
+                                                 Traction                 Device                 Screen
+
+Product Speciﬁcation
+Product                  KJ604-pro -24inch DTF printer
+Model                    KJ604-pro
+Printhead                4*EPSON -13200A1
+Printing Speed           Output (sqm/h)
+4 Pass                   30sqm/h
+6 Pass                   20sqm/h
+8 Pass                   16sqm/h
+Max Media Width          730mm
+Max Print Width          680mm
+Ink Type                 Waterbased pigment ink
+Color                    C, M, Y, K, W (RGBO and neon colors available)
+Ink Supply System        Continuous ink supply system
+White Ink Cycle          Equipped
+Media Type               PET film
+Heating System           Intelligent embedded heating system & powder melt machine
+Feed & Take up System    Equipped
+Capping & Moisturizing   Auto capping system & moisturizing system
+RIP Software             Maintop, photoprint, CADlink (optional)
+Input Power              AC110V/220V, 50HZ/60HZ, 350W4000-W
+Working Environment      Temperature: °32-18C, humidity: %65-46
+Machine Size             Printer: 790*890*2060mm, 217kg , 1.483cbm ; shaker: 1180*1180*2110mm, 290kg ,2.938cbm
+    Target DTE Integrated DTG & Embroidery
+    Machine (Direct-To-Garment Embroidery Machine)
+
+
+
+
+  Printer
+  Advantages                Strong Color       Visaul Postioning       High Precision     EPSON Original
+                             Expression            System                 Printing          Printhead
+
+Product Speciﬁcation
+Product                     Direct-To-Garment Embroidery Machine
+Model                       KJ360- DTE
+Printhead                   2*EPSON 13200 (HD) - A1
+Printing Speed              Pieces/hour
+A3 Size Shirt               40
+Embroidered Product         100
+Max Print Width             480*380mm
+Ink Type                    Textile pigment ink
+Color                       CMYKW, CMYKW+FY+FM+OG, CMYKW+RGBO
+Ink Supply System           Negative pressure intelligent circulation mixing system
+Media Type                  Various kinds of cotton, linen, wool, silk, man-made fibers
+Media Thickness             20mm
+Smart Printhead maintenance Automatic intelligent nozzle cleaning system
+Visual Positioning System Optional
+RIP Software                RIIN, Caldera (optional)
+Input Power                 AC240-200V, 50HZ/60HZ
+Working Environment         Temperature: °30-20C, humidity: %70-60
+Machine Size                1281*2200*1628mm, 480kg
+Packing Size                1360*1640*2220mm, 540kg
+   Target TA-604UV 24-Inch UV DTF
+   Printer for Cup Wraps
+
+
+
+
+  Printer
+  Advantages             Clean & Moisturize      ink Supply            Humanized           EPSON Original
+                                                   System             Conﬁguration           Printhead
+
+Product Speciﬁcation
+Product                   KJ604- UV DTF printer
+Model                     KJ604-UV
+Printhead                 3pcs or 4pcs * EPSON 13200U1
+Speed Mode                4 sqm/h
+Quality Mode              2 sqm/h
+Color                     CMYK+W+V
+Inking System             UV ink
+Ink Supply System         White ink stirring
+Max Print Width           600mm
+Media Type                UV DTF AB film
+Lamination Way            Integrated film rolling, tearing and laminating system (all-in-one)
+Drying System             UV LED curing system
+Capping & Moisturizing    Auto capping system & moisturizing system
+RIP Software              Maintop, photoprint (optional)
+Operation Environment     Temperature: °32-18C , humidity : %65-46
+Machine Size              Printer: 1420*850*1900mm, 240kg
+Packing Size              Water tank(220V): 220*300*360mm, 10.5kg
+   Target TA-300UV A3/A2 UV DTF
+   Sticker Printer for Beginners
+
+
+
+
+  Printer
+  Advantages             Exquisite Imitation      ink Supply            Automatic           Fully Automatic
+                         Embroidery Pattern         System              Cleaning          Lamination System
+
+Product Speciﬁcation
+Product                    UV DTF printer/UV DTF sticker printer
+Model                      KJ300-UV
+Printhead                  XP2-600H , XP3-600H , I1600U2-1H
+Size of Printing           300mm(A3)
+Speed Mode                 2.5sqm/h , 3.5sqm/h , 3sqm/h
+Quality Mode               1.5sqm/h , 2.5sqm/h , 2sqm/h
+Media Type                 UV DTF AB film
+Color                      CMYK+W+V
+Ink                        UV ink
+Ink Supply System          White ink stirring
+Lamination Way             Integrated film rolling, tearing and laminating system(all-in-one)
+Drying System              UV LED curing system
+Capping & Moisturizing     Auto capping system & moisturizing system
+RIP Software               Maintop, photoprint (optional)
+Operation Environment      Temperature: °32-18C, humidity: %65-46
+Machine Size               600*700*1050mm, 85kg
+Packing Size               650*750*1220mm, 115kg , 0.600cbm
+   Target TA-1601/1801 Large Format
+   In-Outdoor Printer
+
+
+
+
+  Printer
+  Advantages             Anti-Collision          ink Supply             Automatic           Three-Stage Pinch
+                           Device                  System               Cleaning                 Rollers
+
+Product Speciﬁcation
+Product                  Eco solvent printer
+Model                    KJ1601-
+Printhead                1*EPSON I3200E1
+Printing Speed           Output (sqm/hr)
+4 Pass                   22 sqm/h
+6 Pass                   15 sqm/h
+Max Media Width          1600mm
+Max Print Width          1550mm
+Ink Type                 Eco solvent ink
+Color                    4 colors (C, M, Y, K)
+Ink Supply System        Continuous ink supply system
+Media Type               PP, vinyl, light box cloth, flex, canvas, leather, reﬂective Matiral etc.
+Heating System           Front, middle, rear 3 stages of heating platform
+Drying System            Triple dry system (hot air +infrared + cold air)
+Capping & Moisturizing   Auto capping system & moisturizing system
+Clamp                    Combined anti-warping clamps
+RIP Software             Maintop, photoprint(optional)
+Working Environment      Temperature : °32-18C, humidity : %65-46
+Machine Size             1510*750*2390mm , 173kg
+Packing Size             640*750*2475mm , 230kg , 1.227cbm
+   KingJet KJ-1602/1802 Large Format
+   In-Outdoor Printer
+
+
+
+
+  Printer
+  Advantages             Level Measuring         ink Supply             Automatic            Paper Shortage
+                            Instrument             System               Cleaning                 Alarm
+
+Product Speciﬁcation
+Product                  Eco solvent printer
+Model                    KJ 1602
+Printhead                1*EPSON I3200E1
+Printing Speed           Output (sqm/hr)
+4 Pass                   40 sqm/h
+6 Pass                   30 sqm/h
+Max Media Width          1650mm
+Max Print Width          1600mm
+Ink Type                 Eco solvent ink
+Color                    4 colors (C, M, Y, K)
+Ink Supply System        Continuous ink supply system
+Media Type               PP, vinyl, light box cloth, flex, canvas, leather, reﬂective Matiral etc.
+Heating System           Front, middle, rear 3 stages of heating platform
+Drying System            Triple dry system (hot air +infrared + cold air)
+Capping & Moisturizing   Auto capping system & moisturizing system
+Clamp                    Combined anti-warping clamps
+RIP Software             Maintop, photoprint(optional)
+Working Environment      Temperature : °32-18C, humidity : %65-46
+Machine Size             2590*810*1550mm , 173kg
+Packing Size             2830*840*770mm , 283kg , 1.830cbm
+   KingJet KJ-1804 Large Format
+   In-Outdoor Printer
+
+
+
+
+  Printer
+  Advantages             Anti-Collision          ink Supply             Automatic           Three-Stage Pinch
+                           Device                  System               Cleaning                 Rollers
+
+Product Speciﬁcation
+Product                  Eco solvent printer
+Model                    KJ 1804
+Printhead                4*EPSON I3200E1
+Printing Speed           Output (sqm/hr)
+4 Pass                   80 sqm/h
+6 Pass                   60 sqm/h
+Max Media Width          1850mm
+Max Print Width          1800mm
+Ink Type                 Eco solvent ink
+Color                    4 colors (C, M, Y, K)
+Ink Supply System        Continuous ink supply system
+Media Type               PP, vinyl, light box cloth, flex, canvas, leather, reﬂective Matiral etc.
+Heating System           Front, middle, rear 3 stages of heating platform
+Drying System            Triple dry system (hot air +infrared + cold air)
+Capping & Moisturizing   Auto capping system & moisturizing system
+Clamp                    Combined anti-warping clamps
+RIP Software             Maintop, photoprint(optional)
+Working Environment      Temperature : °32-18C, humidity : %65-46
+Machine Size             2970*925*1825mm , 173kg
+Packing Size             3140*950*880mm , 370kg , 2.386cbm
+    Other Machines
+    Complementary to printing works
+
+
+
+
+Laminator
+Model                     KJ 1680
+Max. Roll Film OD         200 mm
+The diameter Speciﬁcation 3 inch
+Method Of pressure        Pneumatic
+diameter of roller        130 mm
+Laminating Width          1520 mm
+Laminating Speed          0-10 m/min
+Laminating Thickness      28 mm
+Operating Temperature 0 oC - 60 oC
+
+
+
+
+                                       Plotter Cutter
+                                       Model                 KJ 440 A
+                                                             With Automatic Contour
+                                       Function              cutting Function
+                                                             Direct Cutting & countour cutting
+                                       Cutting               in printed Mateiral
+
+                                       Feeding Width         44 cm
+                                       Cutting Width         33 cm
+                                                             23 bit ARM7 CPU 128Mb High Speed
+                                       Mainboard             Cache Memory
+
+                                       Cutting Pressure      10-1000g (digital adjustment)
+                                       Cutting Speed         500mm/s
+                                       Plotter instruction   Compatible DM/PL , HP/GL
+                Coming Soon
+
+             Nail
+             printer
+
+
+                        Coffe
+                       printer
+
+
+             Portable
+             printer
+
+
+
+
+With an experienced
+support team
+and trainers at the
+highest level
+ Consumables
+ Complementary to printer
+
+
+
+
+DTF
+Series             DTF                       Glue                         PET Transfer
+               Pigment Ink                  Powder                            Film
+
+
+
+
+Textile
+Series                       Sublimation             Transfer - Sublimation
+                                 Ink                         Paper
+
+
+
+
+Eco
+&Solvant
+Series         ECO Solvent                 Solvent Ink                  Cleaning Flush
+                  Ink
+
+
+
+
+UV-DTF
+Series                         UV Ink                        UV
+                                                           A-B Film
+Plot No. 20, First Central Industrial Zone,          support@modernegypt.com.eg
+Neighborhood 27, 15th of May City - Helwan - Cairo     Sales@modernegypt.com.eg
+modernegypt.com.eg                                    0150 008 8875 - 0150 008 8874
+

@@ -10,7 +10,7 @@ const productKey = (name) =>
     .replace(/[^a-z0-9]/g, "");
 
 const groups = new Map();
-for (const product of products) {
+for (const product of products.filter(({ slug }) => slug !== "tap9g")) {
   const key = productKey(product.name);
   groups.set(key, [...(groups.get(key) || []), product]);
 }
@@ -19,6 +19,11 @@ const productPaths = [...groups.values()].map((group) => {
   const canonical = [...group].sort((a, b) => b.specs.length - a.specs.length)[0];
   return `/machines/${canonical.slug}`;
 });
+productPaths.push(
+  "/machines/nail-printer",
+  "/machines/coffee-printer",
+  "/machines/portable-printer",
+);
 const partPaths = [...partsSource.matchAll(/slug: "([^"]+)"/g)].map(([, slug]) => `/parts/${slug}`);
 
 const pages = [

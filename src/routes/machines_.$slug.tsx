@@ -4,7 +4,12 @@ import { useState } from "react";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MachineCard } from "@/components/site/MachineCard";
-import { QuoteButton, WhatsAppButton, EmailButton } from "@/components/site/CTAButtons";
+import {
+  DriverDownloadButton,
+  QuoteButton,
+  WhatsAppButton,
+  EmailButton,
+} from "@/components/site/CTAButtons";
 import { findMachine, relatedMachines, site, type Machine } from "@/constants";
 import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
@@ -165,6 +170,7 @@ function MachineDetailPage() {
             )}
 
             <div className="mt-6 flex flex-col gap-2">
+              <DriverDownloadButton size="lg" />
               <QuoteButton size="lg" product={machine.name} />
               <WhatsAppButton
                 size="lg"

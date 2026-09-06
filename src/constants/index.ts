@@ -3,6 +3,7 @@ import { partCatalog, partCategories } from "./parts";
 import type { MachineRaw } from "./machines";
 import type { PartRaw } from "./parts";
 import type { Machine, Part } from "./types";
+import { productGalleries } from "./product-galleries";
 
 export { images } from "./images";
 export { site, waLink, mailLink } from "./site";
@@ -109,7 +110,9 @@ const productKey = (name: string) =>
     .replace(/office printer/g, "")
     .replace(/[^a-z0-9]/g, "");
 
-const resolvedMachines = machineCatalog.map(resolveMachine);
+const resolvedMachines = machineCatalog
+  .filter((machine) => machine.slug !== "tap9g")
+  .map(resolveMachine);
 const machineGroups = new Map<string, Machine[]>();
 resolvedMachines.forEach((machine) => {
   const key = productKey(machine.name);
@@ -136,11 +139,16 @@ export const machines: Machine[] = Array.from(machineGroups.values()).map((group
       ]),
     ).values(),
   );
+  const suppliedGallery = productGalleries[productKey(primary.name)];
+  const legacyGallery = Array.from(new Set(group.map((machine) => machine.image).filter(Boolean)));
   return {
     ...primary,
     description: Array.from(new Set(group.flatMap((machine) => machine.description))),
     specs: uniqueSpecs,
-    gallery: Array.from(new Set(group.map((machine) => machine.image).filter(Boolean))),
+    image: suppliedGallery?.[0] ?? primary.image,
+    gallery: suppliedGallery
+      ? Array.from(new Set([...suppliedGallery, ...legacyGallery]))
+      : legacyGallery,
   };
 });
 export const parts_list = partCatalog.map(resolvePart);

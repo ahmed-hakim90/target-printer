@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, Download, Mail, MessageCircle } from "lucide-react";
 import { mailLink, site, waLink } from "@/constants";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language";
@@ -114,6 +114,31 @@ export function EmailButton({
   return (
     <a href={mailLink(subject)} className={cn(base, variants[variant], sizes[size], className)}>
       <Mail className="h-4 w-4" />
+      {t(label)}
+    </a>
+  );
+}
+
+export function DriverDownloadButton({
+  variant = "solid",
+  size = "md",
+  className,
+  label = "Download printer drivers",
+}: {
+  variant?: Variant;
+  size?: Size;
+  className?: string;
+  label?: string;
+}) {
+  const { t } = useLanguage();
+
+  return (
+    <a
+      href="/downloads/ModernEgyptPrinterSetup-7.9.3.4.exe"
+      download="ModernEgyptPrinterSetup-7.9.3.4.exe"
+      className={cn(base, variants[variant], sizes[size], className)}
+    >
+      <Download className="h-4 w-4" aria-hidden="true" />
       {t(label)}
     </a>
   );

@@ -25,30 +25,55 @@ export const comingSoonProducts = [
   },
 ] as const;
 
+import dtfPigmentInk from "@/assets/catalog/consumables/dtf-pigment-ink.png";
+import gluePowder from "@/assets/catalog/consumables/glue-powder.png";
+import petTransferFilm from "@/assets/catalog/consumables/pet-transfer-film.png";
+import sublimationInk from "@/assets/catalog/consumables/sublimation-ink.png";
+import sublimationPaper from "@/assets/catalog/consumables/sublimation-paper.png";
+import ecoSolventInk from "@/assets/catalog/consumables/eco-solvent-ink.png";
+import solventInk from "@/assets/catalog/consumables/solvent-ink.png";
+import cleaningFlush from "@/assets/catalog/consumables/cleaning-flush.png";
+import uvInk from "@/assets/catalog/consumables/uv-ink.png";
+import uvAbFilm from "@/assets/catalog/consumables/uv-ab-film.png";
+
 export const catalogConsumables = [
   {
     series: "DTF Series",
     seriesAr: "سلسلة DTF",
-    items: ["DTF pigment ink", "Glue powder", "PET transfer film"],
-    itemsAr: ["حبر DTF Pigment", "بودرة لاصقة", "فيلم نقل PET"],
+    items: [
+      { name: "DTF pigment ink", nameAr: "حبر DTF Pigment", image: dtfPigmentInk },
+      { name: "Glue powder", nameAr: "بودرة لاصقة", image: gluePowder },
+      { name: "PET transfer film", nameAr: "فيلم نقل PET", image: petTransferFilm },
+    ],
   },
   {
     series: "Textile Series",
     seriesAr: "سلسلة المنسوجات",
-    items: ["Sublimation ink", "Transfer-sublimation paper"],
-    itemsAr: ["حبر سبلميشن", "ورق نقل سبلميشن"],
+    items: [
+      { name: "Sublimation ink", nameAr: "حبر سبلميشن", image: sublimationInk },
+      {
+        name: "Transfer-sublimation paper",
+        nameAr: "ورق نقل سبلميشن",
+        image: sublimationPaper,
+      },
+    ],
   },
   {
     series: "Eco & Solvent Series",
     seriesAr: "سلسلة Eco & Solvent",
-    items: ["Eco-solvent ink", "Solvent ink", "Cleaning flush"],
-    itemsAr: ["حبر Eco Solvent", "حبر Solvent", "سائل تنظيف"],
+    items: [
+      { name: "Eco-solvent ink", nameAr: "حبر Eco Solvent", image: ecoSolventInk },
+      { name: "Solvent ink", nameAr: "حبر Solvent", image: solventInk },
+      { name: "Cleaning flush", nameAr: "سائل تنظيف", image: cleaningFlush },
+    ],
   },
   {
     series: "UV-DTF Series",
     seriesAr: "سلسلة UV-DTF",
-    items: ["UV ink", "UV A-B film"],
-    itemsAr: ["حبر UV", "فيلم UV A-B"],
+    items: [
+      { name: "UV ink", nameAr: "حبر UV", image: uvInk },
+      { name: "UV A-B film", nameAr: "فيلم UV A-B", image: uvAbFilm },
+    ],
   },
 ] as const;
 

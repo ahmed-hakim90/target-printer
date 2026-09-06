@@ -7,6 +7,7 @@ import { machineCategories, machines } from "@/constants";
 import type { Machine } from "@/constants";
 import { useLanguage } from "@/lib/language";
 import { QuoteButton } from "./CTAButtons";
+import { MachineHighlights } from "./MachineHighlights";
 import { SmartImage } from "./SmartImage";
 
 const categoryOrder = [
@@ -31,6 +32,7 @@ export function CategoryProductShowcase() {
   );
   const [selected, setSelected] = useState(0);
   const active = products[selected] ?? products[0];
+  const activeAlternateImage = active?.gallery[1];
   const slides = products.length > 1 && products.length < 4 ? [...products, ...products] : products;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -117,15 +119,25 @@ export function CategoryProductShowcase() {
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? undefined : { opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="grid overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-xl shadow-blue-950/5 md:h-[32rem] md:min-h-0 md:grid-cols-[.9fr_1.1fr]"
+              className="group grid overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-xl shadow-blue-950/5 md:h-[32rem] md:min-h-0 md:grid-cols-[.9fr_1.1fr]"
               role="tabpanel"
             >
-              <div className="h-40 min-h-0 overflow-hidden bg-gradient-to-br from-white to-blue-50 p-4 sm:h-52 md:h-full md:p-8 lg:p-10">
+              <div className="relative h-40 min-h-0 overflow-hidden bg-gradient-to-br from-white to-blue-50 p-4 sm:h-52 md:h-full md:p-8 lg:p-10">
                 <SmartImage
                   src={active.image}
                   alt={active.name}
-                  className="h-full min-h-0 w-full object-contain"
+                  className={`h-full min-h-0 w-full object-contain transition duration-500 group-hover:scale-[1.03] ${activeAlternateImage ? "group-hover:opacity-0 group-focus-within:opacity-0" : ""}`}
                 />
+                {activeAlternateImage && (
+                  <span className="pointer-events-none absolute inset-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100 md:inset-8 lg:inset-10">
+                    <SmartImage
+                      src={activeAlternateImage}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </span>
+                )}
               </div>
               <div className="min-h-0 overflow-y-auto p-4 sm:p-6 md:flex md:flex-col md:justify-center md:p-8 lg:p-10">
                 <span className="text-xs font-extrabold uppercase tracking-[.16em] text-accent">
@@ -137,22 +149,9 @@ export function CategoryProductShowcase() {
                 <p className="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground sm:mt-4 md:line-clamp-none md:leading-7">
                   {t(active.summary)}
                 </p>
-                <dl className="mt-6 hidden gap-3 sm:grid">
-                  {active.specs.slice(0, 3).map((spec) => (
-                    <div
-                      key={`${spec.label}-${spec.value}`}
-                      className="grid grid-cols-[minmax(7rem,.7fr)_1fr] gap-3 border-t border-border pt-3 text-sm"
-                    >
-                      <dt className="font-bold text-primary">{t(spec.label)}</dt>
-                      <dd className="min-w-0 break-words text-muted-foreground">{spec.value}</dd>
-                    </div>
-                  ))}
-                  {active.specs.length === 0 && (
-                    <p className="rounded-lg bg-secondary p-4 text-sm font-semibold text-muted-foreground">
-                      {t("Specifications available on request.")}
-                    </p>
-                  )}
-                </dl>
+                <div className="mt-4 sm:mt-5">
+                  <MachineHighlights machine={active} />
+                </div>
                 <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:gap-3">
                   <Link
                     to="/machines/$slug"
@@ -198,6 +197,7 @@ export function CategoryProductShowcase() {
                 {slides.map((machine, index) => {
                   const duplicate = index >= products.length;
                   const isActive = machine.slug === active.slug;
+                  const alternateImage = machine.gallery[1];
                   return (
                     <button
                       key={`${machine.slug}-${index}`}
@@ -208,12 +208,22 @@ export function CategoryProductShowcase() {
                       tabIndex={duplicate ? -1 : 0}
                       className={`group min-w-0 flex-[0_0_42%] overflow-hidden rounded-xl border bg-white p-2 text-start transition sm:flex-[0_0_34%] sm:p-3 xl:min-h-72 xl:flex-[0_0_86%] xl:p-4 ${isActive ? "border-accent bg-blue-50/70 shadow-md ring-1 ring-accent/20" : "border-border hover:-translate-y-1 hover:border-accent/60 hover:shadow-md"}`}
                     >
-                      <span className="block h-20 overflow-hidden rounded-lg bg-secondary p-2 sm:h-24 xl:h-36 xl:p-3">
+                      <span className="relative block h-20 overflow-hidden rounded-lg bg-secondary p-2 sm:h-24 xl:h-36 xl:p-3">
                         <SmartImage
                           src={machine.image}
                           alt=""
-                          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          className={`h-full w-full object-contain transition duration-500 group-hover:scale-105 ${alternateImage ? "group-hover:opacity-0 group-focus:opacity-0" : ""}`}
                         />
+                        {alternateImage && (
+                          <span className="pointer-events-none absolute inset-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100 xl:inset-3">
+                            <SmartImage
+                              src={alternateImage}
+                              alt=""
+                              aria-hidden="true"
+                              className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </span>
+                        )}
                       </span>
                       <span className="mt-2 hidden text-xs font-bold uppercase tracking-wider text-accent sm:block xl:mt-4">
                         {t(machine.category)}

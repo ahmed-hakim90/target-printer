@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Sparkles } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, BadgeCheck } from "lucide-react";
 import { QuoteButton } from "@/components/site/CTAButtons";
 import { StaggerGroup, StaggerItem } from "@/components/site/Reveal";
 import { images } from "@/constants/images";
@@ -16,31 +15,42 @@ const trustPoints = ["Reliable quality", "Technical support", "Genuine spare par
 
 export function Hero() {
   const { t } = useLanguage();
-  const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#eef5ff] via-[#eef5ff] to-[#dce8ff]">
-      <div className="hero-grid-bg-light pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        className="ambient-blob pointer-events-none absolute -end-24 -top-32 h-[380px] w-[380px] rounded-full bg-accent/20 blur-3xl"
+    <section className="relative isolate min-h-[calc(100svh-4rem)] overflow-hidden bg-primary md:min-h-[calc(100svh-5rem)]">
+      <img
+        src={images.factoryBackdrop}
+        alt=""
+        width={1920}
+        height={1080}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-[55%_center] lg:object-center"
         aria-hidden="true"
       />
       <div
-        className="ambient-blob ambient-blob-delay pointer-events-none absolute -start-20 -bottom-40 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,18,49,.97)_0%,rgba(2,18,49,.88)_42%,rgba(2,18,49,.48)_72%,rgba(2,18,49,.28)_100%)] rtl:bg-[linear-gradient(270deg,rgba(2,18,49,.97)_0%,rgba(2,18,49,.88)_42%,rgba(2,18,49,.48)_72%,rgba(2,18,49,.28)_100%)] max-md:bg-[linear-gradient(180deg,rgba(2,18,49,.9)_0%,rgba(2,18,49,.86)_55%,rgba(2,18,49,.96)_100%)]"
         aria-hidden="true"
       />
+      <div className="absolute inset-0 bg-primary/10" aria-hidden="true" />
 
-      <div className="container-x relative grid min-w-0 items-center gap-9 py-10 sm:py-14 md:min-h-[calc(100svh-5rem)] md:grid-cols-[.44fr_.56fr] md:gap-8 md:py-12 lg:grid-cols-[.4fr_.6fr] lg:gap-12 lg:py-16">
-        <StaggerGroup className="relative z-10 min-w-0">
-          <StaggerItem className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white/90 px-3 py-1.5 text-xs font-bold uppercase tracking-[.14em] text-accent shadow-sm backdrop-blur-sm sm:mb-5">
-            <Sparkles className="h-3.5 w-3.5" /> {t("Made in Egypt")}
+      <div className="container-x relative flex min-h-[calc(100svh-4rem)] min-w-0 items-center py-12 sm:py-16 md:min-h-[calc(100svh-5rem)] lg:py-20">
+        <StaggerGroup className="relative z-10 w-full min-w-0 max-w-3xl">
+          <StaggerItem>
+            <img
+              src={images.targetLogo}
+              alt="Target — Modern Egypt Company"
+              width={2560}
+              height={1263}
+              className="mb-7 h-auto w-40 object-contain sm:mb-9 sm:w-52 lg:w-60"
+            />
           </StaggerItem>
 
           <StaggerItem>
-            <h1 className="max-w-2xl text-balance text-[2.65rem] font-extrabold leading-[1.08] text-primary rtl:leading-[1.4] sm:text-6xl sm:leading-[1.05] sm:rtl:leading-[1.35] md:text-5xl lg:text-[4.4rem] lg:leading-[.98] lg:rtl:leading-[1.25] xl:text-[5rem]">
+            <h1 className="max-w-2xl text-balance text-[2.65rem] font-extrabold leading-[1.08] text-white rtl:leading-[1.4] sm:text-6xl sm:leading-[1.05] sm:rtl:leading-[1.35] md:text-6xl lg:text-[4.4rem] lg:leading-[.98] lg:rtl:leading-[1.25] xl:text-[5rem]">
               {t("Print bigger.")}
               <br />
-              <span className="text-accent">{t("Build smarter.")}</span>
+              <span className="text-blue-300">{t("Build smarter.")}</span>
             </h1>
           </StaggerItem>
 
@@ -48,14 +58,14 @@ export function Hero() {
             <p
               lang="ar"
               dir="rtl"
-              className="mt-4 w-fit max-w-full text-xl font-bold text-primary sm:mt-5 sm:text-2xl md:text-lg lg:text-2xl"
+              className="mt-4 w-fit max-w-full text-xl font-bold text-white sm:mt-5 sm:text-2xl lg:text-3xl"
             >
               صناعة مصرية بطموح عالمي
             </p>
           </StaggerItem>
 
           <StaggerItem>
-            <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:mt-5 sm:text-lg sm:leading-8 md:text-sm md:leading-7 lg:text-lg lg:leading-8">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-white/78 sm:mt-5 sm:text-lg sm:leading-8 lg:text-xl lg:leading-9">
               {t(
                 "High-performance printing systems engineered for businesses that expect consistent quality, dependable uptime, and expert local support.",
               )}
@@ -66,12 +76,12 @@ export function Hero() {
             {stats.map(([value, label], i) => (
               <div key={label} className="flex min-w-0 items-center">
                 <div className="min-w-0 flex-1 pe-2 sm:pe-4">
-                  <strong className="block text-2xl font-extrabold text-primary">{value}</strong>
-                  <span className="block text-[11px] font-semibold leading-5 text-muted-foreground sm:text-xs">
+                  <strong className="block text-2xl font-extrabold text-white">{value}</strong>
+                  <span className="block text-[11px] font-semibold leading-5 text-white/70 sm:text-xs">
                     {t(label)}
                   </span>
                 </div>
-                {i < stats.length - 1 && <span className="h-10 w-px shrink-0 bg-primary/15" />}
+                {i < stats.length - 1 && <span className="h-10 w-px shrink-0 bg-white/25" />}
               </div>
             ))}
           </StaggerItem>
@@ -80,52 +90,21 @@ export function Hero() {
             <QuoteButton size="lg" className="w-full sm:w-auto" />
             <Link
               to="/machines"
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-primary/25 bg-white px-6 font-semibold text-primary transition hover:border-primary sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-white/50 bg-white/10 px-6 font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white/20 sm:w-auto"
             >
               {t("Explore products")} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </StaggerItem>
 
-          <StaggerItem className="mt-7 hidden gap-3 text-sm font-semibold text-primary/70 sm:flex sm:flex-wrap sm:gap-x-6 lg:mt-9">
+          <StaggerItem className="mt-7 hidden gap-3 text-sm font-semibold text-white/75 sm:flex sm:flex-wrap sm:gap-x-6 lg:mt-9">
             {trustPoints.map((x) => (
               <span key={x} className="flex items-center gap-2">
-                <BadgeCheck className="h-4 w-4 text-accent" />
+                <BadgeCheck className="h-4 w-4 text-blue-300" />
                 {t(x)}
               </span>
             ))}
           </StaggerItem>
         </StaggerGroup>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 mx-auto w-full max-w-lg md:max-w-none lg:-me-4 xl:-me-8"
-        >
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/80 bg-white/80 p-5 shadow-2xl shadow-blue-950/15 backdrop-blur-sm sm:rounded-[2rem] sm:p-10 md:p-6 lg:p-12">
-            <div
-              className="pointer-events-none absolute inset-x-[12%] bottom-5 h-12 rounded-full bg-primary/10 blur-2xl"
-              aria-hidden="true"
-            />
-            <img
-              src={images.uv}
-              alt="Target large-format UV DTF printing system"
-              width={891}
-              height={630}
-              fetchPriority="high"
-              decoding="async"
-              className={`relative mx-auto h-auto w-full max-w-2xl object-contain drop-shadow-2xl ${reduce ? "" : "float-slow"}`}
-            />
-          </div>
-          <div className="absolute -bottom-3 start-3 rounded-xl border border-white bg-white/95 p-3 shadow-lg sm:start-6 sm:p-4">
-            <strong className="block text-primary">{t("Local expertise")}</strong>
-            <span className="text-sm text-muted-foreground">{t("Since 2005")}</span>
-          </div>
-          <div className="absolute -top-3 end-3 rounded-xl bg-primary p-3 text-white shadow-lg sm:end-6 sm:p-4">
-            <strong className="block text-lg">27+</strong>
-            <span className="text-xs text-white/70">{t("Machine models")}</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

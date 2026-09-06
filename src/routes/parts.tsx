@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { RouteLoading } from "@/components/site/RouteLoading";
 import { useState } from "react";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { SmartImage } from "@/components/site/SmartImage";
 import { PartCard } from "@/components/site/PartCard";
 import { CTASection } from "@/components/site/CTASection";
 import { partCategoryLabels, parts_list, site } from "@/constants";
@@ -134,28 +135,32 @@ function PartsPage() {
             }
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {catalogConsumables.map((group) => {
-              const items = language === "ar" ? group.itemsAr : group.items;
-              return (
+            {catalogConsumables.flatMap((group) =>
+              group.items.map((item) => (
                 <article
-                  key={group.series}
-                  className="interactive-card rounded-xl border border-border bg-white p-6"
+                  key={`${group.series}-${item.name}`}
+                  className="interactive-card overflow-hidden rounded-xl border border-border bg-white"
                   tabIndex={0}
                 >
-                  <h3 className="text-lg font-extrabold text-primary">
-                    {language === "ar" ? group.seriesAr : group.series}
-                  </h3>
-                  <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-                    {items.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <SmartImage
+                    src={item.image}
+                    alt={language === "ar" ? item.nameAr : item.name}
+                    width={800}
+                    height={560}
+                    loading="lazy"
+                    className="aspect-[4/3] w-full bg-white object-contain p-4"
+                  />
+                  <div className="border-t border-border p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                      {language === "ar" ? group.seriesAr : group.series}
+                    </p>
+                    <h3 className="mt-2 text-lg font-extrabold text-primary">
+                      {language === "ar" ? item.nameAr : item.name}
+                    </h3>
+                  </div>
                 </article>
-              );
-            })}
+              )),
+            )}
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import hero from "@/assets/target/target-hero.jpg";
+import factoryBackdrop from "@/assets/hero-machinery.jpg";
 import factory from "@/assets/target/0cfbd64cba3e1f66.png";
 import office from "@/assets/target/979d8fcf5f27fdd1.png";
 import uv from "@/assets/target/2226686c9bdd587b.png";
@@ -12,6 +13,8 @@ import logo from "@/assets/target/modern-egypt-logo.png";
 
 export const images = {
   hero,
+  factoryBackdrop,
+  targetLogo: factory,
   about: factory,
   logo,
   factory,

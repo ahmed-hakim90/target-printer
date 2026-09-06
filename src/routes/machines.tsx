@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { RouteLoading } from "@/components/site/RouteLoading";
-import { useState } from "react";
+import { z } from "zod";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MachineCard } from "@/components/site/MachineCard";
 import { CTASection } from "@/components/site/CTASection";
@@ -11,13 +11,16 @@ import { previewGate } from "@/lib/preview-gate";
 import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/machines")({
+  validateSearch: z.object({
+    category: z.string().optional(),
+  }),
   head: () => ({
     meta: [
       { title: `Printing Equipment Catalog — ${site.name}` },
       {
         name: "description",
         content:
-          "Browse 19 unique Target printer models for offices, DTF, DTG, UV DTF, large-format production and finishing.",
+          "Browse 21 Target printing products for offices, DTF, DTG, UV DTF, large-format production, finishing and upcoming applications.",
       },
       { property: "og:title", content: `Printing Equipment — ${site.name}` },
       {
@@ -35,7 +38,13 @@ export const Route = createFileRoute("/machines")({
 
 function MachinesPage() {
   const { t } = useLanguage();
-  const [active, setActive] = useState<(typeof categories)[number]>("All");
+  const navigate = useNavigate({ from: "/machines" });
+  const { category } = Route.useSearch();
+  const active: (typeof categories)[number] = categories.includes(
+    category as (typeof categories)[number],
+  )
+    ? (category as (typeof categories)[number])
+    : "All";
 
   const filtered = active === "All" ? machines : machines.filter((m) => m.category === active);
 
@@ -58,13 +67,18 @@ function MachinesPage() {
         </div>
       </section>
 
-      <section className="bg-background/88 py-16 md:py-20">
+      <section id="catalog" className="scroll-mt-20 bg-background/88 py-16 md:py-20">
         <div className="container-x">
           <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
             {categories.map((c) => (
               <button
                 key={c}
-                onClick={() => setActive(c)}
+                onClick={() =>
+                  navigate({
+                    search: c === "All" ? {} : { category: c },
+                    hash: "catalog",
+                  })
+                }
                 aria-pressed={active === c}
                 className={cn(
                   "shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors",

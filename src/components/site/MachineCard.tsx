@@ -4,9 +4,11 @@ import { QuoteButton, WhatsAppButton } from "./CTAButtons";
 import type { Machine } from "@/constants";
 import { useLanguage } from "@/lib/language";
 import { SmartImage } from "./SmartImage";
+import { MachineHighlights } from "./MachineHighlights";
 
 export function MachineCard({ machine }: { machine: Machine }) {
   const { t } = useLanguage();
+  const alternateImage = machine.gallery[1];
   return (
     <article
       className="interactive-card group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card"
@@ -23,24 +25,39 @@ export function MachineCard({ machine }: { machine: Machine }) {
           loading="lazy"
           width={1280}
           height={960}
-          className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+          className={`h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.03] ${alternateImage ? "group-hover:opacity-0 group-focus:opacity-0 group-focus-within:opacity-0" : ""}`}
         />
+        {alternateImage && (
+          <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100 group-focus-within:opacity-100">
+            <SmartImage
+              src={alternateImage}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              width={1280}
+              height={960}
+              className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </span>
+        )}
         <span className="absolute start-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-foreground backdrop-blur">
           {t(machine.category)}
         </span>
       </InternalLink>
 
-      <div className="flex flex-1 flex-col gap-4 p-6">
+      <div className="flex flex-1 flex-col gap-3 p-5">
         <div>
-          <h3 className="font-display text-xl font-semibold leading-tight text-foreground">
+          <h3 className="line-clamp-2 h-12 font-display text-lg font-semibold leading-6 text-foreground xl:text-xl">
             {machine.name}
           </h3>
-          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-muted-foreground">
             {machine.summary}
           </p>
         </div>
 
-        <div className="mt-auto flex flex-col gap-2 pt-2">
+        <MachineHighlights machine={machine} />
+
+        <div className="flex flex-col gap-2 pt-1">
           <InternalLink
             to="/machines/$slug"
             params={{ slug: machine.slug }}
